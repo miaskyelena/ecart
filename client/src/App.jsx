@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useRoutes } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Layout from './routes/Layout';
+import LoginPage from './pages/Login/LoginPage';
 import HomePage from './pages/Home/HomePage';
 import ReadProducts from './pages/Read/ReadProducts';
 import CreateProduct from './pages/Create/CreateProduct';
@@ -31,6 +32,7 @@ const App = () => {
       element: <Layout />,
       children: [
         { path: '/', element: <HomePage data={products} /> },
+        { path: '/login', element: <LoginPage /> },
         { path: '/products', element: <ReadProducts data={products} /> },
         { path: '/products/:id', element: <ProductDetails /> },
         { path: '/create', element: <CreateProduct /> },

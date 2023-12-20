@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text&family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Licorice&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -28,4 +30,12 @@ h4{
 a{
   text-decoration: none;
   color: black;
+}
+
+
+.brand-title {
+  font-family: 'Licorice', cursive;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: -1rem;
 }

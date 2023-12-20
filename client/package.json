@@ -12,7 +12,7 @@
     "@supabase/auth-helpers-react": "^0.4.2",
     "@supabase/auth-ui-react": "^0.4.6",
     "@supabase/auth-ui-shared": "^0.1.8",
-    "@supabase/supabase-js": "^2.38.5",
+    "@supabase/supabase-js": "^2.39.0",
     "flag-icons": "^6.11.2",
     "owl.carousel": "^2.3.4",
     "pg": "^8.11.3",

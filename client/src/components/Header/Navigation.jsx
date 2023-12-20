@@ -16,7 +16,7 @@ const Navigation = () => {
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='ms-auto me-2'>
-                <Nav.Link href='/'>Sign in</Nav.Link>
+                <Nav.Link href='/login'>Sign in</Nav.Link>
             </Nav>
         </Navbar.Collapse>
         </Navbar>
