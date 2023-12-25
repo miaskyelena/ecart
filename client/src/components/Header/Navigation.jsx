@@ -10,7 +10,7 @@ const Navigation = () => {
     if (!user) {
     return (
         <>
-        <Navbar bg='dark' variant='dark' expand='lg'>
+        <Navbar bg='light' variant='light' expand='lg'>
         <Navbar.Brand href='/'className='ms-3 brand-title'>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />

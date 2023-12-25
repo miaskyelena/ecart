@@ -76,30 +76,6 @@ const ProductDetails = () => {
                         </a></p>
                     <p className='small text-muted'>In Stock</p>
                 </div>
-                <div className='d-flex justify-content-between mb-3'>
-                    <div style={
-                        {
-                            width: '50px',
-                            height: '50px',
-                            backgroundColor: '#e0e0e0',
-                            borderRadius: '50%',
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            fontSize: '20px',
-                            fontWeight: 'bold',
-                            color: '#000',
-                        }
-                    }>
-                        
-                        <span style={{
-                            fontSize: '12px',
-                            fontWeight: 'normal',
-                        }}>/5</span>
-                    </div>
-                    <p className='small text-muted'>See  ratings</p>
-                </div>
-                <br />
                 <div className='d-flex justify-content-between'>
                     <h4 className='text-dark' style={
                         {

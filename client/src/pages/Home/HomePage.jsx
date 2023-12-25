@@ -12,6 +12,7 @@ const HomePage = ( props ) => {
 
   return (
     <>
+    <div className="container">
       <SearchBar />
       <FilterBar />
         <BannerImage />
@@ -27,7 +28,9 @@ const HomePage = ( props ) => {
         data={[...props.data].sort((a, b) => b.likes - a.likes).slice(0, 10)}
         />
 
-      <Footer />
+      
+    </div>
+    <Footer />
     </>
   )
 }

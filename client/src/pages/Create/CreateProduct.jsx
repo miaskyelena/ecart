@@ -63,7 +63,7 @@ const CreateListing = () => {
             Add a new listing to your store.
         </span>
         <Row>
-            <Col className='mt-5 w-50' xs={6} sm={4} md={6} lg={8} xl={8}>
+            <Col className='w-50' xs={6} sm={4} md={6} lg={8} xl={8}>
                 <Card className='shadow-sm mx-auto' style={
                     {
                         width: '100%',

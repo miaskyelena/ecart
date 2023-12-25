@@ -1,7 +1,6 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import BannerPhoto from '../../assets/images/miumiu.jpg'
 import BannerPhoto1 from '../../assets/images/miumiu1.jpg'
 import BannerPhoto2 from '../../assets/images/miumiu2.jpg'
 import './BannerImage.css'
@@ -10,10 +9,7 @@ const BannerImage = () => {
     <>
    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner banner-container">
-    <div class="carousel-item active" data-bs-interval="10000">
-      <img src={BannerPhoto} class="d-block w-100" alt="..."/>
-    </div>
-    <div class="carousel-item" data-bs-interval="10000">
+    <div class="carousel-item-active" data-bs-interval="10000">
       <img src={BannerPhoto1} class="d-block w-100" alt="..."/>
     </div>
     <div class="carousel-item">

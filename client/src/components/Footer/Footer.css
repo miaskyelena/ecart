@@ -1,12 +1,12 @@
 .footer-container{
     width: 100%;
     height: 10rem;
-    background-color: #1b1b1b;
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .footer-row{
@@ -33,7 +33,7 @@
     margin: 0;
     padding: 0;
     text-align: Left;
-    color: rgb(104, 104, 104);
+    color: rgb(0, 0, 0);
 }
 
 .footer-container a{
@@ -42,10 +42,10 @@
     margin: 0;
     padding: 0;
     text-align: Left;
-    color: rgb(236, 236, 236);
+    color: rgb(53, 53, 53);
     text-decoration: none;
 }
 
 .footer-container a:hover{
-    color: rgb(104, 104, 104);
+    color: rgb(0, 0, 0);
 }
