@@ -71,7 +71,7 @@ const EditProduct = () => {
     <>
     <SearchBar />
     <form >
-    <Container className='view-listing mt-5 ' fluid>
+    <Container className='view-listing'>
         <Link to=
         {`/products/${id}`}
             className='text-muted ps-5'>Back to listing</Link>

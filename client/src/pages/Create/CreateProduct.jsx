@@ -54,7 +54,7 @@ const CreateListing = () => {
     <>
 
     <SearchBar />
-    <Container className='view-listing mt-5' fluid>
+    <Container className='view-listing'>
         <Link to=
         {`/`}
             className='text-muted ps-5'>Back to home</Link>
@@ -89,11 +89,11 @@ const CreateListing = () => {
             <Col className='mx-auto ms-5 me-5' xs={12} sm={10} md={4} lg={4} xl={4}>
             <form className='create-product-form'>
                 <h5 className='text-dark'>Title</h5>
-                <input className='form-control' type='text' id='title' name='title' value={newProduct.title} onChange={handleChange} placeholder='Title' required />
+                <input className='form-control' type='text-muted' id='title' name='title' value={newProduct.title} onChange={handleChange} placeholder='Title' required />
                 <br />
                 <div className='d-flex justify-content-between'>
                 <select
-                className='form-control'
+                className='form-control text-muted'
                 name='size'
                 id='size'
                 value={newProduct.size}
@@ -107,7 +107,7 @@ const CreateListing = () => {
                 </select> 
                 &nbsp;
                 <select
-                className='form-control'
+                className='form-control text-muted'
                 name='color'
                 id='color'
                 value={newProduct.color}
@@ -135,7 +135,7 @@ const CreateListing = () => {
                     <p className='small text-muted'>Required</p>
                 </div>
                 <select
-                className='form-control'
+                className='form-control text-muted'
                 name='condition'
                 id='condition'
                 value={newProduct.condition}
@@ -150,10 +150,10 @@ const CreateListing = () => {
                 <br />
                 <div className='d-flex justify-content-between'>
                     <h5 className='text-dark'>Category</h5>
-                    <p className='small text-muted'>Optional</p>
+                    <p className='small text-muted'>Required</p>
                 </div>
                 <select
-                className='form-control'
+                className='form-control text-muted'
                 name='category'
                 id='category'
                 value={newProduct.category}
@@ -222,8 +222,7 @@ const CreateListing = () => {
                      />
                 </p>
                 <br />
-                <input type ='submit' className='btn btn-dark' value='Create Listing' onClick={createProduct} />
-
+                <input type ='submit' className='btn btn-outline-dark w-100' value='Create Listing' onClick={createProduct} />
             </form>
             </Col>
         </Row>

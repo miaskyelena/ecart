@@ -39,8 +39,7 @@ const App = () => {
     }
   ]);
 
-  console.log(session);
-
+ 
   return (
     <div className="App">
       {element}

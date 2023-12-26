@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Card from '../../components/Card/Card'
 import ReactPaginate from 'react-paginate'
@@ -23,8 +24,8 @@ const ReadProducts = ( props ) => {
     return (
         <div className="ReadProducts">
             <SearchBar />
-            <FilterBar />
             <div className="container">
+                <FilterBar />
                 <div className="row mt-5">
                     <div className="col-md-12">
                         <h2 className='text-left'

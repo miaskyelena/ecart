@@ -24,7 +24,7 @@ const ProductDetails = () => {
   return (
     <>
     <SearchBar />
-    <Container className='view-listing mt-5' fluid>
+    <Container className='view-listing'>
                         <Link to='/' className='text-muted ps-5'>Back to Home</Link>
         <Row className='mt-5'>
             <Col className='mt-5 w-50 mb-5' xs={6} sm={4} md={6} lg={8} xl={8}>
