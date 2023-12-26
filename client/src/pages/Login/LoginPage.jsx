@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { createClient } from '@supabase/supabase-js'
 import { Auth } from '@supabase/auth-ui-react'
 import {
@@ -7,10 +7,29 @@ import {
 } from '@supabase/auth-ui-shared'
 import  LoginImage  from '../../assets/images/boutique.jpg'
 import './LoginPage.css'
+import HomePage from '../Home/HomePage'
 
 const supabase = createClient('https://tgkovlzatftsifoxqxdi.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRna292bHphdGZ0c2lmb3hxeGRpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTg1NTI1MTcsImV4cCI6MjAxNDEyODUxN30.5Q7ata3VlXApFGHwyW8cAuPfYHG_c7WVgsVRNSBsJys')
 
 const LoginPage = () => {
+  const [session, setSession] = useState(null)
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session} }) => {
+      setSession(session)
+    })
+
+    console.log(session)
+
+    const { 
+      data: { subscription },  
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session)
+    })
+
+    return () => subscription.unsubscribe()
+  }, [])
+
   return (
     <div className='login-container'>
        <div className='login-container-item'>
@@ -29,8 +48,9 @@ const LoginPage = () => {
             <img src={LoginImage} alt='Authentication' className='login-image' />
         </div>
     </div>
-
   )
 }
+
+console.log(session)
 
 export default LoginPage

@@ -23,9 +23,6 @@ const App = () => {
     fetchProducts();
   }, []);
 
-  console.log(products)
-
-
   let element = useRoutes([
     {
       path: '/',
@@ -41,6 +38,8 @@ const App = () => {
       ]
     }
   ]);
+
+  console.log(session);
 
   return (
     <div className="App">
