@@ -19,8 +19,8 @@ const CreateListing = () => {
         price: '',
         image: '',
         description: '',
-        submittedBy: ' ',
-        submittedOn: currentDate,
+        submittedby: ' ',
+        submittedon: currentDate,
     })
 
     const handleChange = (event) => {
@@ -221,6 +221,19 @@ const CreateListing = () => {
                     onChange={handleChange}
                      />
                 </p>
+                <div className='d-flex justify-content-between'>
+                    <input 
+                    className='form-control'
+                    type='text' 
+                    name='submittedBy'
+                    id='submittedBy'
+                    value={newProduct.submittedby}
+                    placeholder='Seller' 
+                    onChange={handleChange}
+                    required
+                    /> &nbsp;
+                    <p className='small text-muted'>Required</p>
+                </div>
                 <br />
                 <input type ='submit' className='btn btn-outline-dark w-100' value='Create Listing' onClick={createProduct} />
             </form>

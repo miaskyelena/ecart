@@ -23,12 +23,12 @@ const getProductById = async (req, res) => {
 
 const createProduct = async (req, res) => {
     try { 
-        const { title, size, image, description, condition, category, color, price, submittedBy, submittedOn } = req.body;
+        const { title, size, image, description, condition, category, color, price, submittedby, submittedon } = req.body;
         const results = await pool.query(`
-            INSERT INTO products (title, size, image, description, condition, category, color, price, submittedBy, submittedOn)
+            INSERT INTO products (title, size, image, description, condition, category, color, price, submittedby, submittedon)
             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
             RETURNING *`,
-            [title, size, image, description, condition, category, color, price, submittedBy, submittedOn]
+            [title, size, image, description, condition, category, color, price, submittedby, submittedon]
             )
         res.status(201).json(results.rows[0]);
     } catch (error) {
@@ -39,10 +39,10 @@ const createProduct = async (req, res) => {
 const updateProduct = async (req, res) => {
     try {
         const id = parseInt(req.params.id)
-        const { title, size, image, description, condition, category, color, price, submittedBy, submittedOn } = req.body;
+        const { title, size, image, description, condition, category, color, price, submittedby, submittedon} = req.body;
         const results = await pool.query(`
-            UPDATE products SET title = $1, size = $2, image = $3, description = $4, condition = $5, category = $6, color = $7, price = $8, submittedBy = $9, submittedOn = $10 WHERE id = $11`,
-            [title, size, image, description, condition, category, color, price, submittedBy, submittedOn, id]
+            UPDATE products SET title = $1, size = $2, image = $3, description = $4, condition = $5, category = $6, color = $7, price = $8, submittedby = $9, submittedon = $10 WHERE id = $11`,
+            [title, size, image, description, condition, category, color, price, submittedby, submittedon, id]
             )
         res.status(200).json(results.rows[0]);
     } catch (error) {

@@ -111,7 +111,9 @@ const ProductDetails = () => {
                 }>Seller</h5>
                 <p className='small text-muted'>Sold by 
                     <a href='' className='text-muted'> {product.submittedby}</a>
+                    <p className='small text-muted'>{product.submittedon}</p>
                 </p>
+              
                 <div className='d-flex justify-content-between mt-5'>
                     <Button variant='dark' className='w-50'>Add to Cart</Button>
                     &nbsp;

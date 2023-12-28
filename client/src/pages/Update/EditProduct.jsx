@@ -70,7 +70,6 @@ const EditProduct = () => {
   return (
     <>
     <SearchBar />
-    <form >
     <Container className='view-listing'>
         <Link to=
         {`/products/${id}`}
@@ -99,7 +98,8 @@ const EditProduct = () => {
                     } />
                 </Card>
             </Col>
-            <Col className='mx-auto ms-5 me-5' xs={12} sm={10} md={4} lg={4} xl={4}>   
+            <Col className='mx-auto ms-5 me-5' xs={12} sm={10} md={4} lg={4} xl={4}>
+            <form>
             <h5 className='text-dark'>Title</h5>
                 <div className='d-flex justify-content-between'>
                     <h3 
@@ -208,13 +208,15 @@ const EditProduct = () => {
                             fontWeight: 'bold',
                         }
                     }><input
-                     className='form-control' 
+                     className='form-control'
+                     name='price'
+                     id='price' 
                      type='text'
-                     placeholder={product.price} 
                      value={product.price}
                      onChange={handleChange} /></h5>
                     <p className='small text-muted'>+ Shipping</p>
                 </div>
+                <input className='form-control' type='text' name='image' id='image' placeholder='Image URL' value={product.image} onChange={handleChange} />
                 <br />
                 <h5 className='text-dark'>Description</h5>
                 <p className='small text-muted'>
@@ -228,17 +230,17 @@ const EditProduct = () => {
                 </p>
                 <div className='d-flex justify-content-between'>
                     <input className='form-control' type='text' name='submittedby' id='submittedby' placeholder='Seller' /> &nbsp;
-                    <input className='form-control' type='text' name='submittedon' id='submittedon'  />
+                  
                 </div>
 
                 <div className='d-flex justify-content-between mt-5'>
                     <Button variant='outline-primary' className='w-100' onClick={updateProduct}>Update</Button>&nbsp;
                     <Button variant='outline-danger' className='w-100' onClick={deleteProduct}>Delete</Button>
                 </div>
+            </form>
             </Col>
         </Row>
     </Container>
-    </form>
     </>
   )
 }

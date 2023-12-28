@@ -26,6 +26,7 @@ const ReadProducts = ( props ) => {
             <SearchBar />
             <div className="container">
                 <FilterBar />
+                <FilterSideBar />
                 <div className="row mt-5">
                     <div className="col-md-12">
                         <h2 className='text-left'
@@ -40,6 +41,9 @@ const ReadProducts = ( props ) => {
                 <br />
 
                 <div className="row mx-auto">
+                    <div className="col-md-12"> 
+                        <h5 className='text-left'>Showing {listings.length} results</h5>
+                    </div>
                     {listings.slice(pagesVisited, pagesVisited + listingsPerPage).map((listing) => (
                         <div className="col-md-4 mb-3">
                             <Card
