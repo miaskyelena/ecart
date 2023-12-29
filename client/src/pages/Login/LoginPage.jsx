@@ -10,23 +10,8 @@ import  LoginImage  from '../../assets/images/boutique.jpg'
 import supabase from '../../Client'
 import './LoginPage.css'
 
-const LoginPage = () => {
-  const [session, setSession] = useState(null)
+const LoginPage = ({ session }) => {
   const navigate = useNavigate()
-
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session)
-    })
-
-    const { 
-      data: { subscription },  
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
-    })
-
-    return () => subscription.unsubscribe()
-  }, [])
 
   return (
     <>
