@@ -31,16 +31,7 @@ const Navigation = () => {
                  &nbsp;
                 <span class="fi fi-us"></span>
             </Nav.Link>
-            
-           
-            <Nav className='ms-auto me-2'>
-                <Nav.Link
-                 href='/'
-                 onClick={() => {
-                     supabase.auth.signOut()
-                 }}
-                 >Sign out</Nav.Link>            
-            </Nav>
+            <Navbar.Toggle aria-controls='basic-navbar-nav' />       
         </Navbar>
         </>
     )}

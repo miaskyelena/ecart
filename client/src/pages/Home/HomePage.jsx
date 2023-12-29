@@ -26,9 +26,7 @@ const HomePage = ( props ) => {
         title='Popular products'
         subtitle='Explore the most popular products.'
         data={[...props.data].sort((a, b) => b.likes - a.likes).slice(0, 10)}
-        />
-
-      
+        />      
     </div>
     <Footer />
     </>
