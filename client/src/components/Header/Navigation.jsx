@@ -25,13 +25,15 @@ const Navigation = () => {
 } else {
     return (
         <>
-        <Navbar variant='dark' expand='lg' className='navigation-bar'>
-            <Nav.Link className='ms-3'>
-                Welcome, {user.email}
-                 &nbsp;
-                <span class="fi fi-us"></span>
-            </Nav.Link>
-            <Navbar.Toggle aria-controls='basic-navbar-nav' />       
+        <Navbar bg='light' variant='light' expand='lg'>
+        <Navbar.Brand href='/'className='ms-3'>
+        </Navbar.Brand>
+            <Nav className='ms-1'>
+                Welcome, {user.user_metadata.full_name}
+            </Nav>
+            <Nav className='ms-auto me-2'>
+                <Nav.Link href='/logout'>Sign out</Nav.Link>
+            </Nav>
         </Navbar>
         </>
     )}
