@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import { createClient } from '@supabase/supabase-js'
 import { Auth } from '@supabase/auth-ui-react'
-import { useNavigate } from 'react-router-dom'
 import {
   // Import predefined theme
   ThemeSupa,
 } from '@supabase/auth-ui-shared'
 import  LoginImage  from '../../assets/images/boutique.jpg'
-import supabase from '../../Client'
 import './LoginPage.css'
+
+
+const supabase = createClient('https://tgkovlzatftsifoxqxdi.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRna292bHphdGZ0c2lmb3hxeGRpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTg1NTI1MTcsImV4cCI6MjAxNDEyODUxN30.5Q7ata3VlXApFGHwyW8cAuPfYHG_c7WVgsVRNSBsJys')
 
 const LoginPage = () => {
   const [session, setSession] = useState(null)
-  const navigate = useNavigate()
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -23,14 +23,16 @@ const LoginPage = () => {
       data: { subscription },  
     } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session)
+    
     })
 
     return () => subscription.unsubscribe()
   }, [])
 
+  console.log(session)
+
   return (
     <>
-    { session === null ?
     <div className='login-container'>
        <div className='login-container-item'>
             <div className='login-container-auth mt-5 w-50'>
@@ -40,6 +42,7 @@ const LoginPage = () => {
                 appearance={{ theme: ThemeSupa }}
                 providers={['google']}
                 socialColors={true}
+
                 />
             </div>
         </div>
@@ -47,9 +50,6 @@ const LoginPage = () => {
             <img src={LoginImage} alt='Authentication' className='login-image' />
         </div>
     </div>
-    :
-    navigate('/')
-    }
     </>
   )
 }

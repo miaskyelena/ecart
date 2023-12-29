@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from 'react'
-import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
+import { useUser } from '@supabase/auth-helpers-react'
 import { Navbar, Nav } from 'react-bootstrap'
 import './Navigation.css'
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 const Navigation = () => {
     const user = useUser()
-    console.log(user)
+    
+    
     if (!user) {
     return (
         <>
@@ -29,7 +30,7 @@ const Navigation = () => {
         <Navbar.Brand href='/'className='ms-3'>
         </Navbar.Brand>
             <Nav className='ms-1'>
-                Welcome, {user.user_metadata.full_name}
+                Welcome, {user.email}
             </Nav>
             <Nav className='ms-auto me-2'>
                 <Nav.Link href='/logout'>Sign out</Nav.Link>
