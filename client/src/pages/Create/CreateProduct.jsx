@@ -224,7 +224,6 @@ const CreateListing = () => {
                     onChange={handleChange}
                      />
                 </p>
-           
                 <input type ='submit' className='btn btn-outline-dark w-100' value='Create Listing' onClick={createProduct} />
             </form>
             </Col>
