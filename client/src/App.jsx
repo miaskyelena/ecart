@@ -24,27 +24,13 @@ const App = () => {
     fetchProducts();
   }, []);
 
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session)
-    })
-
-    const { 
-      data: { subscription },  
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
-    })
-
-    return () => subscription.unsubscribe()
-  }, [])
-
   let element = useRoutes([
     {
       path: '/',
-      element: <Layout session={session}/>,
+      element: <Layout />,
       children: [
-        { path: '/', element: <HomePage data={products} session={session}/> },
-        { path: '/login', element: <LoginPage session={session} /> },
+        { path: '/', element: <HomePage data={products} /> },
+        { path: '/login', element: <LoginPage /> },
         { path: '/products', element: <ReadProducts data={products} /> },
         { path: '/products/:id', element: <ProductDetails /> },
         { path: '/create', element: <CreateProduct /> },

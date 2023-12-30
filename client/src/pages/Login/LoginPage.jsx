@@ -10,8 +10,28 @@ import  LoginImage  from '../../assets/images/boutique.jpg'
 import supabase from '../../Client'
 import './LoginPage.css'
 
-const LoginPage = ({ session }) => {
+const LoginPage = () => {
+  const [session, setSession] = useState(null)
   const navigate = useNavigate()
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session)
+    })
+
+    const { 
+      data: { subscription },  
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session)
+    })
+
+    return () => subscription.unsubscribe()
+  }, [])
+
+  async function signOut() {
+    const { error } = await supabase.auth.signOut()
+    if (error) console.log('Error signing out:', error.message)
+  }
 
   return (
     <>

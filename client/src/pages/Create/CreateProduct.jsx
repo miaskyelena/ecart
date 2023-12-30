@@ -1,6 +1,7 @@
 import React, { useState}from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Row, Col, Card, Button} from 'react-bootstrap'
+import { useUser } from '@supabase/auth-helpers-react'
 import SearchBar from '../../components/Bar/SearchBar/SearchBar'
 const CreateListing = () => {
     const date = new Date();
@@ -8,6 +9,8 @@ const CreateListing = () => {
     let month = date.getMonth() + 1;
     let year = date.getFullYear();
     let currentDate = year + '-' + month + '-' + day;
+
+    const user = useUser()
 
     const [newProduct, setNewProduct] = useState({
         id: 0,
@@ -19,7 +22,7 @@ const CreateListing = () => {
         price: '',
         image: '',
         description: '',
-        submittedby: ' ',
+        submittedby: user.email,
         submittedon: currentDate,
     })
 
@@ -221,20 +224,7 @@ const CreateListing = () => {
                     onChange={handleChange}
                      />
                 </p>
-                <div className='d-flex justify-content-between'>
-                    <input 
-                    className='form-control'
-                    type='text' 
-                    name='submittedBy'
-                    id='submittedBy'
-                    value={newProduct.submittedby}
-                    placeholder='Seller' 
-                    onChange={handleChange}
-                    required
-                    /> &nbsp;
-                    <p className='small text-muted'>Required</p>
-                </div>
-                <br />
+           
                 <input type ='submit' className='btn btn-outline-dark w-100' value='Create Listing' onClick={createProduct} />
             </form>
             </Col>
