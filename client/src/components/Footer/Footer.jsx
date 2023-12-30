@@ -5,7 +5,7 @@ const Footer = () => {
     <div className='footer-container'>
       <div className='row'>
         <div className='col'>
-          <h4 className='footer-title'>About Us</h4>
+          <h4 className='footer-title'>About</h4>
           <span className='text-muted'><a href='https://miaelena.netlify.app/'>Mia Tapia</a></span><br />
         </div>
         <div className='col'>

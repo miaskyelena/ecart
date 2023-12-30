@@ -15,6 +15,8 @@ const Navigation = () => {
         navigate('/')
     }
 
+    console.log(user)
+
     return (
         <>
         <Navbar bg='light' variant='light' expand='lg'>

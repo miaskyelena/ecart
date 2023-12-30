@@ -39,7 +39,7 @@ const Card = (props) => {
     , [likeCount])
 
     let randNum = Math.floor(Math.random() * 100);
-    console.log(props)
+    
 
     return (
         <div className='card' style={{ border: 'none'}}>
