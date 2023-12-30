@@ -2,13 +2,17 @@ import React, {useState, useEffect} from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { Container, Row, Col, Button, Card } from 'react-bootstrap'
 import { AiFillHeart, AiOutlineHeart, AiOutlineForm } from 'react-icons/ai'
+import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
 import SearchBar from '../../components/bar/Searchbar/SearchBar'
+
 const ProductDetails = () => {
     const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(true)
     const [liked, setLiked] = useState(false)
- 
     const { id } = useParams()
+    const user = useUser()
+    const supabase = useSupabaseClient()
+
     useEffect(() => {
         const fetchProduct = async () => {
             const response = await fetch(`http://localhost:3001/products/${id}`)
@@ -115,6 +119,16 @@ const ProductDetails = () => {
                 </p>
               
                 <div className='d-flex justify-content-between mt-5'>
+                    { user == null ? 
+                    <>
+                    <Link to='/login' className='w-100'>
+                        <Button variant='dark' className='w-100'>
+                            Add to Cart
+                        </Button>
+                    </Link>
+                    </>
+                    :
+                    <>
                     <Button variant='dark' className='w-50'>Add to Cart</Button>
                     &nbsp;
                     <Link to={`/edit/${id}`} className='w-50'>
@@ -124,6 +138,8 @@ const ProductDetails = () => {
                             Edit
                         </Button>
                     </Link>
+                    </>
+                    }
                 </div>
             
             </Col>
