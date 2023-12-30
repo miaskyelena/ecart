@@ -1,10 +1,10 @@
 import { Outlet } from 'react-router-dom';
 import Navigation from '../components/Header/Navigation';
 
-const Layout = ({ session }) => {
+const Layout = () => {
   return (
     <>
-      <Navigation session={session} />
+      <Navigation />
       <Outlet />
     </>
   )

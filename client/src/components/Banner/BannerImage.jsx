@@ -16,10 +16,6 @@ const BannerImage = () => {
       <img src={BannerPhoto2} class="d-block w-100" alt="..." />
     </div>
   </div>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
   <div className='banner-overlay'>
     <span className='banner-text'>Welcome to eCart,</span>
     <h1 className='banner-text'>Buy, sell, and shop trending fashion.</h1><br/>
@@ -27,8 +23,6 @@ const BannerImage = () => {
       Shop for the latest fashion trends in clothing, shoes, and accessories.
     </span>
     &nbsp;
-    <div className='banner-button-container'>
-    </div>
   </div>
 
     </div>
