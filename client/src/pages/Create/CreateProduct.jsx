@@ -163,13 +163,22 @@ const CreateListing = () => {
                 onChange={handleChange}
                 >
                     <option value=''>Select a category</option>
-                    <option value='Clothing'>Clothing</option>
+                    <option value='Dresses'>Dresses</option>
+                    <option value='Tops'>Tops</option>
+                    <option value='Sweaters'>Sweaters</option>
+                    <option value='Coats & Jackets'>Coats & Jackets</option>
+                    <option value='Jeans'>Jeans</option>
+                    <option value='Pants'>Pants</option>
+                    <option value='Skirts'>Skirts</option>
+                    <option value='Shorts'>Shorts</option>
+                    <option value='Swimwear'>Swimwear</option>
+                    <option value='Activewear'>Activewear</option>
+                    <option value='Lingerie & Sleepwear'>Lingerie & Sleepwear</option>
+                    <option value='Socks & Hosiery'>Socks & Hosiery</option>
+                    <option value='Other'>Maternity</option>
                     <option value='Shoes'>Shoes</option>
+                    <option value='Handbags'>Handbags</option>
                     <option value='Accessories'>Accessories</option>
-                    <option value='Electronics'>Electronics</option>
-                    <option value='Home'>Home</option>
-                    <option value='Toys'>Toys</option>
-                    <option value='Other'>Other</option>
                 </select>             
                 <br />
                 <div className='d-flex'>
