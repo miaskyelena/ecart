@@ -8,8 +8,6 @@ const DropdownFilter = ({ onFilterSelect } ) => {
     onFilterSelect(filter)
   }
 
-  console.log(selectedFilter)
-
   return (
     <div class="dropdown">
     <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
