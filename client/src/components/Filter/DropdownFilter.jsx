@@ -1,13 +1,14 @@
 import React, {useState} from 'react'
 
-const DropdownFilter = () => {
-    const [selectedFilter, setSelectedFilter] = useState('')
+const DropdownFilter = ({ onFilterSelect } ) => {
+  const [selectedFilter, setSelectedFilter] = useState('')
 
-    const handleFilterClick = (filter)  => {
-        setSelectedFilter(filter)
-    }
-    
-    console.log(selectedFilter)
+  const handleFilterClick = (filter) => {
+    setSelectedFilter(filter)
+    onFilterSelect(filter)
+  }
+
+  console.log(selectedFilter)
 
   return (
     <div class="dropdown">

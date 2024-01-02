@@ -7,12 +7,13 @@ import { Link } from 'react-router-dom'
 import SearchInput from './SearchInput'
 import DropdownFilter from '../../Filter/DropdownFilter';
 import './SearchBar.css'
-const SearchBar = () => {
+const SearchBar = ({ handleFilterSelect }) => {
+ 
   return (
     <Navbar className='search-bar'>
         <Navbar.Brand href='/' className='ms-5 brand-title'>eCart</Navbar.Brand>
         <Nav className=' search-bar-container me-2'>
-          <DropdownFilter />
+          <DropdownFilter onFilterSelect={handleFilterSelect} />
           <SearchInput />
           <Nav.Link href='/products'>
             <AiOutlineHeart size={25}/>

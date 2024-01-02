@@ -8,12 +8,17 @@ import FilterBar from '../../components/Bar/FilterBar/FilterBar'
 import './HomePage.css'
 import { Card } from 'react-bootstrap'
 const HomePage = ( props ) => {
-
+  const [selectedFilter, setSelectedFilter] = useState('')
+  const handleFilterSelect = (filter)  => {
+    setSelectedFilter(filter)
+  }
 
   return (
     <>
     <div className="container">
-      <SearchBar />
+      <SearchBar 
+      onFilterSelect={handleFilterSelect}
+      />
       <FilterBar />
         <BannerImage />
         &nbsp;
@@ -26,10 +31,10 @@ const HomePage = ( props ) => {
         title='Popular products'
         subtitle='Explore the most popular products.'
         data={[...props.data].sort((a, b) => b.likes - a.likes).slice(0, 10)}
-        />      
+        />
+        <Footer />      
     </div>
-    <Footer />
-    </>
+    </>    
   )
 }
 
