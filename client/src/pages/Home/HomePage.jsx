@@ -11,6 +11,11 @@ const HomePage = ( props ) => {
   
   const [selectedFilter, setSelectedFilter] = useState(null)
 
+  /*
+  Hello, I want to track the state of the selectedFilter category in the DropdownFilter component across my application with the goal of being able to filder products by selected category in the HomePage component. The DropdownFilter component is rendered in the SearchBar component and the SearchBar component is rendered in the HomePage component so the prop data would be passing across three files and I just don't know how to implement this successfully.
+
+  */
+
   const handleFilterSelect = (filter)  => {
     setSelectedFilter(filter)
   }
