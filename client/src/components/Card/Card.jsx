@@ -6,8 +6,6 @@ import './Card.css';
 const Card = (props) => {
     const [liked, setLiked] = useState(false);
     const [likeCount, setLikeCount] = useState(0);
-
-    console.log(props)
     const updateLikeCount = async () => {
         const response = await fetch(`http://localhost:3001/products/${props.id}`, {
             method: 'PATCH',

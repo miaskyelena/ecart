@@ -129,7 +129,111 @@ const productsData =
         "price": 4000.00,
         "submittedBy": "Natalie S.",
         "submittedOn":"2023-01-10T14:48:00"
-    }
+    },
+    {
+        "id": 11,
+        "title": "Étoile Isabel Marant Plaid Print Bateau Neckline Blouse",
+        "size": "Small",
+        "image":"https://product-images.therealreal.com/WET168939_1_enlarged.jpg",
+        "description":"The Étoile Isabel Marant Plaid Print Bateau Neckline Blouse seamlessly blends casual elegance with a touch of Parisian charm. Featuring a classic plaid pattern and a flattering bateau neckline, this blouse is a versatile wardrobe staple that effortlessly combines style and comfort.",
+        "condition":"Used",
+        "category":"Tops",
+        "color":"Brown",
+        "price": 85.00,
+        "submittedBy": "Jia S.",
+        "submittedOn":"2023-01-10T14:48:00"
+    },
+    {
+        "id": 12,
+        "title": "M Missoni V-Neck Long Sleeve Crop Top",
+        "size": "Medium",
+        "image":"https://product-images.therealreal.com/WM4107619_1_enlarged.jpg",
+        "description":"The M Missoni V-Neck Long Sleeve Crop Top is a chic and modern wardrobe essential. With its stylish V-neckline and cropped silhouette, this top effortlessly combines sophistication and trendiness, making it a versatile piece for both casual and dressy occasions.",
+        "condition":"Used",
+        "category":"Tops",
+        "color":"Pink",
+        "price": 85.00,
+        "submittedBy": "Natalie S.",
+        "submittedOn":"2023-01-10T14:48:00"
+    },
+    {
+        "id": 13,
+        "title": "Cinq À Sept Wide Leg Pants",
+        "size": "Medium",
+        "image":"https://product-images.therealreal.com/WCINQ65585_1_enlarged.jpg",
+        "description":"The Cinq À Sept Wide Leg Pants exude contemporary sophistication with their tailored design and relaxed wide-leg silhouette. Perfect for both professional and casual settings, these pants offer a versatile and fashionable option for any wardrobe, ensuring comfort and style throughout the day.",
+        "condition":"Used",
+        "category":"Bottoms",
+        "color":"Red",
+        "price": 45.00,
+        "submittedBy": "Natalie S.",
+        "submittedOn":"2023-01-10T14:48:00"
+    },
+    {
+        "id": 14,
+        "title": "Tory Burch Wide Leg Pants",
+        "size": "Medium",
+        "image":"https://product-images.therealreal.com/WTO611624_1_enlarged.jpg",
+        "description":"Tory Burch Wide Leg Pants combine timeless elegance with modern comfort. Crafted from high-quality materials, these pants feature a wide-leg silhouette that effortlessly transitions from day to night, offering a versatile and sophisticated addition to your wardrobe.",
+        "condition":"Used",
+        "category":"Bottoms",
+        "color":"White",
+        "price": 50.00,
+        "submittedBy": "Natalie S.",
+        "submittedOn":"2023-01-10T14:48:00"
+    },
+    {
+        "id": 15,
+        "title": "Diane Von Furstenberg Silk Wide Leg Pants",
+        "size": "Small",
+        "image":"https://product-images.therealreal.com/WDI465951_1_enlarged.jpg",
+        "description":"The M Missoni V-Neck Long Sleeve Crop Top is a chic and modern wardrobe essential. With its stylish V-neckline and cropped silhouette, this top effortlessly combines sophistication and trendiness, making it a versatile piece for both casual and dressy occasions.",
+        "condition":"Pristine",
+        "category":"Bottoms",
+        "color":"Green",
+        "price": 70.00,
+        "submittedBy": "Natalie S.",
+        "submittedOn":"2023-01-10T14:48:00"
+    },
+    {
+        "id": 16,
+        "title": "Salvatore Ferragamo Leather Bow Accents Ballet Flats",
+        "size": "Medium",
+        "image":"https://product-images.therealreal.com/SAL334569_1_enlarged.jpg",
+        "description":"Step into timeless charm with Salvatore Ferragamo Leather Bow Accents Ballet Flats. Crafted from luxurious leather, these flats showcase a delicate bow detail, combining classic femininity with everyday comfort, making them a perfect choice for both casual and dressy occasions.",
+        "condition":"Pristine",
+        "category":"Shoes",
+        "color":"Black",
+        "price": 300.00,
+        "submittedBy": "Natalie S.",
+        "submittedOn":"2023-01-10T14:48:00"
+    },
+    {
+        "id": 17,
+        "title": "Salvatore Ferragamo Suede Pumps",
+        "size": "Small",
+        "image":"https://product-images.therealreal.com/SAL334788_1_enlarged.jpg",
+        "description":"Elevate your style with Salvatore Ferragamo Suede Red Pumps. These luxurious pumps, crafted from sumptuous suede, add a bold and sophisticated touch to your wardrobe. With their striking red hue and iconic Ferragamo craftsmanship, these heels effortlessly blend glamour and elegance for a statement look that commands attention.",
+        "condition":"Pristine",
+        "category":"Shoes",
+        "color":"Red",
+        "price": 300.00,
+        "submittedBy": "Natalie S.",
+        "submittedOn":"2023-01-10T14:48:00"
+    },
+    {
+        "id": 18,
+        "title": "Reformation Square Neckline Mini Dress",
+        "size": "Large",
+        "image":"https://product-images.therealreal.com/WRFMN158009_1_enlarged.jpg",
+        "description":"The Reformation Square Neckline Mini Dress is a chic and flirty wardrobe staple. With its square neckline and mini length, this dress exudes modern femininity, while the sustainable and eco-friendly materials showcase Reformation's commitment to both style and environmental responsibility, making it a go-to choice for fashion-conscious individuals.",
+        "condition":"Pristine",
+        "category":"Dresses",
+        "color":"Blue",
+        "price": 37.50,
+        "submittedBy": "Natalie S.",
+        "submittedOn":"2023-01-10T14:48:00"
+    },
 ]
 
 export default productsData;

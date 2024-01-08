@@ -8,6 +8,10 @@
     color: black;
 }
 
+.card{
+  max-width: 300px;
+}
+
 .card a:hover{
     text-decoration: underline;
     color: black;

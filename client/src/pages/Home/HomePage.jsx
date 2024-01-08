@@ -11,11 +11,6 @@ const HomePage = ( props ) => {
   
   const [selectedFilter, setSelectedFilter] = useState(null)
 
-  /*
-  Hello, I want to track the state of the selectedFilter category in the DropdownFilter component across my application with the goal of being able to filder products by selected category in the HomePage component. The DropdownFilter component is rendered in the SearchBar component and the SearchBar component is rendered in the HomePage component so the prop data would be passing across three files and I just don't know how to implement this successfully.
-
-  */
-
   const handleFilterSelect = (filter)  => {
     setSelectedFilter(filter)
   }
@@ -23,6 +18,7 @@ const HomePage = ( props ) => {
   console.log(selectedFilter)
 
   const productByCategory = selectedFilter ? props.data.filter((product) => product.category === selectedFilter) : props.data
+  console.log(productByCategory)
 
   return (
     <>
@@ -35,7 +31,7 @@ const HomePage = ( props ) => {
         <BannerImage />
         &nbsp;
         <CardCarousel
-        title='All products'
+        title='All products.'
         subtitle='Browse all products.'
         data={props.data}
         />
@@ -54,9 +50,19 @@ const HomePage = ( props ) => {
       <FilterBar />
         <BannerImage />
         &nbsp;
-        <div className="row mx-auto">
+        <div className="row">
                     <div className="col-md-12"> 
-                        <h5 className='text-left'>Showing {selectedFilter} results</h5>
+                        <h2 className='text-left'
+                        style={{
+                            fontFamily: 'Arial',
+                            fontWeight: 'bold',
+                        }}
+                        >Browse {selectedFilter}.</h2>
+                        <p className='text-left'
+                        style={{
+                            fontFamily: 'Arial',
+                        }}
+                        >{productByCategory.length} results in {selectedFilter}.</p>
                     </div>
                     {productByCategory.map((listing) => (
                         <div className="col-md-4 mb-3">
@@ -75,10 +81,16 @@ const HomePage = ( props ) => {
                         </div>
                     ))}
                 </div>
+                &nbsp;
+        <CardCarousel
+        title='All products.'
+        subtitle='Browse all products.'
+        data={props.data}
+        />
         <Footer />
     </div>
     }
-    </>    
+    </>   
   )
 }
 

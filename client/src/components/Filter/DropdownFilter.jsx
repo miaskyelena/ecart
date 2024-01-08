@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 const DropdownFilter = ({ onFilterSelect } ) => {
-  const [selectedFilter, setSelectedFilter] = useState('')
+  const [selectedFilter, setSelectedFilter] = useState(null)
 
   const handleFilterClick = (filter) => {
     setSelectedFilter(filter)
@@ -14,11 +14,13 @@ const DropdownFilter = ({ onFilterSelect } ) => {
       categories
     </button>
     <ul class="dropdown-menu">
-       <li><a class="dropdown-item" onClick={() => handleFilterClick('Tops')}>Tops</a></li>
-        <li><a class="dropdown-item" onClick={() => handleFilterClick('Bottoms')}>Bottoms</a></li>
-        <li><a class="dropdown-item" onClick={() => handleFilterClick('Dresses')}>Dresses</a></li>
-        <li><a class="dropdown-item" onClick={() => handleFilterClick('Shoes')} >Shoes</a></li>
-       <li><a class="dropdown-item" onClick={() => handleFilterClick('Handbags')} >Handbags</a></li>
+       <li><a class="dropdown-item" value='Tops' id='Tops' name='Tops' onClick={() => handleFilterClick('Tops')}>Tops</a></li>
+        <li><a class="dropdown-item" value='Tops' id='Bottoms' name='Bottoms' onClick={() => handleFilterClick('Bottoms')}>Bottoms</a></li>
+        <li><a class="dropdown-item" value='Dresses' id='Dresses' name='Dresses' onClick={() => handleFilterClick('Dresses')}>Dresses</a></li>
+        <li><a class="dropdown-item" value='Shoes' id='Shoes' name='Shoes' onClick={() => handleFilterClick('Shoes')} >Shoes</a></li>
+       <li><a class="dropdown-item" value='Handbags' id='Handbags' name='Handbags' onClick={() => handleFilterClick('Handbags')} >Handbags</a></li>
+       <li><a class="dropdown-item" value='Skirts' id='Skirts' name='Skirits' onClick={() => handleFilterClick('Skirts')} >Skirts</a></li>
+
     </ul>
     </div>
   )

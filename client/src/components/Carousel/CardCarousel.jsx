@@ -8,7 +8,7 @@ const CardCarousel = ({ data, title, subtitle }) => {
 
     return (
         <div className='carousel-container'>
-            <div className='container-fluid ps-5 pe-5'>
+            <div className='container'>
                 <div className="row">
                     <div className="col-md-12">
                         <h2 className='text-left'
