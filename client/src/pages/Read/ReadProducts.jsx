@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { Container } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Card from '../../components/Card/Card'
 import ReactPaginate from 'react-paginate'
@@ -26,7 +26,11 @@ const ReadProducts = ( props ) => {
             <SearchBar />
             <div className="container">
                 <FilterBar />
-                <FilterSideBar />
+                <Row>
+        <Col md={2}>
+                    <FilterSideBar />
+                </Col>
+                <Col>
                 <div className="row mt-5">
                     <div className="col-md-12">
                         <h2 className='text-left'
@@ -41,6 +45,7 @@ const ReadProducts = ( props ) => {
                 <br />
 
                 <div className="row mx-auto">
+
                     <div className="col-md-12"> 
                         <h5 className='text-left'>Showing {listings.length} results</h5>
                     </div>
@@ -62,6 +67,8 @@ const ReadProducts = ( props ) => {
                         </div>
                     ))}
                 </div>
+                </Col>
+                </Row>
                 <ReactPaginate
                     previousLabel={"Previous"}
                     nextLabel={"Next"}

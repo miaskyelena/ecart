@@ -18,7 +18,7 @@ const SearchBar = ({ onFilterSelect }) => {
           <Nav.Link href='/products'>
             <AiOutlineHeart size={25}/>
           </Nav.Link>
-          <Nav.Link href='/products'>
+          <Nav.Link href='/user'>
             <BiUserCircle size={25}/>
           </Nav.Link>
           <Nav.Link href='/'>

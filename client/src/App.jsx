@@ -9,8 +9,10 @@ import CreateProduct from './pages/Create/CreateProduct';
 import ProductDetails from './pages/View/ProductDetails';
 import EditProduct from './pages/Update/EditProduct';
 import About from './pages/About/About';
+import UserDashboard from './pages/User/UserDashboard';
 import supabase from './Client';
 const App = () => {
+  
 
   const [products, setProducts] = useState([]);
   const [session, setSession] = useState(null);
@@ -36,6 +38,7 @@ const App = () => {
         { path: '/create', element: <CreateProduct /> },
         { path: '/edit/:id', element: <EditProduct /> },
         { path: '/about', element: <About /> },
+        { path: '/user', element: <UserDashboard /> },
       ]
     }
   ]);
