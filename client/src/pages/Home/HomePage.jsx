@@ -4,7 +4,7 @@ import SellerBanner from '../../components/banner/SellerBanner'
 import SearchBar from '../../components/Bar/SearchBar/SearchBar'
 import CardCarousel from '../../components/Carousel/CardCarousel'
 import Footer from '../../components/footer/Footer'
-import FilterBar from '../../components/Bar/FilterBar/FilterBar'
+import FilterBar from '../../components/Filter/FilterBar/FilterBar'
 import './HomePage.css'
 import Card from '../../components/Card/Card'
 const HomePage = ( props ) => {

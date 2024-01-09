@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 import Card from '../../components/Card/Card'
 import ReactPaginate from 'react-paginate'
 import SearchBar from '../../components/Bar/SearchBar/SearchBar'
-import FilterSideBar from '../../components/Bar/SideBar/FilterSideBar'
-import FilterBar from  '../../components/Bar/FilterBar/FilterBar'
+import FilterSideBar from '../../components/Filter/SideBar/FilterSideBar'
+import FilterBar from  '../../components/Filter/FilterBar/FilterBar'
 const ReadProducts = ( props ) => {
     const [listings, setListings] = useState([])
 
@@ -31,24 +31,18 @@ const ReadProducts = ( props ) => {
                     <FilterSideBar />
                 </Col>
                 <Col>
-                <div className="row mt-5">
-                    <div className="col-md-12">
-                        <h2 className='text-left'
-                        >All Listings</h2>
-                    
-                        <span>
-                            Have something to sell? <Link to='/create'>Create a listing</Link>
-                        </span>
-                    </div>
+                <div className="mt-3">
+                <div className='d-flex justify-content-between'>
+                    <div><span className='text-muted'>Home</span> > <span className='text-muted'><Link to='/products'>Products</Link></span></div>
+                    <p className='small text-muted'>Showing {listings.length} results</p>
                 </div>
-                
-                <br />
-
-                <div className="row mx-auto">
-
-                    <div className="col-md-12"> 
-                        <h5 className='text-left'>Showing {listings.length} results</h5>
+                    <div className="col-md-12 text-left">
+                        <h2 className='text-left'>All Listings</h2>
+                        <spam className='text-muted'>Have something to sell? <Link to='/create'>Create a listing.</Link></spam>
                     </div>
+                
+                </div>
+                <div className="row mx-auto">
                     {listings.slice(pagesVisited, pagesVisited + listingsPerPage).map((listing) => (
                         <div className="col-md-4 mb-3">
                             <Card
