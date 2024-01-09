@@ -6,6 +6,7 @@ import ReactPaginate from 'react-paginate'
 import SearchBar from '../../components/Bar/SearchBar/SearchBar'
 import FilterSideBar from '../../components/Filter/SideBar/FilterSideBar'
 import FilterBar from  '../../components/Filter/FilterBar/FilterBar'
+import CategoryFilter from '../../components/Filter/CategoryFilter'
 const ReadProducts = ( props ) => {
     const [listings, setListings] = useState([])
 
@@ -26,6 +27,7 @@ const ReadProducts = ( props ) => {
             <SearchBar />
             <div className="container">
                 <FilterBar />
+                <CategoryFilter />
                 <Row>
         <Col md={2}>
                     <FilterSideBar />
