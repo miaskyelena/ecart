@@ -36,7 +36,7 @@ const HomePage = ( props ) => {
         data={props.data}
         />
         <CardCarousel
-        title='Popular products'
+        title='Popular products.'
         subtitle='Explore the most popular products.'
         data={[...props.data].sort((a, b) => b.likes - a.likes).slice(0, 10)}
         />

@@ -15,8 +15,10 @@ const UserDashboard = () => {
         <Row>
            <h3 className='mt-5'>Welcome, {user?.email} </h3>
            <Col>
-           <img src={user?.user_metadata.avatar_url}
-           alt='avatar' />
+           <img src='https://img.freepik.com/premium-vector/avatar-icon002_750950-52.jpg?size=338&ext=jpg&ga=GA1.1.1412446893.1704672000&semt=ais'
+           alt='avatar'
+           placeholder='https://img.freepik.com/premium-vector/avatar-icon002_750950-52.jpg?size=338&ext=jpg&ga=GA1.1.1412446893.1704672000&semt=ais'
+            />
            <input type='file' />
               <Button>Upload</Button>
            </Col>
