@@ -9,7 +9,7 @@ const Footer = () => {
           <span className='text-muted'><a href='https://miaelena.netlify.app/'>Mia Tapia</a></span><br />
         </div>
         <div className='col'>
-          <h4 className='footer-title'>Contact Us</h4>
+          <h4 className='footer-title'>Contact</h4>
           <span className='text-muted'><a href='mailto:miaskyelena@gmail.com'>miaskyelena@gmail.com</a> </span>
         </div>
         </div>

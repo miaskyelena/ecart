@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './FilterSideBar.css'
 const FilterSideBar = () => {
-    const [ expanded, setExpanded ] = useState(false)
+    const [ expanded, setExpanded ] = useState(true)
 
     const handleExpand = () => {
         setExpanded(!expanded)
@@ -94,33 +94,94 @@ const FilterSideBar = () => {
                     <div className="accordion-body">
                         <div className="form-check">
                             <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                            <label className="form-check-label" htmlFor="flexCheckDefault">
-                            Red
-                            </label>
+                            <span className='small mb-0' style={{
+                                width: '15px',
+                                height: '15px',
+                                borderRadius: '50%',
+                                backgroundColor: 'red',
+                                display: 'inline-block',}}>
+                            </span>
                         </div>
                         <div className="form-check">
                             <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" />   
-                            <label className="form-check-label" htmlFor="flexCheckChecked">
-                            Orange
-                            </label>
+                            <span className='small mb-0' style={{
+                                width: '15px',
+                                height: '15px',
+                                borderRadius: '50%',
+                                backgroundColor: 'orange',
+                                display: 'inline-block',}}>
+                            </span>
                         </div>
                         <div className="form-check">
                             <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
-                            <label className="form-check-label" htmlFor="flexCheckChecked">
-                            Yellow
-                            </label>
+                             <span className='small mb-0' style={{
+                                width: '15px',
+                                height: '15px',
+                                borderRadius: '50%',
+                                backgroundColor: 'yellow',
+                                display: 'inline-block',}}>
+                            </span>
                         </div>
                         <div className="form-check">
                             <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
-                            <label className="form-check-label" htmlFor="flexCheckChecked">
-                            Green
-                            </label>
+                            <span className='small mb-0' style={{
+                                width: '15px',
+                                height: '15px',
+                                borderRadius: '50%',
+                                backgroundColor: 'green',
+                                display: 'inline-block',}}>
+                            </span>
                         </div>
                         <div className="form-check">
                             <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
-                            <label className="form-check-label" htmlFor="flexCheckChecked">
-                            Blue
-                            </label>
+                            <span className='small mb-0' style={{
+                                width: '15px',
+                                height: '15px',
+                                borderRadius: '50%',
+                                backgroundColor: 'blue',
+                                display: 'inline-block',}}>
+                            </span>
+                        </div>
+                        <div className="form-check">
+                            <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
+                            <span className='small mb-0' style={{
+                                width: '15px',
+                                height: '15px',
+                                borderRadius: '50%',
+                                backgroundColor: 'pink',
+                                display: 'inline-block',}}>
+                            </span>
+                        </div>
+                        <div className="form-check">
+                            <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
+                            <span className='small mb-0' style={{
+                                width: '15px',
+                                height: '15px',
+                                borderRadius: '50%',
+                                outline: '1px solid black',
+                                backgroundColor: 'white',
+                                display: 'inline-block',}}>
+                            </span>
+                        </div>
+                        <div className="form-check">
+                            <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
+                            <span className='small mb-0' style={{
+                                width: '15px',
+                                height: '15px',
+                                borderRadius: '50%',
+                                backgroundColor: 'black',
+                                display: 'inline-block',}}>
+                            </span>
+                        </div>
+                        <div className="form-check">
+                            <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
+                            <span className='small mb-0' style={{
+                                width: '15px',
+                                height: '15px',
+                                borderRadius: '50%',
+                                backgroundColor: 'brown',
+                                display: 'inline-block',}}>
+                            </span>
                         </div>
                     </div>
                     </div>
@@ -153,6 +214,24 @@ const FilterSideBar = () => {
                             Dresses
                             </label>
                         </div>
+                        <div className="form-check">
+                            <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
+                            <label className="form-check-label" htmlFor="flexCheckChecked">
+                            Shoes
+                            </label>
+                        </div>
+                        <div className="form-check">
+                            <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
+                            <label className="form-check-label" htmlFor="flexCheckChecked">
+                            Handbags
+                            </label>
+                        </div>
+                        <div className="form-check">
+                            <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
+                            <label className="form-check-label" htmlFor="flexCheckChecked">
+                            Skirts
+                            </label>
+                        </div>
                     </div>
                     </div>
                 
@@ -169,13 +248,25 @@ const FilterSideBar = () => {
                         <div className="form-check">
                             <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                             <label className="form-check-label" htmlFor="flexCheckDefault">
-                            Gucci
+                            Chanel
                             </label>
                         </div>
                         <div className="form-check">
                             <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" />   
                             <label className="form-check-label" htmlFor="flexCheckChecked">
-                            Louis Vuitton
+                            Missoni
+                            </label>
+                        </div>
+                        <div className="form-check">
+                            <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" />   
+                            <label className="form-check-label" htmlFor="flexCheckChecked">
+                            Marni
+                            </label>
+                        </div>
+                        <div className="form-check">
+                            <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                            <label className="form-check-label" htmlFor="flexCheckDefault">
+                            Victoria Beckham
                             </label>
                         </div>
                     </div>

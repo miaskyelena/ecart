@@ -1,0 +1,13 @@
+.sortbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 1rem 0;
+    padding: 0 1rem;
+    border-bottom: 1px solid #ccc;
+    height: 3rem;
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
