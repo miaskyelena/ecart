@@ -33,9 +33,9 @@ const Navigation = () => {
         </>
         :
         <>
-        <Navbar.Brand href='/'className='ms-3 brand-title'>
+        <Navbar.Brand href='/'className='ms-5 brand-title'>
         </Navbar.Brand>
-        <Nav.Item className='ms-auto me-2'>
+        <Nav.Item className=' me-2'>
         Welcome, {user.email} 
                     <span className='fi fi-us mt-1 ms-1'></span>
         </Nav.Item>

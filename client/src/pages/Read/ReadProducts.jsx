@@ -29,7 +29,6 @@ const ReadProducts = ( props ) => {
             <SearchBar />
             <div className="container">
                 <FilterBar />
-               
                 <Row>
                 <Col md={2}>
                     <FilterSideBar />

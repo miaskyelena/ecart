@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './FilterSideBar.css'
 const FilterSideBar = () => {
-    const [ expanded, setExpanded ] = useState(true)
+    const [ expanded, setExpanded ] = useState(false)
 
     const handleExpand = () => {
         setExpanded(!expanded)
