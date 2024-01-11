@@ -7,6 +7,7 @@ import SearchBar from '../../components/Bar/SearchBar/SearchBar'
 import FilterSideBar from '../../components/Filter/SideBar/FilterSideBar'
 import FilterBar from  '../../components/Filter/FilterBar/FilterBar'
 import SortBar from '../../components/Filter/SortBar/SortBar'
+import FilterBtnGroup from '../../components/Filter/FilterBtnGroup'
 import { Stack } from '@mui/material'
 import './ReadProducts.css'
 const ReadProducts = ( props ) => {
@@ -39,17 +40,7 @@ const ReadProducts = ( props ) => {
         setListings(props.data)
     }, [props])
 
-    useEffect(() => {
-        let filteredListings = props.data;
-    
-        if (selectedFilter.category && selectedFilter.filter) {
-          filteredListings = filteredListings.filter(
-            (listing) => listing[selectedFilter.category] === selectedFilter.filter
-          );
-        }
-    
-        setListings(filteredListings);
-      }, [props, selectedFilter]);
+    console.log(listings)
 
     const [pageNumber, setPageNumber] = useState(0)
     const listingsPerPage = 9
@@ -83,13 +74,15 @@ const ReadProducts = ( props ) => {
 
                     </div>
                 </div>
-                { selectedFilter === }
                 <Col md={2}>
                     <FilterSideBar
                     onFilterChange={handleFilterChange}
                      />
                 </Col>
                 <Col>
+                <div className="d-flex mt-4">
+                <FilterBtnGroup />
+                </div>
                 <SortBar
                 onSort={handleSort}
                 />

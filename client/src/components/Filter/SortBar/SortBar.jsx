@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { DropdownButton, Dropdown } from 'react-bootstrap';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import GridViewIcon from '@mui/icons-material/GridView';
 
@@ -18,6 +19,31 @@ const SortBar = ({ onSort }) => {
 
   return (
     <div className='d-flex justify-content-end'>
+          <div className="btn-group" role="group" aria-label="Filter buttons">
+            <DropdownButton id="size-dropdown" title="Color" className='me-2'>
+                <Dropdown.Item>Action</Dropdown.Item>
+                <Dropdown.Item>Another action</Dropdown.Item>
+                <Dropdown.Item>Something else</Dropdown.Item>
+            </DropdownButton>
+
+            <DropdownButton id="size-dropdown" title="Size" className='me-2'>
+                <Dropdown.Item>Action</Dropdown.Item>
+                <Dropdown.Item>Another action</Dropdown.Item>
+                <Dropdown.Item>Something else</Dropdown.Item>
+            </DropdownButton>
+
+            <DropdownButton id="condition-dropdown" title="Condition" className='me-2'>
+                <Dropdown.Item>Action</Dropdown.Item>
+                <Dropdown.Item>Another action</Dropdown.Item>
+                <Dropdown.Item>Something else</Dropdown.Item>
+            </DropdownButton>
+
+            <DropdownButton id="brand-dropdown" title="Brand">
+                <Dropdown.Item>Action</Dropdown.Item>
+                <Dropdown.Item>Another action</Dropdown.Item>
+                <Dropdown.Item>Something else</Dropdown.Item>
+            </DropdownButton>
+        </div>
       <div class="dropdown">
         <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           Sort by

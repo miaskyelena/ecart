@@ -29,7 +29,7 @@ const FilterSideBar = ({ onFilterChange }) => {
                             type="checkbox" 
                             value="Pristine" 
                             name="Pristine" 
-                            onChange={() => handleFilterChange('Condition', 'Pristine')} id="flexCheckDefault" />
+                            onChange={() => handleFilterChange('condition', 'Pristine')} id="flexCheckDefault" />
                             <label className="form-check-label" htmlFor="flexCheckDefault">
                             Pristine
                             </label>
@@ -38,7 +38,7 @@ const FilterSideBar = ({ onFilterChange }) => {
                             <input className="form-check-input" type="checkbox"
                               value="Like New"
                               name="Like New" 
-                              onChange={() => handleFilterChange('Condition', 'Like New')} 
+                              onChange={() => handleFilterChange('condition', 'Like New')} 
                               id="flexCheckDefault"
                             />
                             <label className="form-check-label" htmlFor="flexCheckChecked">
@@ -49,7 +49,7 @@ const FilterSideBar = ({ onFilterChange }) => {
                         <input className="form-check-input" type="checkbox"
                               value="Used"
                               name="Used" 
-                              onChange={() => handleFilterChange('Condition', 'Used')} 
+                              onChange={() => handleFilterChange('condition', 'Used')} 
                               id="flexCheckDefault"
                             />
                             <label className="form-check-label" htmlFor="flexCheckChecked">
@@ -71,7 +71,7 @@ const FilterSideBar = ({ onFilterChange }) => {
                         <input className="form-check-input" type="checkbox"
                               value="Small"
                               name="Small" 
-                              onChange={() => handleFilterChange('Size','Small')} 
+                              onChange={() => handleFilterChange('size','Small')} 
                               id="flexCheckDefault"
                             />
                             <label className="form-check-label" htmlFor="flexCheckDefault">
@@ -82,7 +82,7 @@ const FilterSideBar = ({ onFilterChange }) => {
                         <input className="form-check-input" type="checkbox"
                               value="Small"
                               name="Small" 
-                              onChange={() => handleFilterChange('Size','Small')} 
+                              onChange={() => handleFilterChange('size','Small')} 
                               id="flexCheckDefault"
                             />
                             <label className="form-check-label" htmlFor="flexCheckChecked">
@@ -93,7 +93,7 @@ const FilterSideBar = ({ onFilterChange }) => {
                         <input className="form-check-input" type="checkbox"
                               value="Medium"
                               name="Medium"
-                              onChange={() => handleFilterChange('Size','Medium')} 
+                              onChange={() => handleFilterChange('size','Medium')} 
                               id="flexCheckDefault"
                             />
                             <label className="form-check-label" htmlFor="flexCheckChecked">
@@ -104,7 +104,7 @@ const FilterSideBar = ({ onFilterChange }) => {
                         <input className="form-check-input" type="checkbox"
                               value="Large"
                               name="Large" 
-                              onChange={() => handleFilterChange('Size','Large')} 
+                              onChange={() => handleFilterChange('size','Large')} 
                               id="flexCheckDefault"
                             />
                             <label className="form-check-label" htmlFor="flexCheckChecked">
@@ -115,7 +115,7 @@ const FilterSideBar = ({ onFilterChange }) => {
                         <input className="form-check-input" type="checkbox"
                               value="Extra Large"
                               name="Extra Large" 
-                              onChange={() => handleFilterChange('Size','Extra Large')} 
+                              onChange={() => handleFilterChange('size','Extra Large')} 
                               id="flexCheckDefault"
                             />
                             <label className="form-check-label" htmlFor="flexCheckChecked">
@@ -139,7 +139,7 @@ const FilterSideBar = ({ onFilterChange }) => {
                         <input className="form-check-input" type="checkbox"
                               value="Red"
                               name="Red" 
-                              onChange={() => handleFilterChange('Color','Red')} 
+                              onChange={() => handleFilterChange('color','Red')} 
                               id="flexCheckDefault"
                             />
                             <span className='small mb-0' style={{
@@ -154,7 +154,7 @@ const FilterSideBar = ({ onFilterChange }) => {
                         <input className="form-check-input" type="checkbox"
                                 value="Orange"
                                 name="Orange"
-                                onChange={() => handleFilterChange('Color','Orange')}
+                                onChange={() => handleFilterChange('color','Orange')}
                                 id="flexCheckDefault"
                             />
                             <span className='small mb-0' style={{
@@ -169,7 +169,7 @@ const FilterSideBar = ({ onFilterChange }) => {
                         <input className="form-check-input" type="checkbox"
                                 value="Yellow"
                                 name="Yellow"
-                                onChange={() => handleFilterChange('Color','Yellow')}
+                                onChange={() => handleFilterChange('color','Yellow')}
                                 id="flexCheckDefault"
                             />
                              <span className='small mb-0' style={{
@@ -184,7 +184,7 @@ const FilterSideBar = ({ onFilterChange }) => {
                         <input className="form-check-input" type="checkbox"
                                 value="Green"
                                 name="Green"
-                                onChange={() => handleFilterChange('Color','Green')}
+                                onChange={() => handleFilterChange('color','Green')}
                                 id="flexCheckDefault"
                             />
                             <span className='small mb-0' style={{
