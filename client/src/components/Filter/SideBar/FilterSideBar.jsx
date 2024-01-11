@@ -5,16 +5,13 @@ const FilterSideBar = ({ onFilterChange }) => {
     const [selectedFilters, setSelectedFilters] = useState(null)
 
     const handleFilterChange = (category, filter) => {
-        setSelectedFilters(filter)
-        onFilterChange(category, filter)
+        setSelectedFilters({ category, filter });
+        onFilterChange(category, filter);
     }
   
     const handleExpand = () => {
         setExpanded(!expanded)
     }
-
-
-ok
 
     return (
         <div className="FilterSideBar">
@@ -215,9 +212,9 @@ ok
                         </div>
                         <div className="form-check">
                         <input className="form-check-input" type="checkbox"
-                                value="Purple"
-                                name="Purple"
-                                onChange={() => handleFilterChange('Color', 'Purple')}
+                                value="Pink"
+                                name="Pink"
+                                onChange={() => handleFilterChange('Color', 'Pink')}
                                 id="flexCheckDefault"
                             />
                             <span className='small mb-0' style={{

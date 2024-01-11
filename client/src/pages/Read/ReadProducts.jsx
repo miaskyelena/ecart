@@ -11,10 +11,10 @@ import { Stack } from '@mui/material'
 import './ReadProducts.css'
 const ReadProducts = ( props ) => {
     const [listings, setListings] = useState([])
-    const [selectedFilter, setSelectedFilter] = useState(null)
+    const [selectedFilter, setSelectedFilter] = useState({ category: null, filter: null })
 
-    const handleFilterChange = (filter)  => {
-      setSelectedFilter(filter)
+    const handleFilterChange = (category, filter)  => {
+      setSelectedFilter({ category, filter })
     }
     
     const handleSort = (sortType) => {
@@ -38,6 +38,18 @@ const ReadProducts = ( props ) => {
     useEffect(() => {
         setListings(props.data)
     }, [props])
+
+    useEffect(() => {
+        let filteredListings = props.data;
+    
+        if (selectedFilter.category && selectedFilter.filter) {
+          filteredListings = filteredListings.filter(
+            (listing) => listing[selectedFilter.category] === selectedFilter.filter
+          );
+        }
+    
+        setListings(filteredListings);
+      }, [props, selectedFilter]);
 
     const [pageNumber, setPageNumber] = useState(0)
     const listingsPerPage = 9
@@ -71,6 +83,7 @@ const ReadProducts = ( props ) => {
 
                     </div>
                 </div>
+                { selectedFilter === }
                 <Col md={2}>
                     <FilterSideBar
                     onFilterChange={handleFilterChange}
