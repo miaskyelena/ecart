@@ -31,13 +31,13 @@ const HomePage = ( props ) => {
         <BannerImage />
         &nbsp;
         <CardCarousel
-        title='All products.'
+        title='Shop All Products'
         subtitle='Browse all products.'
         data={props.data}
         />
         <CardCarousel
-        title='Popular products.'
-        subtitle='Explore the most popular products.'
+        title='Shop Popular Products'
+        subtitle='Browse our most popular products.'
         data={[...props.data].sort((a, b) => b.likes - a.likes).slice(0, 10)}
         />
         <Footer />      
@@ -54,10 +54,9 @@ const HomePage = ( props ) => {
                     <div className="col-md-12"> 
                         <h2 className='text-left'
                         style={{
-                            fontFamily: 'Arial',
                             fontWeight: 'bold',
                         }}
-                        >Browse {selectedFilter}.</h2>
+                        >Shop {selectedFilter}.</h2>
                         <p className='text-left'
                         style={{
                             fontFamily: 'Arial',

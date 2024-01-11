@@ -11,6 +11,29 @@ import { Stack } from '@mui/material'
 import './ReadProducts.css'
 const ReadProducts = ( props ) => {
     const [listings, setListings] = useState([])
+    const [selectedFilter, setSelectedFilter] = useState(null)
+
+    const handleFilterChange = (filter)  => {
+      setSelectedFilter(filter)
+    }
+    
+    const handleSort = (sortType) => {
+        if (sortType === 'priceLowToHigh') {
+            setListings([...listings].sort((a, b) => a.price - b.price))
+        } else if (sortType === 'priceHighToLow') {
+            setListings([...listings].sort((a, b) => b.price - a.price))
+        }
+        else if (sortType === 'newest') {
+            setListings([...listings].sort((a, b) => b.id - a.id))
+        }
+        else if (sortType === 'oldest') {
+            setListings([...listings].sort((a, b) => a.id - b.id))
+        }
+    }
+
+    console.log(selectedFilter)
+
+  
 
     useEffect(() => {
         setListings(props.data)
@@ -26,16 +49,11 @@ const ReadProducts = ( props ) => {
 
     return (
         <div className="ReadProducts">
-            <SearchBar />
+            <SearchBar/>
             <div className="container">
                 <FilterBar />
                 <Row>
-                <Col md={2}>
-                    <FilterSideBar />
-                </Col>
-                <Col>
-                <SortBar />
-                <div className="mt-3 ps-5">
+                <div className="mt-3">
                 <div className='d-flex justify-content-between'>
                     <div><nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -45,13 +63,24 @@ const ReadProducts = ( props ) => {
                     </nav></div>
                     <p className='small text-muted'>Showing {listings.length} results</p>
                 </div>
-                    <div className="col-md-12 text-left">
-                        <h2 className='text-left'>All Listings</h2>
-                        <spam className='text-muted'>Have something to sell? <Link to='/create'>Create a listing.</Link></spam>
+                    <div className="d-flex justify-content-between">
+                        <div>
+                        <h1 className='text-left' style={{ fontWeight:'bold', fontFamily:'Arial'}}>All Listings</h1>
+                        <span className='text-muted'>Have something to sell? <Link to='/create'>Create a listing.</Link></span>
+                        </div>
+
                     </div>
                 </div>
+                <Col md={2}>
+                    <FilterSideBar
+                    onFilterChange={handleFilterChange}
+                     />
+                </Col>
+                <Col>
+                <SortBar
+                onSort={handleSort}
+                />
                 <div className="row mx-auto">
-               
                     {listings.slice(pagesVisited, pagesVisited + listingsPerPage).map((listing) => (
                         <div className="col-md-4 mb-3">
                             <Card

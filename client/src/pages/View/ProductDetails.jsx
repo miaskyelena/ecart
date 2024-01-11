@@ -29,7 +29,14 @@ const ProductDetails = () => {
     <>
     <SearchBar />
     <Container className='view-listing'>
-                        <Link to='/' className='text-muted ps-5'>Back to Home</Link>
+    <div className='ms-4'><nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/products">Products</a></li>
+                        <li className='breadcrumb-item active' aria-current="page">{product.category}</li>
+
+                    </ol>
+        </nav></div>
         <Row className='mt-5'>
             <Col className='mt-5 w-50 mb-5' xs={6} sm={4} md={6} lg={8} xl={8}>
                 <Card className=' mx-auto' style={
