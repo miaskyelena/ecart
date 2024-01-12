@@ -8,16 +8,48 @@ import FilterSideBar from '../../components/Filter/SideBar/FilterSideBar'
 import FilterBar from  '../../components/Filter/FilterBar/FilterBar'
 import SortBar from '../../components/Filter/SortBar/SortBar'
 import FilterBtnGroup from '../../components/Filter/FilterBtnGroup'
+import ListView from '../../components/Filter/SortBar/ListView'
 import { Stack } from '@mui/material'
 import './ReadProducts.css'
 const ReadProducts = ( props ) => {
     const [listings, setListings] = useState([])
-    const [selectedFilter, setSelectedFilter] = useState({ category: null, filter: null })
+    const [selectedCategory, setSelectedCategory] = useState(null)
+    const [selectedFilter, setSelectedFilter] = useState({
+        condition: '',
+        size: '',
+        color: '',
+        brand: ''
+      });
 
-    const handleFilterChange = (category, filter)  => {
-      setSelectedFilter({ category, filter })
+    const handleCategoryClick = (category) => {
+        setSelectedCategory(category)
     }
+
+    const handleFilterSelect = (filterCategory, filterValue) => {
+        setSelectedFilter(prevFilter => ({
+          ...prevFilter,
+          [filterCategory]: filterValue
+        }));
+      };
+
+    const productByCategory = selectedCategory ? props.data.filter((product) => product.category === selectedCategory) : props.data
+
+    useEffect(() => {
+        setListings(productByCategory)
+    }, [selectedCategory])
+
+    const filteredListings = listings.filter(listing => 
+        (!selectedFilter.condition || listing.condition === selectedFilter.condition) &&
+        (!selectedFilter.size || listing.size === selectedFilter.size) &&
+        (!selectedFilter.color || listing.color === selectedFilter.color)
+      );
+
+    useEffect(() => {
+        setListings(filteredListings)
+    }, [selectedFilter])
     
+    
+  
     const handleSort = (sortType) => {
         if (sortType === 'priceLowToHigh') {
             setListings([...listings].sort((a, b) => a.price - b.price))
@@ -32,15 +64,10 @@ const ReadProducts = ( props ) => {
         }
     }
 
-    console.log(selectedFilter)
-
-  
-
     useEffect(() => {
         setListings(props.data)
     }, [props])
 
-    console.log(listings)
 
     const [pageNumber, setPageNumber] = useState(0)
     const listingsPerPage = 9
@@ -59,33 +86,60 @@ const ReadProducts = ( props ) => {
                 <div className="mt-3">
                 <div className='d-flex justify-content-between'>
                     <div><nav aria-label="breadcrumb">
+                    { selectedCategory === null ?
+                    <>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Products</li>
                     </ol>
+                    </>
+                    :
+                    <>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item"><a href='/products'>Products</a></li>
+                        <li className='breadcrumb-item active' aria-current='page'>{selectedCategory}</li>
+                    </ol>
+                    </>
+                    }
+
                     </nav></div>
                     <p className='small text-muted'>Showing {listings.length} results</p>
                 </div>
                     <div className="d-flex justify-content-between">
                         <div>
+                        { selectedCategory === null ?
+                        <>
                         <h1 className='text-left' style={{ fontWeight:'bold', fontFamily:'Arial'}}>All Listings</h1>
+                        </>
+                        :
+                        <>
+                        <h1 className='text-left' style={{ fontWeight:'bold', fontFamily:'Arial'}}>All {selectedCategory}</h1>
+                        </>
+                        }
                         <span className='text-muted'>Have something to sell? <Link to='/create'>Create a listing.</Link></span>
                         </div>
-
+                        <div>
+                        <SortBar
+                        onSort={handleSort}
+                        />
+                        </div>
                     </div>
                 </div>
                 <Col md={2}>
                     <FilterSideBar
-                    onFilterChange={handleFilterChange}
+                    onCategorySelect={handleCategoryClick}
                      />
                 </Col>
                 <Col>
                 <div className="d-flex mt-4">
-                <FilterBtnGroup />
-                </div>
-                <SortBar
-                onSort={handleSort}
+                <FilterBtnGroup 
+                onFilterSelect={handleFilterSelect}
                 />
+                <ListView />
+                
+                </div>
+               
                 <div className="row mx-auto">
                     {listings.slice(pagesVisited, pagesVisited + listingsPerPage).map((listing) => (
                         <div className="col-md-4 mb-3">

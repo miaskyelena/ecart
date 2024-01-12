@@ -1,52 +1,72 @@
-import React, {useEffect} from 'react'
-import SearchBar from '../../components/Bar/SearchBar/SearchBar'
-import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
-import { Container, Row, Col, Card, Button, Form} from 'react-bootstrap'
+
+import React, { useState } from 'react';
+import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react';
+import SearchBar from '../../components/Bar/SearchBar/SearchBar';
 
 const UserDashboard = () => {
-    const user = useUser()
-    const supabase = useSupabaseClient()
+    const user = useUser();
+    const supabase = useSupabaseClient();
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [website, setWebsite] = useState('');
 
+    const handleUsernameChange = (event) => {
+        setUsername(event.target.value);
+    };
 
-  return (
-   <>
-    <SearchBar />
-    <Container>
-        <Row>
-           <h3 className='mt-5'>Welcome, {user?.email} </h3>
-           <Col>
-           <img src='https://img.freepik.com/premium-vector/avatar-icon002_750950-52.jpg?size=338&ext=jpg&ga=GA1.1.1412446893.1704672000&semt=ais'
-           alt='avatar'
-           placeholder='https://img.freepik.com/premium-vector/avatar-icon002_750950-52.jpg?size=338&ext=jpg&ga=GA1.1.1412446893.1704672000&semt=ais'
-            />
-           <input type='file' />
-              <Button>Upload</Button>
-           </Col>
-           <Col>
-            <Form>
-                <Form.Group className='mb-3' controlId='formBasicEmail'>
-                    <Form.Label>Username</Form.Label>&nbsp;
-                    <Form.Control type='text' placeholder='This is how your name will appear on your listings' />
-                </Form.Group>
-                <Form.Group className='mb-3' controlId='formBasicEmail'>
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control type='text' placeholder='' />
-                </Form.Group>
-                <Form.Group className='mb-3' controlId='formBasicEmail'>
-                    <Form.Label>Website</Form.Label>
-                    <Form.Control type='text' placeholder='Add a link to your website' />
-                </Form.Group>
-                
-                <Button variant='primary' type='submit'>
-                    Update
-                </Button>
-            </Form>
-            </Col>
+    const handleEmailChange = (event) => {
+        setEmail(event.target.value);
+    };
 
-        </Row>
-    </Container>
-   </>
-  )
-}
+    const handleWebsiteChange = (event) => {
+        setWebsite(event.target.value);
+    };
 
-export default UserDashboard
+    const handleSave = async () => {
+        // Save the user profile data to the database using supabase
+        // You can use supabase.client to interact with the database
+        // For example:
+        // const { data, error } = await supabase.client
+        //   .from('users')
+        //   .update({ username, email, website })
+        //   .eq('id', user.id);
+
+        // Handle success or error response
+    };
+
+    return (
+        <>
+        <SearchBar />
+        <div className="container">
+            <div className="row">
+                <div className="col-md-12">
+                    <h3 className="text-left">Welcome, {user?.email}</h3>
+                    <p className="text-left">Manage your profile settings.</p>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-md-6">
+                    <span>Profile Photo</span>
+                    <br/>
+                    <img src={user?.user_metadata.avatar_url} />
+                    
+
+                </div>
+                <div className="col-md-6">
+                    <span>Username </span><br />
+                    <input type="text" value={username} onChange={handleUsernameChange} /> <br />
+                    <span>Email</span> <br />
+                    <input type="text" value={email} onChange={handleEmailChange} /> <br />
+                    <span>Website</span> <br />
+                    <input type="text" value={website} onChange={handleWebsiteChange} /> <br />
+                    <button onClick={handleSave}>Save</button>
+                </div>
+            </div>
+        </div>
+        </>
+    
+    );
+};
+
+export default UserDashboard;
+

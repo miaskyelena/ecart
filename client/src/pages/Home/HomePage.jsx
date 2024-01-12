@@ -31,12 +31,17 @@ const HomePage = ( props ) => {
         <BannerImage />
         &nbsp;
         <CardCarousel
-        title='Shop All Products'
+        title='Your Recently Viewed Items'
         subtitle='Browse all products.'
         data={props.data}
         />
         <CardCarousel
-        title='Shop Popular Products'
+        title='Your Watched Items'
+        subtitle='Products you are watching.'
+        data={[...props.data].sort((a, b) => b.likes - a.likes).slice(0, 10)}
+        />
+         <CardCarousel
+        title='Explore Popular Products'
         subtitle='Browse our most popular products.'
         data={[...props.data].sort((a, b) => b.likes - a.likes).slice(0, 10)}
         />
@@ -52,11 +57,12 @@ const HomePage = ( props ) => {
         &nbsp;
         <div className="row">
                     <div className="col-md-12"> 
-                        <h2 className='text-left'
+                        <h3 className='text-left'
                         style={{
                             fontWeight: 'bold',
+                            fontFamily: 'Arial',
                         }}
-                        >Shop {selectedFilter}.</h2>
+                        >Shop {selectedFilter}</h3>
                         <p className='text-left'
                         style={{
                             fontFamily: 'Arial',
@@ -82,7 +88,7 @@ const HomePage = ( props ) => {
                 </div>
                 &nbsp;
         <CardCarousel
-        title='All products.'
+        title='All products'
         subtitle='Browse all products.'
         data={props.data}
         />
