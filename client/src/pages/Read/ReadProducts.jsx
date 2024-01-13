@@ -120,9 +120,7 @@ const ReadProducts = ( props ) => {
                         <span className='text-muted'>Have something to sell? <Link to='/create'>Create a listing.</Link></span>
                         </div>
                         <div>
-                        <SortBar
-                        onSort={handleSort}
-                        />
+                       
                         </div>
                     </div>
                 </div>
@@ -141,6 +139,9 @@ const ReadProducts = ( props ) => {
                 </div>
                
                 <div className="row mx-auto">
+                <SortBar
+                        onSort={handleSort}
+                        />
                     {listings.slice(pagesVisited, pagesVisited + listingsPerPage).map((listing) => (
                         <div className="col-md-4 mb-3">
                             <Card

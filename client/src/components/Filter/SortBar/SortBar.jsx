@@ -18,7 +18,7 @@ const SortBar = ({ onSort }) => {
 
 
   return (
-    <div className='d-flex justify-content-between'>
+    <div className='d-flex justify-content-end'>
       <div className="btn-group" role="group" aria-label="Filter buttons"/>
       <div className='btn-group'>
       <div class="dropdown">

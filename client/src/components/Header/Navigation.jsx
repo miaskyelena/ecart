@@ -36,8 +36,8 @@ const Navigation = () => {
         <Navbar.Brand href='/'className='ms-5 brand-title'>
         </Navbar.Brand>
         <Nav.Item className=' me-2'>
+        <span className='fi fi-us mt-1 ms-1'></span>&nbsp;
         Welcome, {user.email} 
-                    <span className='fi fi-us mt-1 ms-1'></span>
         </Nav.Item>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
