@@ -10,6 +10,7 @@ import ProductDetails from './pages/View/ProductDetails';
 import EditProduct from './pages/Update/EditProduct';
 import About from './pages/About/About';
 import UserDashboard from './pages/User/UserDashboard';
+import UserLikes from './pages/User/UserLikes';
 import supabase from './Client';
 const App = () => {
   
@@ -39,6 +40,7 @@ const App = () => {
         { path: '/edit/:id', element: <EditProduct /> },
         { path: '/about', element: <About /> },
         { path: '/user', element: <UserDashboard /> },
+        { path: '/user/likes', element: <UserLikes data={products}/> },
       ]
     }
   ]);

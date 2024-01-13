@@ -1,40 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
 import { Link } from 'react-router-dom';
 import './Card.css';
 
 const Card = (props) => {
     const [liked, setLiked] = useState(false);
     const [likeCount, setLikeCount] = useState(0);
-    const updateLikeCount = async () => {
-        const response = await fetch(`http://localhost:3001/products/${props.id}`, {
-            method: 'PATCH',
+    const user = useUser()
+
+    const handleLike = async (event) => {
+        event.preventDefault()
+        
+
+        setLiked(!liked)
+
+        const options = {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                likes: likeCount,
+                productId: props.id,
+                userEmail: user.email,
             }),
-        });
-        const data = await response.json();
-    }
-
-    const handleLike = () => {
-        if (!liked) {
-            setLiked(true);
-            setLikeCount(prevCount => {
-                const newCount = prevCount + 1;
-                updateLikeCount(newCount);
-                return newCount;
-            })
         }
-        setLiked(!liked);
+
+        const response = await fetch ('http://localhost:3001/user-likes', options)
+        const data = await response.json()
+
     }
 
-    useEffect(() => {
-        setLikeCount(likeCount);
-    }
-    , [likeCount])
+
 
     let randNum = Math.floor(Math.random() * 100);
     

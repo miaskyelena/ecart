@@ -21,7 +21,7 @@ const SearchBar = ({ onFilterSelect }) => {
         <Nav className=' search-bar-container me-2'>
           <DropdownFilter onFilterSelect={onFilterSelect} />
           <SearchInput />
-          <Nav.Link href='/products'>
+          <Nav.Link href='/user/likes'>
             <AiOutlineHeart size={25}/>
           </Nav.Link>
           <Nav.Link href='/user'>
