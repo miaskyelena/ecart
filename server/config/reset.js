@@ -10,6 +10,7 @@ const createProductsTable = async () => {
         CREATE TABLE IF NOT EXISTS products (
             id SERIAL PRIMARY KEY,
             title VARCHAR(255) NOT NULL,
+            brand VARCHAR(255) NOT NULL,
             size VARCHAR(255) NOT NULL,
             image VARCHAR(255) NOT NULL,
             description VARCHAR(655) NOT NULL,
@@ -59,11 +60,12 @@ const seedGiftsTable = async () => {
     
     productsData.forEach((product) => {
         const insertQuery = {
-        text: 'INSERT INTO products (title, size, image, description, condition, category, color, price, submittedBy, submittedOn) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)',
+        text: 'INSERT INTO products (title, brand, size, image, description, condition, category, color, price, submittedBy, submittedOn) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)',
         }
 
         const values = [
             product.title,
+            product.brand,
             product.size,
             product.image,
             product.description,
@@ -86,4 +88,3 @@ const seedGiftsTable = async () => {
 }
 
 seedGiftsTable();
-createUserLikesTable();

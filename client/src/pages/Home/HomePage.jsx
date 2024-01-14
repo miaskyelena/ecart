@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import { useUser } from '@supabase/auth-helpers-react'
 import BannerImage from '../../components/banner/BannerImage'
 import SellerBanner from '../../components/banner/SellerBanner'
 import SearchBar from '../../components/Bar/SearchBar/SearchBar'
@@ -8,9 +9,10 @@ import FilterBar from '../../components/Filter/FilterBar/FilterBar'
 import './HomePage.css'
 import Card from '../../components/Card/Card'
 const HomePage = ( props ) => {
-  
+  const user = useUser()
   const [selectedFilter, setSelectedFilter] = useState(null)
-
+  const [likes, setLikes] = useState([])
+  const [products, setProducts ] = useState([])
   const handleFilterSelect = (filter)  => {
     setSelectedFilter(filter)
   }
@@ -18,7 +20,30 @@ const HomePage = ( props ) => {
   console.log(selectedFilter)
 
   const productByCategory = selectedFilter ? props.data.filter((product) => product.category === selectedFilter) : props.data
-  console.log(productByCategory)
+
+  useEffect(() => {
+    setProducts(props.data)
+  }
+  , [props])
+
+  useEffect(() => {
+    const fetchLikes = async () => {
+        const response = await fetch(`http://localhost:3001/user-likes/${user.email}`)
+        const data = await response.json()
+        setLikes(data)
+    }
+    fetchLikes()
+  }
+  , [user])
+  
+  const likedProductIds = likes.map(like => like.productid)
+  const likedProducts = products.filter(product => likedProductIds.includes(product.id))
+
+
+
+
+
+  console.log(likedProductIds)
 
   return (
     <>
@@ -38,12 +63,7 @@ const HomePage = ( props ) => {
         <CardCarousel
         title='Your Watched Items'
         subtitle='Products you are watching.'
-        data={[...props.data].sort((a, b) => b.likes - a.likes).slice(0, 10)}
-        />
-         <CardCarousel
-        title='Explore Popular Products'
-        subtitle='Browse our most popular products.'
-        data={[...props.data].sort((a, b) => b.likes - a.likes).slice(0, 10)}
+        data={likedProducts}
         />
         <Footer />      
     </div>

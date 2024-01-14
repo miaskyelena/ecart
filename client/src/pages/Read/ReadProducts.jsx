@@ -15,6 +15,7 @@ import './ReadProducts.css'
 const ReadProducts = ( props ) => {
     const [listings, setListings] = useState([])
     const [selectedCategory, setSelectedCategory] = useState(null)
+    const [listView, setListView] = useState(false)
     const [selectedFilter, setSelectedFilter] = useState({
         condition: '',
         size: '',
@@ -69,6 +70,12 @@ const ReadProducts = ( props ) => {
         setListings(props.data)
     }, [props])
 
+    const handleListView = () => {
+        setListView(!listView)
+    }
+
+    console.log(listView)
+
 
     const [pageNumber, setPageNumber] = useState(0)
     const listingsPerPage = 9
@@ -121,7 +128,9 @@ const ReadProducts = ( props ) => {
                         <span className='text-muted'>Have something to sell? <Link to='/create'>Create a listing.</Link></span>
                         </div>
                         <div>
-                       
+                        <SortBar
+                        onSort={handleSort}
+                    />
                         </div>
                     </div>
                 </div>
@@ -135,14 +144,15 @@ const ReadProducts = ( props ) => {
                 <FilterBtnGroup 
                 onFilterSelect={handleFilterSelect}
                 />
-                <ListView />
+                <ListView
+                toggleListView={handleListView}
+                 />
                 
                 </div>
-               
-                <div className="row mx-auto">
-                <SortBar
-                        onSort={handleSort}
-                        />
+                <div className="row mx-auto mt-3">
+            
+                { listView === false ?
+                <>
                     {listings.slice(pagesVisited, pagesVisited + listingsPerPage).map((listing) => (
                         <div className="col-md-4 mb-3">
                             <Card
@@ -160,6 +170,29 @@ const ReadProducts = ( props ) => {
                             />
                         </div>
                     ))}
+                </>
+                :
+                <>
+                { listings.slice(pagesVisited, pagesVisited + listingsPerPage).map((listing) => (
+                    <div className="col-md-12 mb-3">
+                        <ListCard
+                        id={listing.id} 
+                        title={listing.title}
+                        brand={listing.brand}
+                        size={listing.size}
+                        image={listing.image}
+                        condition={listing.condition}
+                        category={listing.category}
+                        color={listing.color}
+                        price={listing.price}
+                        submittedby={listing.submittedby}
+                        submittedon={listing.submittedon}
+                        likes={listing.likes}
+                        />
+                    </div>
+                ))}
+                </>
+                }
                 </div>
                 </Col>
                 </Row>

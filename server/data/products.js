@@ -2,7 +2,8 @@ const productsData =
 [
     {
         "id": 1,
-        "title": "Victoria Victoria Beckham Printed Mini Dress w/ Tags",
+        "title": "Printed Mini Dress w/ Tags",
+        "brand": "Victoria Beckham",
         "size": " Small",
         "image":"https://product-images.therealreal.com/WVV30184_1_enlarged.jpg?width=1500",
         "description":"Step into the spotlight with the Victoria Victoria Beckham Printed Mini Dress. This small-sized dress, in pristine condition, boasts a captivating black hue and intricate prints. Adorned with tags, it adds a touch of contemporary flair to your wardrobe. Elevate your style effortlessly with this chic and versatile ensemble.",
@@ -15,7 +16,8 @@ const productsData =
     },
     {
         "id": 2,
-        "title": "Sarah Pacini Pleated Accents Pant Set",
+        "title": "Pleated Accents Pant Set",
+        "brand": "Sarah Pacini",
         "size": "Small",
         "image":"https://product-images.therealreal.com/WSARP22160_1_enlarged.jpg?width=1005",
         "description":"Indulge in sophistication with the Sarah Pacini Pleated Accents Pant Set. This small-sized ensemble, in pristine condition, showcases pleated details that add a touch of elegance. The black color exudes timeless charm, making it a must-have for your clothing collection. Unveil your unique style with this exquisite pant set.",
@@ -28,7 +30,8 @@ const productsData =
     },
     {
         "id": 3,
-        "title": "Manolo Blahnik Leather Slingback Sandals",
+        "title": "Leather Slingback Sandals",
+        "brand": "Manolo Blahnik",
         "size": "Medium",
         "image":"https://product-images.therealreal.com/MOO250617_1_enlarged.jpg?width=1500",
         "description":"Walk with confidence in the Manolo Blahnik Leather Slingback Sandals. This medium-sized pair, in pristine condition, offers a perfect blend of comfort and style. The black hue complements various outfits, while the slingback design adds a touch of sophistication. Step into luxury with these iconic sandals.",
@@ -41,7 +44,8 @@ const productsData =
     },
     {
         "id": 4,
-        "title": "Marni Plunge Neckline Sleeveless Blouse",
+        "title": "Plunge Neckline Sleeveless Blouse",
+        "brand": "Marni",
         "size": "Medium",
         "image":"https://product-images.therealreal.com/MAN201019_1_enlarged.jpg?width=1005",
         "description":"Make a statement with the Marni Plunge Neckline Sleeveless Blouse. This medium-sized blouse, in pristine condition, features a daring neckline that exudes confidence. The black color adds a touch of sophistication, making it a versatile piece for various occasions. Elevate your wardrobe with this timeless sleeveless blouse.",
@@ -55,6 +59,7 @@ const productsData =
     {
         "id": 5,
         "title": "Prada Tessuto Re-Edition 2000 Hobo",
+        "brand": "Prada",
         "size": "Medium",
         "image":"https://product-images.therealreal.com/PRA877512_1_enlarged.jpg?width=1500",
         "description":"Carry a piece of fashion history with the Prada Tessuto Re-Edition 2000 Hobo. This medium-sized bag, in pristine condition, showcases Prada's iconic design. The black hue adds a touch of sophistication, while the spacious interior ensures functionality. Embrace luxury with this re-edition hobo.",
@@ -67,7 +72,8 @@ const productsData =
     },
     {
         "id": 6,
-        "title": "Koos Van Den Akker Vintage Knee-Length Skirt",
+        "title": "Vintage Knee-Length Skirt",
+        "brand": "Koos Van Den Akker",
         "size": "Small",
         "image":"https://product-images.therealreal.com/KOOSC20563_1_enlarged.jpg?width=1005",
         "description":"Step back in time with the Koos Van Den Akker Vintage Knee-Length Skirt. This small-sized skirt, in pristine condition, features a unique vintage design. The black color adds a classic touch, making it a distinctive addition to your wardrobe. Showcase your individuality with this vintage-inspired skirt.",
@@ -81,6 +87,7 @@ const productsData =
     {
         "id": 7,
         "title": "D&G Vintage Midi Length Dress",
+        "brand": "Dolce & Gabbana",
         "size": "Medium",
         "image":"https://product-images.therealreal.com/WDG90654_1_enlarged.jpg?width=1005",
         "description":"Elevate your wardrobe with this enchanting Vintage Midi Length Dress from Dolce & Gabbana. With its classic black hue and timeless design, this dress is a versatile addition to any fashion-forward collection. The midi length adds an elegant touch, making it perfect for a variety of occasions.",
@@ -93,7 +100,8 @@ const productsData =
     },
     {
         "id": 8,
-        "title": "Anna Sui Vintage 1990's Sweater",
+        "title": "Vintage 1990's Sweater",
+        "brand": "Anna Sui",
         "size": "Medium",
         "image":"https://product-images.therealreal.com/ANA34704_1_enlarged.jpg?width=1005",
         "description":"Experience the charm of the Anna Sui Vintage 1990's Sweater. This medium-sized sweater, in pristine condition, captures the essence of 90s fashion. The black hue adds a touch of nostalgia, making it a standout piece in your collection. Stay cozy and stylish with this vintage-inspired sweater.",
@@ -106,7 +114,8 @@ const productsData =
     },
     {
         "id": 9,
-        "title": "Chloé Vintage Knee-Length Skirt",
+        "title": "Vintage Knee-Length Skirt",
+        "brand": "Chloé",
         "size": "Small",
         "image":"https://product-images.therealreal.com/CHL269367_1_enlarged.jpg?width=1005",
         "description":"Embrace timeless elegance with the Chloé Vintage Knee-Length Skirt. This small-sized skirt, in pristine condition, features a classic design that transcends trends. The black color adds versatility, making it a staple piece in your wardrobe. Elevate your style with this vintage-inspired knee-length skirt.",
@@ -119,7 +128,8 @@ const productsData =
     },
     {
         "id": 10,
-        "title": "Chanel Medium Trendy CC Flap Bag",
+        "title": "Medium Trendy CC Flap Bag",
+        "brand": "Chanel",
         "size": "Small",
         "image":"https://product-images.therealreal.com/CHA994409_1_enlarged.jpg",
         "description":"Elevate your accessory collection with the CHANEL Medium Trendy CC Flap Bag, a fusion of classic sophistication and modern allure. This medium-sized masterpiece features the unmistakable CC logo, a symbol of Chanel's legacy in the world of fashion.",
@@ -132,7 +142,8 @@ const productsData =
     },
     {
         "id": 11,
-        "title": "Étoile Isabel Marant Plaid Print Bateau Neckline Blouse",
+        "title": "Plaid Print Bateau Neckline Blouse",
+        "brand": "Isabel Marant",
         "size": "Small",
         "image":"https://product-images.therealreal.com/WET168939_1_enlarged.jpg",
         "description":"The Étoile Isabel Marant Plaid Print Bateau Neckline Blouse seamlessly blends casual elegance with a touch of Parisian charm. Featuring a classic plaid pattern and a flattering bateau neckline, this blouse is a versatile wardrobe staple that effortlessly combines style and comfort.",
@@ -145,7 +156,8 @@ const productsData =
     },
     {
         "id": 12,
-        "title": "M Missoni V-Neck Long Sleeve Crop Top",
+        "title": "V-Neck Long Sleeve Crop Top",
+        "brand": "Missoni",
         "size": "Medium",
         "image":"https://product-images.therealreal.com/WM4107619_1_enlarged.jpg",
         "description":"The M Missoni V-Neck Long Sleeve Crop Top is a chic and modern wardrobe essential. With its stylish V-neckline and cropped silhouette, this top effortlessly combines sophistication and trendiness, making it a versatile piece for both casual and dressy occasions.",
@@ -158,7 +170,8 @@ const productsData =
     },
     {
         "id": 13,
-        "title": "Cinq À Sept Wide Leg Pants",
+        "title": "Wide Leg Pants",
+        "brand": "Cinq À Sept",
         "size": "Medium",
         "image":"https://product-images.therealreal.com/WCINQ65585_1_enlarged.jpg",
         "description":"The Cinq À Sept Wide Leg Pants exude contemporary sophistication with their tailored design and relaxed wide-leg silhouette. Perfect for both professional and casual settings, these pants offer a versatile and fashionable option for any wardrobe, ensuring comfort and style throughout the day.",
@@ -171,7 +184,8 @@ const productsData =
     },
     {
         "id": 14,
-        "title": "Tory Burch Wide Leg Pants",
+        "title": "Wide Leg Pants",
+        "brand": "Tory Burch",
         "size": "Medium",
         "image":"https://product-images.therealreal.com/WTO611624_1_enlarged.jpg",
         "description":"Tory Burch Wide Leg Pants combine timeless elegance with modern comfort. Crafted from high-quality materials, these pants feature a wide-leg silhouette that effortlessly transitions from day to night, offering a versatile and sophisticated addition to your wardrobe.",
@@ -184,7 +198,8 @@ const productsData =
     },
     {
         "id": 15,
-        "title": "Diane Von Furstenberg Silk Wide Leg Pants",
+        "title": "Silk Wide Leg Pants",
+        "brand": "Diane Von Furstenberg",
         "size": "Small",
         "image":"https://product-images.therealreal.com/WDI465951_1_enlarged.jpg",
         "description":"The M Missoni V-Neck Long Sleeve Crop Top is a chic and modern wardrobe essential. With its stylish V-neckline and cropped silhouette, this top effortlessly combines sophistication and trendiness, making it a versatile piece for both casual and dressy occasions.",
@@ -197,7 +212,8 @@ const productsData =
     },
     {
         "id": 16,
-        "title": "Salvatore Ferragamo Leather Bow Accents Ballet Flats",
+        "title": "Leather Bow Accents Ballet Flats",
+        "brand": "Salvatore Ferragamo",
         "size": "Medium",
         "image":"https://product-images.therealreal.com/SAL334569_1_enlarged.jpg",
         "description":"Step into timeless charm with Salvatore Ferragamo Leather Bow Accents Ballet Flats. Crafted from luxurious leather, these flats showcase a delicate bow detail, combining classic femininity with everyday comfort, making them a perfect choice for both casual and dressy occasions.",
@@ -210,7 +226,8 @@ const productsData =
     },
     {
         "id": 17,
-        "title": "Salvatore Ferragamo Suede Pumps",
+        "title": "Leather Suede Pumps",
+        "brand": "Salvatore Ferragamo",
         "size": "Small",
         "image":"https://product-images.therealreal.com/SAL334788_1_enlarged.jpg",
         "description":"Elevate your style with Salvatore Ferragamo Suede Red Pumps. These luxurious pumps, crafted from sumptuous suede, add a bold and sophisticated touch to your wardrobe. With their striking red hue and iconic Ferragamo craftsmanship, these heels effortlessly blend glamour and elegance for a statement look that commands attention.",
@@ -223,7 +240,8 @@ const productsData =
     },
     {
         "id": 18,
-        "title": "Reformation Square Neckline Mini Dress",
+        "title": "Square Neckline Mini Dress",
+        "brand": "Reformation",
         "size": "Large",
         "image":"https://product-images.therealreal.com/WRFMN158009_1_enlarged.jpg",
         "description":"The Reformation Square Neckline Mini Dress is a chic and flirty wardrobe staple. With its square neckline and mini length, this dress exudes modern femininity, while the sustainable and eco-friendly materials showcase Reformation's commitment to both style and environmental responsibility, making it a go-to choice for fashion-conscious individuals.",

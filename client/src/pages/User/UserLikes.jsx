@@ -82,10 +82,10 @@ const UserLikes = ( props ) => {
                 key={product.id}
                 id={product.id}
                 title={product.title}
+                brand={product.brand}
                 price={product.price}
                 image={product.image}
                 category={product.category}
-                description={product.description}
                 size={product.size}
                 submittedby={product.submittedby}
                 submittedon={product.submittedon}

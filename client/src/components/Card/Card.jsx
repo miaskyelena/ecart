@@ -7,6 +7,7 @@ import './Card.css';
 const Card = (props) => {
     const [liked, setLiked] = useState(false);
     const [likeCount, setLikeCount] = useState(0);
+    const [likes, setLikes] = useState([])
     const user = useUser()
 
     const handleLike = async (event) => {
@@ -31,7 +32,34 @@ const Card = (props) => {
 
     }
 
+    useEffect(() => {
+        const fetchLikes = async () => {
+            const response = await fetch(`http://localhost:3001/user-likes/${user.email}`)
+            const data = await response.json()
+            setLikes(data)
+        }
+        fetchLikes()
+    }
+    , [user])
 
+    const likedProductIds = likes.map(like => like.productid)
+    const isLiked = likedProductIds.includes(props.id)
+
+    const handleUnlike = async (event) => {
+        event.preventDefault()
+        const productId = event.target.id;
+        const userEmail = user.email;
+    
+        const response = await fetch (`http://localhost:3001/user-likes/${userEmail}/${productId}`, {
+            method: 'DELETE',
+        });
+    
+        if (response.ok) {
+            // Handle success
+        } else {
+            // Handle error
+        }
+    }
 
     let randNum = Math.floor(Math.random() * 100);
     
@@ -46,7 +74,7 @@ const Card = (props) => {
                     </p>
                 </span>
                 <span>
-                {liked ? <AiFillHeart size={25} onClick={handleLike} className='heart-icon' color='red' /> : <AiOutlineHeart size={25} onClick={handleLike} className='heart-icon' />}
+                {isLiked ? <AiFillHeart size={25} onClick={handleLike} className='heart-icon' color='red' /> : <AiOutlineHeart size={25} onClick={handleLike} className='heart-icon' />}
                 </span>
             </div>
             <img src={props.image} className='card-img-top' style={{ height: '210px', objectFit: 'contain' }} alt='...' />

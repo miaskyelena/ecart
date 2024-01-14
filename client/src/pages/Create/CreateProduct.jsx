@@ -15,6 +15,7 @@ const CreateListing = () => {
     const [newProduct, setNewProduct] = useState({
         id: 0,
         title: '',
+        brand: '',
         size: '',
         color: '',
         condition: '',
@@ -95,6 +96,7 @@ const CreateListing = () => {
                 <input className='form-control' type='text-muted' id='title' name='title' value={newProduct.title} onChange={handleChange} placeholder='Title' required />
                 <br />
                 <div className='d-flex justify-content-between'>
+                <input className='form-control' type='text-muted' id='brand' name='brand' value={newProduct.brand} onChange={handleChange} placeholder='Brand' /> &nbsp;
                 <select
                 className='form-control text-muted'
                 name='size'
@@ -214,7 +216,7 @@ const CreateListing = () => {
                     type='text' 
                     name='image'
                     id='image'
-                    value={newProduct.image}
+                    value={newProduct?.image}
                     placeholder='Image url'
                     onChange={handleChange}
                     required

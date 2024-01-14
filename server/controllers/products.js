@@ -12,7 +12,7 @@ const getProducts = async (req, res) => {
 const getProductById = async (req, res) => {
     try { 
         const productId = req.params.productId;
-        const selectQuery = `SELECT title, size, image, description, condition, category, color, price, submittedBy, submittedOn FROM products WHERE id = ${productId}`;
+        const selectQuery = `SELECT title, brand, size, image, description, condition, category, color, price, submittedBy, submittedOn FROM products WHERE id = ${productId}`;
         const results = await pool.query(selectQuery);
 
         res.status(200).json(results.rows[0]);
@@ -23,12 +23,12 @@ const getProductById = async (req, res) => {
 
 const createProduct = async (req, res) => {
     try { 
-        const { title, size, image, description, condition, category, color, price, submittedby, submittedon } = req.body;
+        const { title, brand, size, image, description, condition, category, color, price, submittedby, submittedon } = req.body;
         const results = await pool.query(`
-            INSERT INTO products (title, size, image, description, condition, category, color, price, submittedby, submittedon)
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+            INSERT INTO products (title, brand, size, image, description, condition, category, color, price, submittedby, submittedon)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
             RETURNING *`,
-            [title, size, image, description, condition, category, color, price, submittedby, submittedon]
+            [title, brand, size, image, description, condition, category, color, price, submittedby, submittedon]
             )
         res.status(201).json(results.rows[0]);
     } catch (error) {
@@ -39,10 +39,10 @@ const createProduct = async (req, res) => {
 const updateProduct = async (req, res) => {
     try {
         const id = parseInt(req.params.id)
-        const { title, size, image, description, condition, category, color, price, submittedby, submittedon} = req.body;
+        const { title, brand, size, image, description, condition, category, color, price, submittedby, submittedon} = req.body;
         const results = await pool.query(`
-            UPDATE products SET title = $1, size = $2, image = $3, description = $4, condition = $5, category = $6, color = $7, price = $8, submittedby = $9, submittedon = $10 WHERE id = $11`,
-            [title, size, image, description, condition, category, color, price, submittedby, submittedon, id]
+            UPDATE products SET title = $1, size = $2, image = $3, description = $4, condition = $5, category = $6, color = $7, price = $8, submittedby = $9, submittedon = $10, brand = $11 WHERE id = $12`,
+            [title, brand, size, image, description, condition, category, color, price, submittedby, submittedon, id]
             )
         res.status(200).json(results.rows[0]);
     } catch (error) {

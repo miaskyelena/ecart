@@ -8,7 +8,7 @@ const ListView = ({ toggleListView }) => {
 
     const handleView = () => {
         setListView(!listView)
-        toggleListView(listView)
+        toggleListView(!listView)
     }
 
   return (
