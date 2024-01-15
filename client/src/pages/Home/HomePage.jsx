@@ -23,25 +23,21 @@ const HomePage = ( props ) => {
 
   useEffect(() => {
     setProducts(props.data)
+
+    const fetchLikes = async () => {
+      const response = await fetch(`http://localhost:3001/user-likes/${user.email}`)
+      const data = await response.json()
+      setLikes(data)
   }
+  fetchLikes()
+  }
+  
   , [props])
 
-  useEffect(() => {
-    const fetchLikes = async () => {
-        const response = await fetch(`http://localhost:3001/user-likes/${user.email}`)
-        const data = await response.json()
-        setLikes(data)
-    }
-    fetchLikes()
-  }
-  , [user])
-  
   const likedProductIds = likes.map(like => like.productid)
   const likedProducts = products.filter(product => likedProductIds.includes(product.id))
 
-
-
-
+  
 
   console.log(likedProductIds)
 

@@ -91,7 +91,7 @@ const ListCard = ( props ) => {
                             >{props.title}</h6>
                             </Link>
                         </div>
-                            <p className='card-text' style={{ fontWeight: 'bolder', fontSize: '25px'}}>${props.price}.00</p>
+                            <p className='card-text' style={{ fontFamily: 'Arial', fontWeight: 'bold', fontSize: '20px'}}>${props.price}.00</p>
                             { props.description ? 
                             <>
                             <p className='card-text'>{props.description}</p>

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react';
 import SearchBar from '../../components/Bar/SearchBar/SearchBar';
+import { Container, Row, Col, Button, Form, Card } from 'react-bootstrap';
 
 const UserDashboard = () => {
     const user = useUser();
@@ -37,32 +38,48 @@ const UserDashboard = () => {
     return (
         <>
         <SearchBar />
-        <div className="container">
-            <div className="row">
-                <div className="col-md-12">
-                    <h3 className="text-left">Welcome, {user?.email}</h3>
-                    <p className="text-left">Manage your profile settings.</p>
-                </div>
-            </div>
-            <div className="row">
-                <div className="col-md-6">
-                    <span>Profile Photo</span>
-                    <br/>
-                    <img src={user?.user_metadata.avatar_url} />
-                    
+        <Container>
+            <Row>
+                <Col>
+                    <Card>
+                        <Card.Header>Profile</Card.Header>
+                        <Card.Img variant="top" src={user?.user_metadata.avatar_url} style={
+                            {
+                                height: '200px',
+                                width: '200px',
+                                objectFit: 'contain',
+                                objectPosition: 'center',
+                            }
+                        }/>
+                        <Card.Body>
+                            <Card.Title>{user?.user_metadata.full_name}</Card.Title>
+                            <Form>
+                                <Form.Group className="mb-3" controlId="formUsername">
+                                    <Form.Label>Username</Form.Label>
+                                    <Form.Control type="text" placeholder="Enter username" value={username} onChange={handleUsernameChange} />
+                                </Form.Group>
 
-                </div>
-                <div className="col-md-6">
-                    <span>Username </span><br />
-                    <input type="text" value={username} onChange={handleUsernameChange} /> <br />
-                    <span>Email</span> <br />
-                    <input type="text" value={email} onChange={handleEmailChange} /> <br />
-                    <span>Website</span> <br />
-                    <input type="text" value={website} onChange={handleWebsiteChange} /> <br />
-                    <button onClick={handleSave}>Save</button>
-                </div>
-            </div>
-        </div>
+                                <Form.Group className="mb-3" controlId="formEmail">
+                                    <Form.Label>Email address</Form.Label>
+                                    <Form.Control type="email" placeholder="Enter email" value={email} onChange={handleEmailChange} />
+                                </Form.Group>
+
+                                <Form.Group className="mb-3" controlId="formWebsite">
+                                    <Form.Label>Website</Form.Label>
+                                    <Form.Control type="text" placeholder="Enter website" value={website} onChange={handleWebsiteChange} />
+                                </Form.Group>
+
+                                <Button variant="primary" type="submit" onClick={handleSave}>
+                                    Save
+                                </Button>
+                            </Form>
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </Row>
+        </Container>
+
+        
         </>
     
     );
