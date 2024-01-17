@@ -78,7 +78,7 @@ const ReadProducts = ( props ) => {
 
 
     const [pageNumber, setPageNumber] = useState(0)
-    const listingsPerPage = 9
+    const listingsPerPage = 12
     const pagesVisited = pageNumber * listingsPerPage
     const pageCount = Math.ceil(listings.length / listingsPerPage)
     const changePage = ({ selected }) => {
@@ -149,10 +149,12 @@ const ReadProducts = ( props ) => {
                 { listView === false ?
                 <>
                     {listings.slice(pagesVisited, pagesVisited + listingsPerPage).map((listing) => (
-                        <div className="col-md-4 mb-3">
+                        <div className="col-md-3 mb-3">
                             <Card
                             id={listing.id} 
                             title={listing.title}
+                            brand={listing.brand}
+                            description={listing.description}
                             size={listing.size}
                             image={listing.image}
                             condition={listing.condition}
@@ -191,6 +193,7 @@ const ReadProducts = ( props ) => {
                 </div>
                 </Col>
                 </Row>
+                <div className="d-flex justify-content-center mt-4">
                 <ReactPaginate
                     className='react-paginate'
                     previousLabel={"Previous"}
@@ -203,6 +206,7 @@ const ReadProducts = ( props ) => {
                     disabledClassName={"paginationDisabled"}
                     activeClassName={"paginationActive"}
                 />
+                </div>
              
             </div>
         </div>

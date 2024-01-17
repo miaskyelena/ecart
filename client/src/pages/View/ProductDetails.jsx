@@ -98,6 +98,9 @@ const ProductDetails = () => {
                     <p className='small text-muted'>+ Shipping</p>
                 </div>
                 <br />
+                <Button variant='dark' className='w-100'>Add to Cart</Button>
+                <br />
+                <br />
                 <h5 className='text-dark'>Description</h5>
                 <p className='small text-muted'>{product.description}</p>
                 <div className='d-flex justify-content-between'>
@@ -136,7 +139,7 @@ const ProductDetails = () => {
                     </>
                     :
                     <>
-                    <Button variant='dark' className='w-50'>Add to Cart</Button>
+                   
                     &nbsp;
                     <Link to={`/edit/${id}`} className='w-50'>
                         <Button variant='outline-primary' className='w-100'>
