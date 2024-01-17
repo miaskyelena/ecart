@@ -91,8 +91,8 @@ const ReadProducts = ( props ) => {
             <div className="container">
                 <FilterBar />
                 <Row>
-                <div className="mt-3">
-                <div className='d-flex justify-content-between'>
+                <div className="mt-3 ">
+                <div className='d-flex justify-content-center'>
                     <div><nav aria-label="breadcrumb">
                     { selectedCategory === null ?
                     <>
@@ -112,26 +112,21 @@ const ReadProducts = ( props ) => {
                     }
 
                     </nav></div>
-                    <p className='small text-muted'>Showing {listings.length} results</p>
                 </div>
-                    <div className="d-flex justify-content-between">
+                    <div className="d-flex justify-content-center">
                         <div>
                         { selectedCategory === null ?
                         <>
-                        <h1 className='text-left' style={{ fontWeight:'bold', fontFamily:'Arial'}}>All Listings</h1>
+                        <h1 className='ms-5' style={{ fontWeight:'bold', fontFamily:'Arial'}}>All Listings</h1>
                         </>
                         :
                         <>
-                        <h1 className='text-left' style={{ fontWeight:'bold', fontFamily:'Arial'}}>All {selectedCategory}</h1>
+                        <h1 className='ms-5' style={{ fontWeight:'bold', fontFamily:'Arial'}}>All {selectedCategory}</h1>
                         </>
                         }
-                        <span className='text-muted'>Have something to sell? <Link to='/create'>Create a listing.</Link></span>
+                        <span className='text-muted ms-4'>Have something to sell? <Link to='/create'>Create a listing.</Link></span>
                         </div>
-                        <div>
-                        <SortBar
-                        onSort={handleSort}
-                    />
-                        </div>
+                        
                     </div>
                 </div>
                 <Col md={2}>

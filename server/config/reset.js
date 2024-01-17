@@ -88,3 +88,4 @@ const seedGiftsTable = async () => {
 }
 
 seedGiftsTable();
+createUserLikesTable();
