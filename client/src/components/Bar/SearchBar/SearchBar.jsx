@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useShoppingCart } from '../../../context/CartContext'
 import { Navbar, Nav, Button } from 'react-bootstrap'
 import { BiUserCircle } from 'react-icons/bi'
 import { AiOutlineShoppingCart, AiOutlineHeart } from 'react-icons/ai'
@@ -13,6 +14,7 @@ import './SearchBar.css'
 const SearchBar = ({ onFilterSelect }) => {
   const user = useUser()
   const supabase = useSupabaseClient()
+  const { cart, isOpen, toggleCart } = useShoppingCart();
 
  
   return (
@@ -31,7 +33,7 @@ const SearchBar = ({ onFilterSelect }) => {
             sx={{ width: 25, height: 25 }}
             /> }
           </Nav.Link>
-          <Nav.Link href='/'>
+          <Nav.Link onClick={toggleCart}>
             <Badge badgeContent={4} color="primary">
               <AiOutlineShoppingCart size={25}/>
             </Badge>

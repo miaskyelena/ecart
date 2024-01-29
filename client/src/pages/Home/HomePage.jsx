@@ -44,7 +44,7 @@ const HomePage = ( props ) => {
   return (
     <>
     { selectedFilter === null ?
-    <div className="container-md">
+    <div className="container-lg">
       <SearchBar 
       onFilterSelect={handleFilterSelect}
       />
@@ -53,7 +53,7 @@ const HomePage = ( props ) => {
         &nbsp;
         <CardCarousel
         title='Your Recently Viewed Items'
-        subtitle='Browse your recently viewed items.'
+        subtitle='Browse  your recently viewed items.'
         data={props.data}
         />
         <Footer />      
