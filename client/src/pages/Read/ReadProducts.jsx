@@ -88,11 +88,11 @@ const ReadProducts = ( props ) => {
     return (
         <div className="ReadProducts">
             <SearchBar/>
-            <div className="container">
+            <div className="container-lg">
                 <FilterBar />
                 <Row>
                 <div className="mt-3 ">
-                <div className='d-flex justify-content-center'>
+                <div className='d-flex justify-content-between'>
                     <div><nav aria-label="breadcrumb">
                     { selectedCategory === null ?
                     <>
@@ -112,19 +112,22 @@ const ReadProducts = ( props ) => {
                     }
 
                     </nav></div>
+                    <div>
+                    <span className='text-muted'>Showing {listings.length} results</span>
+                    </div>
                 </div>
                     <div className="d-flex justify-content-center">
                         <div>
                         { selectedCategory === null ?
                         <>
-                        <h1 className='ms-5' style={{ fontWeight:'bold', fontFamily:'Arial'}}>All Listings</h1>
+                        <h2 className='ms-5 ps-5' style={{ fontWeight:'bold', fontFamily:'Arial'}}>All Listings</h2>
                         </>
                         :
                         <>
-                        <h1 className='ms-5' style={{ fontWeight:'bold', fontFamily:'Arial'}}>All {selectedCategory}</h1>
+                        <h2 className='ms-5 ps-5' style={{ fontWeight:'bold', fontFamily:'Arial'}}>{selectedCategory}</h2>
                         </>
                         }
-                        <span className='text-muted ms-4'>Have something to sell? <Link to='/create'>Create a listing.</Link></span>
+                        <span className='text-muted ms-2'>Have something to sell? <Link to='/create'>Create a new listing here.</Link></span>
                         </div>
                         
                     </div>
@@ -149,7 +152,7 @@ const ReadProducts = ( props ) => {
                 { listView === false ?
                 <>
                     {listings.slice(pagesVisited, pagesVisited + listingsPerPage).map((listing) => (
-                        <div className="col-md-3 mb-3">
+                        <div className="col-md-4 mb-3">
                             <Card
                             id={listing.id} 
                             title={listing.title}

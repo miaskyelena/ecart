@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'; 
 import { useRoutes } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { CartProvider } from './context/CartContext';
 import Layout from './routes/Layout';
 import LoginPage from './pages/Login/LoginPage';
 import HomePage from './pages/Home/HomePage';
@@ -48,7 +49,9 @@ const App = () => {
  
   return (
     <div className="App">
-      {element}
+      <CartProvider>
+        {element}
+      </CartProvider>
     </div>
   );
 }
