@@ -57,11 +57,6 @@ const HomePage = ( props ) => {
         data={props.data}
         />
         <div style={{marginTop: '-50px'}}>
-        <CardCarousel
-        title='Your Watched Items'
-        subtitle='Products you are watching.'
-        data={likedProducts}
-        />
         </div>
         <Footer />      
     </div>
