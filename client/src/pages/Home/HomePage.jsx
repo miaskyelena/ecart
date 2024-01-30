@@ -52,8 +52,8 @@ const HomePage = ( props ) => {
         <BannerImage />
         &nbsp;
         <CardCarousel
-        title='Your Recently Viewed Items'
-        subtitle='Browse  your recently viewed items.'
+        title='Explore Our Latest Arrivals'
+        subtitle='eCart makes it easy to shop top luxury brands sustainably. Browse hundreds of new arrivals every week.'
         data={props.data}
         />
         <Footer />      

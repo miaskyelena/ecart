@@ -1,26 +1,43 @@
 import { Button, Stack } from "react-bootstrap";
 import { useShoppingCart } from "../../context/CartContext";
+import formatCurrency from "../../utilities/formatCurrency";
 import React from 'react'
 
-const CartItem = () => {
+const CartItem = ({ product }) => {
+    const { removeFromCart, cart } = useShoppingCart();
+
+    const handleRemoveFromCart = () => {
+        removeFromCart(product.id)
+    }
+
+    const productInCart = cart.find(product => product.id === product.id)
+    const quantity = productInCart ? productInCart.quantity : 0
+
   return (
     <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
         <img
-        src="https://via.placeholder.com/150"
-        style={{ width: "125px", height: "75px", objectFit: "cover" }}
+        src={product.image}
+        style={{ width: "125px", height: "75px", objectFit: "contain" }}
         ></img>
         <div className="me-auto">
             <div>
-                name{" "}
-                <span className="text-muted" style={{ fontSize: ".65rem" }}>x1</span>
+                {product.brand}
+                {" "}
+                <span className="text-muted" style={{ fontSize: ".65rem" }}>x{quantity}</span>
             </div>
-            <div className="text-muted" style={{ fontSize: ".75rem" }}>price</div>
+            <div className="text-muted" style={{ fontSize: ".75rem" }}>
+                {formatCurrency(product.price)}
+            </div>
         </div>
-        <div> 
-            $100.00
+        <div className="text-bold"> 
+            {formatCurrency(product.price * quantity)}
         </div>
-        <Button variant="outline-danger" size="sm"> 
-            Remove
+        <Button 
+        variant="outline-danger" 
+        size="sm"
+        onClick={handleRemoveFromCart}
+        > 
+            &times;
         </Button>
     </Stack>
   )

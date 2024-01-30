@@ -34,7 +34,7 @@ const SearchBar = ({ onFilterSelect }) => {
             /> }
           </Nav.Link>
           <Nav.Link onClick={toggleCart}>
-            <Badge badgeContent={4} color="primary">
+            <Badge badgeContent={cart.length} color="primary">
               <AiOutlineShoppingCart size={25}/>
             </Badge>
           </Nav.Link>         

@@ -142,6 +142,9 @@ const ReadProducts = ( props ) => {
                 <FilterBtnGroup 
                 onFilterSelect={handleFilterSelect}
                 />
+                <SortBar
+                onSort={handleSort}
+                />
                 <ListView
                 toggleListView={handleListView}
                  />

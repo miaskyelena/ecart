@@ -8,8 +8,14 @@
     color: black;
 }
 
-.card{
+.brand{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+}
 
+.card-title{
+  font-size: 14px;
 }
 
 .card a:hover{

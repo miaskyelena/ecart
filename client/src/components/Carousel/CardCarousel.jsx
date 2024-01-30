@@ -26,7 +26,7 @@ const CardCarousel = ({ data, title, subtitle }) => {
                 </div>
                 <div className="row">
                     <div className="col-md-12">
-                        <OwlCarousel className='owl-theme' loop margin={10} nav
+                        <OwlCarousel className='owl-theme'margin={10} nav
                         responsive={{
                             0: {
                                 items: 1,
@@ -43,6 +43,7 @@ const CardCarousel = ({ data, title, subtitle }) => {
                                 <Card
                                 id={item.id}
                                 key={index}
+                                brand={item.brand}
                                 title={item.title}
                                 description={item.description}
                                 price={item.price}

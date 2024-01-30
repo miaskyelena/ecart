@@ -4,12 +4,29 @@ import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
-
+import { useShoppingCart } from '../../context/CartContext';
+import formatBrand from '../../utilities/formatBrand';
+import formatCurrency from '../../utilities/formatCurrency';
+import './Card.css';
 const ListCard = ( props ) => {
     const [liked, setLiked] = useState(false);
     const [likeCount, setLikeCount] = useState(0);
     const [likes, setLikes] = useState([])
     const user = useUser()
+
+    const { addToCart, cart, removeFromCart } = useShoppingCart();
+
+    const productInCart = cart.find(product => product.id === props.id)
+    const quantity = productInCart ? productInCart.quantity : 0
+
+    const handleAddToCart = () => {
+        addToCart(props)
+    }
+
+    const handleRemoveFromCart = () => {
+        removeFromCart(props)
+    }
+
 
     const handleLike = async (event) => {
         event.preventDefault()
@@ -70,7 +87,9 @@ const ListCard = ( props ) => {
         <div className='row'>
         <div className='col-12'>
         <Stack>
-            <Card key={props.id} className='mb-3' >
+            <Card key={props.id}
+            style={{ width: '100%', border: 'none', boxShadow: 'none' }}
+            >
                 <div className='row g-0 mt-3 mb-3'>
                     <div className='d-flex justify-content-end align-items-end' style={
                         {position: 'absolute', marginLeft: '-1rem'}
@@ -83,41 +102,56 @@ const ListCard = ( props ) => {
                     <div className='col-md-9 mx-auto'>
                         <div className='card-body'>
                         <span className='small text-muted'>in {props.category}</span>
-                        <h4>{props.brand}</h4>
+                        <h4 className='brand'>
+                            {formatBrand(props.brand)}
+                        </h4>
                         <div className='d-flex justify-content-between'>
                             <Link to={`/products/${props.id}`} className='text-decoration-none'>
-                            <h6 className='card-title'
-                           
-                            >{props.title}</h6>
+                            <h6 className='card-title'>{props.title}</h6>
                             </Link>
                         </div>
-                            <p className='card-text' style={{ fontFamily: 'Arial', fontWeight: 'bold', fontSize: '20px'}}>${props.price}.00</p>
-                            { props.description ? 
-                            <>
-                            <p className='card-text'>{props.description}</p>
-                            </>
-                            : null
-                            }
+                            <p className='card-text' style={{ fontFamily: 'Arial', fontWeight: 'bold', fontSize: '20px'}}>
+                                {formatCurrency(props.price)}
+                            </p>
+
                             <div className='d-flex justify-content-between'>
                             <span className='small'> Size {props.size}</span>
                             <span className='small'> In Stock</span>
                             </div>
                             <div className='d-flex justify-content-between'>
                             <span className='small mb-0'>Condition {props.condition}</span>
-                            <button className='btn btn-outline-dark'>Add to cart</button>
-                            </div>
-
-
-              
+                            <div className='d-flex justify-content-center align-items-center'>
+                    { quantity === 0 ? 
+                    <>
+                    <p className='small text-muted mb-0'> 
+                     <button 
+                     className='btn btn-sm btn-outline-secondary'
+                     onClick={handleAddToCart}
+                     >Add to cart</button></p>
+                    </>
+                    :
+                    <>
+                    <div className='d-flex align-items-center flex-column' style={{gap: ".5rem"}}>
+                        <div className='d-flex align-items-center justify-content-center' style={{gap: ".5rem"}}>
+                             <button className='btn btn-sm btn-outline-secondary'>-</button>
+                             <div>
+                                <span className='small'>{quantity}  in cart</span>
+                             </div>
+                             <button 
+                             className='btn btn-sm btn-outline-secondary'
+                             onClick={handleAddToCart}
+                             >+</button>
+                        </div>
+                        <button variant='danger'
+                        className='btn btn-sm btn-outline-danger'
+                        onClick={handleRemoveFromCart}
+                        >Remove</button>
                     </div>
-                    </div>
+                    </> 
+                     }
                 </div>
-                            
-                <div className='card-footer'>
-                    
-                    <div className='d-flex justify-content-between'>
-                    <small className='text-muted'>Sold by {props.submittedby}</small>
-                    <small className='text-muted'>Posted {props.submittedon}</small>
+                            </div>
+                    </div>
                     </div>
                 </div>
             </Card>
