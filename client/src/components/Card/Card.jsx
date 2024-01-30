@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
+import { useShoppingCart } from '../../context/CartContext';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import formatBrand from '../../utilities/formatBrand';
+import formatCurrency from '../../utilities/formatCurrency';
 import './Card.css';
 
 const Card = (props) => {
@@ -10,11 +13,22 @@ const Card = (props) => {
     const [likeCount, setLikeCount] = useState(0);
     const [likes, setLikes] = useState([])
     const user = useUser()
-    const quantity = 1
+
+    const { addToCart, removeFromCart, cart } = useShoppingCart();
+
+    const handleAddToCart = () => {
+        addToCart(props)
+    }
+
+    const handleRemoveFromCart = () => {
+        removeFromCart(props)
+    }
+
+    const productInCart = cart.find(product => product.id === props.id)
+    const quantity = productInCart ? productInCart.quantity : 0
 
     const handleLike = async (event) => {
         event.preventDefault()
-        
 
         setLiked(!liked)
 
@@ -77,22 +91,28 @@ const Card = (props) => {
                     </p>
                 </span>
                 <span>
-                {isLiked ? <AiFillHeart size={25} onClick={handleLike} className='heart-icon' color='red' /> : <AiOutlineHeart size={25} onClick={handleLike} className='heart-icon' />}
+                {liked  ? <AiFillHeart size={25} onClick={handleLike} className='heart-icon' color='red' /> : <AiOutlineHeart size={25} onClick={handleLike} className='heart-icon' />}
                 </span>
             </div>
             <img src={props.image} className='card-img-top' style={{ height: '210px', objectFit: 'contain' }} alt='...' />
             <div className='card-body'>
                 <div className='d-flex justify-content-center align-items-center'>
-                    <p className='small mb-0' style={
-                        {fontSize: '0.9rem', fontFamily: 'Arial', 
-                    }
-                    }>{props.brand}</p>
+                <span className='brand'>
+                    {formatBrand(props.brand)}
+                </span>
                 </div>
-                <div className='d-flex justify-content-center' style={{ textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap', display: 'block', direction: 'ltr'}}> {/* Decreased spacing */}
+                <div className='d-flex justify-content-center' style={{ textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'no-wrap', display: 'block', direction: 'ltr'}}> {/* Decreased spacing */}
                     <div className='d-flex justify-content-center align-items-center'>
                         <Link to={`/products/${props.id}`}>
                             <h6 className='mb-0 card-title'>
-                                <span style={{ textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap', display: 'block' }}>
+                                <span style={{ 
+                                    textOverflow: 'ellipsis',
+                                    overflow: 'hidden',
+                                    whiteSpace: 'nowrap',
+                                    display: 'block',
+                                    direction: 'ltr',
+                                    }}
+                                    >
                                     {props.title}
                                 </span>
                             </h6>
@@ -106,12 +126,18 @@ const Card = (props) => {
                     <p className='small text-muted mb-0'>Condition: {props.condition}</p>
                 </div>
                 <div className='d-flex justify-content-center align-items-center'>
-                    <p className='small text-dark mb-0'>${props.price}.00</p>
+                    <p className='small text-dark mb-0'>
+                        {formatCurrency(props.price)}
+                    </p>
                 </div>
                 <div className='d-flex justify-content-center align-items-center'>
                     { quantity === 0 ? 
                     <>
-                    <p className='small text-muted mb-0'>  <button className='btn btn-sm btn-outline-secondary'>Add to cart</button></p>
+                    <p className='small text-muted mb-0'> 
+                     <button 
+                     className='btn btn-sm btn-outline-secondary'
+                     onClick={handleAddToCart}
+                     >Add to cart</button></p>
                     </>
                     :
                     <>
@@ -121,9 +147,15 @@ const Card = (props) => {
                              <div>
                                 <span className='small'>{quantity}  in cart</span>
                              </div>
-                             <button className='btn btn-sm btn-outline-secondary'>+</button>
+                             <button 
+                             className='btn btn-sm btn-outline-secondary'
+                             onClick={handleAddToCart}
+                             >+</button>
                         </div>
-                        <button variant='danger' className='btn btn-sm btn-outline-danger'>Remove</button>
+                        <button variant='danger'
+                        className='btn btn-sm btn-outline-danger'
+                        onClick={handleRemoveFromCart}
+                        >Remove</button>
                     </div>
                     </> 
                      }

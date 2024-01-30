@@ -3,7 +3,9 @@ import { useParams, Link } from 'react-router-dom'
 import { Container, Row, Col, Button, Card } from 'react-bootstrap'
 import { AiFillHeart, AiOutlineHeart, AiOutlineForm } from 'react-icons/ai'
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
+import { useShoppingCart } from '../../context/CartContext'
 import SearchBar from '../../components/bar/Searchbar/SearchBar'
+import formatCurrency from '../../utilities/formatCurrency'
 
 const ProductDetails = () => {
     const [product, setProduct] = useState([])
@@ -12,6 +14,11 @@ const ProductDetails = () => {
     const { id } = useParams()
     const user = useUser()
     const supabase = useSupabaseClient()
+    const { addToCart } = useShoppingCart()
+
+    const handleAddToCart = () => {
+        addToCart(product)
+    }
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -94,11 +101,19 @@ const ProductDetails = () => {
                             fontSize: '1.5rem',
                             fontWeight: 'bold',
                         }
-                    }>${product.price} </h4>
+                    }>
+                        {formatCurrency(product.price)}
+                    </h4>
                     <p className='small text-muted'>+ Shipping</p>
                 </div>
                 <br />
-                <Button variant='dark' className='w-100'>Add to Cart</Button>
+                <Button 
+                variant='dark' 
+                className='w-100'
+                onClick={() => handleAddToCart(product)}
+                >
+                    Add to Cart
+                </Button>
                 <br />
                 <br />
                 <h5 className='text-dark'>Description</h5>
@@ -131,11 +146,8 @@ const ProductDetails = () => {
                 <div className='d-flex justify-content-between mt-5'>
                     { user == null ? 
                     <>
-                    <Link to='/login' className='w-100'>
-                        <Button variant='dark' className='w-100'>
-                            Add to Cart
-                        </Button>
-                    </Link>
+                    
+
                     </>
                     :
                     <>

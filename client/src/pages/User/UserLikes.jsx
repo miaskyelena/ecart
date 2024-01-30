@@ -5,6 +5,7 @@ import Stack from '@mui/joy/Stack';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
 import ListCard from '../../components/Card/ListCard';
 
 const UserLikes = ( props ) => {
@@ -12,6 +13,7 @@ const UserLikes = ( props ) => {
     const [products, setProducts] = useState([]);
     const [likes, setLikes] = useState([]);
     const [liked, setLiked] = useState(true);
+    const navigate = useNavigate();
 
     useState(() => {
         setLiked(false)
@@ -59,6 +61,16 @@ const UserLikes = ( props ) => {
     return (
         <>
         <SearchBar />
+        { user === null ? 
+        <>
+        <div className='container'>
+            <h2> 
+                <span className='small text-muted'>You must be logged in to view this page.</span>
+            </h2>
+        </div>
+        </>
+        :
+        <>
         <div className='container'>
             <div className='row'>
                 <div className='col-12 mt-3 mb-3'>
@@ -92,8 +104,10 @@ const UserLikes = ( props ) => {
                 />
             ))}
         </div>
-        
         </>
+        }
+        </>
+
     )
 }
 
