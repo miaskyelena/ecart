@@ -113,24 +113,26 @@ const ReadProducts = ( props ) => {
 
                     </nav></div>
                     <div>
-                    <span className='text-muted'>Showing {listings.length} results</span>
                     </div>
+                    <span className='text-muted' >Selling? <Link to='/create'>Create a new listing here.</Link></span>
                 </div>
-                    <div className="d-flex justify-content-center">
-                        <div>
+                    <div className="d-flex justify-content-center mt-5">
+                        <div className=''>
                         { selectedCategory === null ?
                         <>
-                        <h2 className='ms-5 ps-5' style={{ fontWeight:'bold', fontFamily:'Arial'}}>All Listings</h2>
+                        <h2 style={{ fontFamily:'Arial'}}>All Listings</h2>
                         </>
                         :
                         <>
-                        <h2 className='ms-5 ps-5' style={{ fontWeight:'bold', fontFamily:'Arial'}}>{selectedCategory}</h2>
+                        <h2  style={{ fontFamily:'Arial'}}>Designer {selectedCategory}</h2>
                         </>
                         }
-                        <span className='text-muted ms-2'>Have something to sell? <Link to='/create'>Create a new listing here.</Link></span>
-                        </div>
                         
+                        </div>                        
                     </div>
+                    <div className='d-flex justify-content-center'>
+                        <span className='text-muted'>Showing {listings.length} results</span>
+                        </div>
                 </div>
                 <Col md={2}>
                     <FilterSideBar
@@ -150,12 +152,13 @@ const ReadProducts = ( props ) => {
                  />
                 
                 </div>
+                
                 <div className="row mx-auto mt-3">
             
                 { listView === false ?
                 <>
                     {listings.slice(pagesVisited, pagesVisited + listingsPerPage).map((listing) => (
-                        <div className="col-md-4 mb-3">
+                        <div className="col-md-3 mb-3">
                             <Card
                             id={listing.id} 
                             title={listing.title}

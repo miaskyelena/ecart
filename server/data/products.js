@@ -2,7 +2,7 @@ const productsData =
 [
     {
         "id": 1,
-        "title": "Printed Mini Dress w/ Tags",
+        "title": "Printed Mini Dress",
         "brand": "Victoria Beckham",
         "size": " Small",
         "image":"https://product-images.therealreal.com/WVV30184_1_enlarged.jpg?width=1500",
@@ -16,7 +16,7 @@ const productsData =
     },
     {
         "id": 2,
-        "title": "Pleated Accents Pant Set",
+        "title": "Pleated Pant Set",
         "brand": "Sarah Pacini",
         "size": "Small",
         "image":"https://product-images.therealreal.com/WSARP22160_1_enlarged.jpg?width=1005",
@@ -30,7 +30,7 @@ const productsData =
     },
     {
         "id": 3,
-        "title": "Leather Slingback Sandals",
+        "title": "Slingback Sandals",
         "brand": "Manolo Blahnik",
         "size": "Medium",
         "image":"https://product-images.therealreal.com/MOO250617_1_enlarged.jpg?width=1500",
@@ -44,7 +44,7 @@ const productsData =
     },
     {
         "id": 4,
-        "title": "Plunge Neckline Sleeveless Blouse",
+        "title": "Sleeveless Blouse",
         "brand": "Marni",
         "size": "Medium",
         "image":"https://product-images.therealreal.com/MAN201019_1_enlarged.jpg?width=1005",
@@ -58,7 +58,7 @@ const productsData =
     },
     {
         "id": 5,
-        "title": "Prada Tessuto Re-Edition 2000 Hobo",
+        "title": "Re-Edition Hobo",
         "brand": "Prada",
         "size": "Medium",
         "image":"https://product-images.therealreal.com/PRA877512_1_enlarged.jpg?width=1500",
@@ -72,7 +72,7 @@ const productsData =
     },
     {
         "id": 6,
-        "title": "Vintage Knee-Length Skirt",
+        "title": "Midi Skirt",
         "brand": "Koos Van Den Akker",
         "size": "Small",
         "image":"https://product-images.therealreal.com/KOOSC20563_1_enlarged.jpg?width=1005",
@@ -86,7 +86,7 @@ const productsData =
     },
     {
         "id": 7,
-        "title": "D&G Vintage Midi Length Dress",
+        "title": "Midi Dress",
         "brand": "Dolce & Gabbana",
         "size": "Medium",
         "image":"https://product-images.therealreal.com/WDG90654_1_enlarged.jpg?width=1005",
@@ -100,7 +100,7 @@ const productsData =
     },
     {
         "id": 8,
-        "title": "Vintage 1990's Sweater",
+        "title": "1990's Sweater",
         "brand": "Anna Sui",
         "size": "Medium",
         "image":"https://product-images.therealreal.com/ANA34704_1_enlarged.jpg?width=1005",
@@ -114,7 +114,7 @@ const productsData =
     },
     {
         "id": 9,
-        "title": "Vintage Knee-Length Skirt",
+        "title": "Midi Skirt",
         "brand": "Chloé",
         "size": "Small",
         "image":"https://product-images.therealreal.com/CHL269367_1_enlarged.jpg?width=1005",
@@ -128,7 +128,7 @@ const productsData =
     },
     {
         "id": 10,
-        "title": "Medium Trendy CC Flap Bag",
+        "title": "CC Flap Bag",
         "brand": "Chanel",
         "size": "Small",
         "image":"https://product-images.therealreal.com/CHA994409_1_enlarged.jpg",
@@ -142,7 +142,7 @@ const productsData =
     },
     {
         "id": 11,
-        "title": "Plaid Print Bateau Neckline Blouse",
+        "title": "Plaid Blouse",
         "brand": "Isabel Marant",
         "size": "Small",
         "image":"https://product-images.therealreal.com/WET168939_1_enlarged.jpg",
@@ -156,7 +156,7 @@ const productsData =
     },
     {
         "id": 12,
-        "title": "V-Neck Long Sleeve Crop Top",
+        "title": "V-Neck Crop Top",
         "brand": "Missoni",
         "size": "Medium",
         "image":"https://product-images.therealreal.com/WM4107619_1_enlarged.jpg",
@@ -198,7 +198,7 @@ const productsData =
     },
     {
         "id": 15,
-        "title": "Silk Wide Leg Pants",
+        "title": "Wide Leg Pants",
         "brand": "Diane Von Furstenberg",
         "size": "Small",
         "image":"https://product-images.therealreal.com/WDI465951_1_enlarged.jpg",
@@ -212,7 +212,7 @@ const productsData =
     },
     {
         "id": 16,
-        "title": "Leather Bow Accents Ballet Flats",
+        "title": "Ballet Flats",
         "brand": "Salvatore Ferragamo",
         "size": "Medium",
         "image":"https://product-images.therealreal.com/SAL334569_1_enlarged.jpg",
@@ -240,7 +240,7 @@ const productsData =
     },
     {
         "id": 18,
-        "title": "Square Neckline Mini Dress",
+        "title": "Mini Dress",
         "brand": "Reformation",
         "size": "Large",
         "image":"https://product-images.therealreal.com/WRFMN158009_1_enlarged.jpg",

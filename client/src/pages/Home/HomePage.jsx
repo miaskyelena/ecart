@@ -53,7 +53,7 @@ const HomePage = ( props ) => {
         &nbsp;
         <CardCarousel
         title='Explore Our Latest Arrivals'
-        subtitle='eCart makes it easy to shop top luxury brands sustainably. Browse hundreds of new arrivals every week.'
+        subtitle='Browse Hundreds Of Pre-Loved Luxury Arrivals Every Week.'
         data={props.data}
         />
         <Footer />      

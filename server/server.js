@@ -3,6 +3,7 @@ import './config/dotenv.js'
 import cors from 'cors'
 import ProductsRouter from './routes/products.js'
 import UserLikesRouter from './routes/UserLikes.js'
+import ProductLikesRouter from './routes/ProductLikes.js'
 
 const app = express()
 
@@ -11,6 +12,7 @@ app.use(express.json())
 
 app.use('/products', ProductsRouter)
 app.use('/user-likes', UserLikesRouter)
+app.use('/product-likes', ProductLikesRouter)
 
 app.get('/', (req, res) => {
     res.status(200).send('Welcome to the eCart API')

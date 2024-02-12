@@ -22,7 +22,7 @@ export function CartProvider({ children }) {
             return [...prev, { ...product, quantity: 1 }];
         });
     }
-
+ 
     const removeFromCart = (id) => {
         setCart((prev) => {
             const product = prev.find((item) => item.id === id);

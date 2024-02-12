@@ -52,9 +52,27 @@ const createUserLikesTable = async () => {
     }
 }
 
-    
+const createProductLikesTable = async () => {
+    const createTableQuery = `
+        DROP TABLE IF EXISTS ProductLikes;
 
-const seedGiftsTable = async () => {
+        CREATE TABLE IF NOT EXISTS ProductLikes (
+            productId INTEGER NOT NULL,
+            likes INTEGER NOT NULL,
+            PRIMARY KEY (productId),
+            FOREIGN KEY (productId) REFERENCES products (id)
+        );
+    `
+    try {
+        await pool.query(createTableQuery);
+        console.log('ProductLikes table created successfully');
+    }
+    catch (error) {
+        console.log('Error: ', error);
+    }
+}
+
+const seedProductsTable = async () => {
     await createProductsTable();
 
     
@@ -87,5 +105,6 @@ const seedGiftsTable = async () => {
     })
 }
 
-seedGiftsTable();
+seedProductsTable();
 createUserLikesTable();
+createProductLikesTable();

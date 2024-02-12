@@ -61,23 +61,26 @@ const Card = (props) => {
     const likedProductIds = likes.map(like => like.productid)
     const isLiked = likedProductIds.includes(props.id)
 
-    const handleUnlike = async (event) => {
-        event.preventDefault()
-        const productId = event.target.id;
-        const userEmail = user.email;
     
-        const response = await fetch (`http://localhost:3001/user-likes/${userEmail}/${productId}`, {
-            method: 'DELETE',
-        });
-    
-        if (response.ok) {
-            // Handle success
-        } else {
-            // Handle error
-        }
-    }
+    //increment like count
+    const incrementLikeCount = async () => {
+        const response = await fetch(`http://localhost:3001/product-likes/${props.id}`, { method: 'PUT' })
+        const data = await response.json()
+        setLikeCount(data.likes + 1)
 
-    let randNum = Math.floor(Math.random() * 100);
+    }
+       
+
+    //fetch Product likes, setLikeCount
+    useEffect(() => {
+        const fetchProductLikes = async () => {
+            const response = await fetch(`http://localhost:3001/product-likes/${props.id}`)
+            const data = await response.json()
+            setLikeCount(data.length)
+        }
+        fetchProductLikes()
+    }, [props.id])
+
 
 
     
@@ -87,32 +90,41 @@ const Card = (props) => {
             <div className='heart-icon-container d-flex justify-content-end align-items-end me-2 mb-2 mt-2'>
                 <span>
                     <p className='text-muted mb-0'>
+                        {likeCount}
+                    </p>
+                </span>
+                <span>
+                    <p className='text-muted mb-0'>
                         {props.likes}
                     </p>
                 </span>
                 <span>
-                {liked  ? <AiFillHeart size={25} onClick={handleLike} className='heart-icon' color='red' /> : <AiOutlineHeart size={25} onClick={handleLike} className='heart-icon' />}
+                {liked  ? <AiFillHeart size={25} className='heart-icon' color='red' /> : <AiOutlineHeart size={25} onClick={
+                    incrementLikeCount
+                } className='heart-icon' />}
                 </span>
             </div>
-            <img src={props.image} className='card-img-top' style={{ height: '210px', objectFit: 'contain' }} alt='...' />
+            <img src={props.image} className='card-img-top' style={{ height: '250px', objectFit: 'contain' }} alt='...' />
             <div className='card-body'>
-                <div className='d-flex justify-content-center align-items-center'>
+                <div className='d-flex justify-content-center align-items-center' style={
+                    { 
+                        textOverflow: 'ellipsis',
+                        overflow: 'hidden',
+                        whiteSpace: 'nowrap',
+                        display: 'block',
+                        direction: 'ltr',
+                    }
+                
+                }>
                 <span className='brand'>
                     {formatBrand(props.brand)}
                 </span>
                 </div>
-                <div className='d-flex justify-content-center' style={{ textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'no-wrap', display: 'block', direction: 'ltr'}}> {/* Decreased spacing */}
+                <div className='d-flex justify-content-center' style={{ textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap', display: 'block'}}> {/* Decreased spacing */}
                     <div className='d-flex justify-content-center align-items-center'>
                         <Link to={`/products/${props.id}`}>
                             <h6 className='mb-0 card-title'>
-                                <span style={{ 
-                                    textOverflow: 'ellipsis',
-                                    overflow: 'hidden',
-                                    whiteSpace: 'nowrap',
-                                    display: 'block',
-                                    direction: 'ltr',
-                                    }}
-                                    >
+                                <span>
                                     {props.title}
                                 </span>
                             </h6>
@@ -122,7 +134,7 @@ const Card = (props) => {
                 <div className='d-flex justify-content-center align-items-center'>
                     <p className='small text-muted mb-0'>Size: {props.size}</p>
                 </div>
-                <div className='d-flex justify-content-center align-items-center'>
+                <div className='d-flex justify-content-center align-items-center' style={{ textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap', display: 'block'}}> {/* Decreased spacing */}
                     <p className='small text-muted mb-0'>Condition: {props.condition}</p>
                 </div>
                 <div className='d-flex justify-content-center align-items-center'>
