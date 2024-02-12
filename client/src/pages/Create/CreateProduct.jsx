@@ -104,7 +104,7 @@ const CreateListing = () => {
                 value={newProduct.size}
                 onChange={handleChange}
                 >
-                    <option value=''>Select a size</option>
+                    <option value=''>Size</option>
                     <option value='Small'>Small</option>
                     <option value='Medium'>Medium</option>
                     <option value='Large'>Large</option>
@@ -119,7 +119,7 @@ const CreateListing = () => {
                 onChange={handleChange}
                 required
                 >
-                    <option value=''>Select a color</option>
+                    <option value=''>Color</option>
                     <option value='Red'>Red</option>
                     <option value='Orange'>Orange</option>
                     <option value='Yellow'>Yellow</option>
