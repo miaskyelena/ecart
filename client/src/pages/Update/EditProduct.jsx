@@ -1,7 +1,7 @@
 import React, {useEffect, useState}from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { Container, Row, Col, Card, Button, Form} from 'react-bootstrap'
-import SearchBar from '../../components/bar/searchbar/SearchBar.jsx'
+import SearchBar from '../../components/Bar/Search/SearchBar.jsx'
 const EditProduct = () => {
     const [loading, setLoading] = useState(true)
     const [liked, setLiked] = useState(false)

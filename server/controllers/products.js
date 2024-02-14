@@ -12,7 +12,7 @@ const getProducts = async (req, res) => {
 const getProductById = async (req, res) => {
     try { 
         const productId = req.params.productId;
-        const selectQuery = `SELECT title, brand, size, image, description, condition, category, color, price, submittedBy, submittedOn FROM products WHERE id = ${productId}`;
+        const selectQuery = `SELECT title, brand, size, image, description, condition, category, color, price, num_likes, submittedBy, submittedOn FROM products WHERE id = ${productId}`;
         const results = await pool.query(selectQuery);
 
         res.status(200).json(results.rows[0]);
@@ -23,12 +23,12 @@ const getProductById = async (req, res) => {
 
 const createProduct = async (req, res) => {
     try { 
-        const { title, brand, size, image, description, condition, category, color, price, submittedby, submittedon } = req.body;
+        const { title, brand, size, image, description, condition, category, color, price, num_likes, submittedby, submittedon } = req.body;
         const results = await pool.query(`
-            INSERT INTO products (title, brand, size, image, description, condition, category, color, price, submittedby, submittedon)
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
+            INSERT INTO products (title, brand, size, image, description, condition, category, color, price, num_likes, submittedby, submittedon)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
             RETURNING *`,
-            [title, brand, size, image, description, condition, category, color, price, submittedby, submittedon]
+            [title, brand, size, image, description, condition, category, color, price, num_likes, submittedby, submittedon]
             )
         res.status(201).json(results.rows[0]);
     } catch (error) {
@@ -50,20 +50,6 @@ const updateProduct = async (req, res) => {
     }
 }
 
-const updateProductLikes = async (req, res) => {
-    try {
-        const id = parseInt(req.params.id)
-        const { likes } = req.body;
-        const results = await pool.query(`
-            UPDATE products SET likes = $1 WHERE id = $2`,
-            [likes, id]
-            )
-        res.status(200).json(results.rows[0]);
-    } catch (error) {
-        res.status(409).json({ error: error.message })
-    }
-}
-
 const deleteProduct = async (req, res) => {
     try { 
         const id = parseInt(req.params.id)
@@ -74,12 +60,41 @@ const deleteProduct = async (req, res) => {
     }
 }
 
+const incrementProductLikes = async (req, res) => {
+    const productId = req.params.productId;
+
+    try {
+        // Increment num_likes in Products
+        await pool.query('UPDATE products SET num_likes = num_likes + 1 WHERE id = $1', [productId]);
+
+        // Get the updated number of likes
+        const result = await pool.query('SELECT num_likes FROM products WHERE id = $1', [productId]);
+        res.json({ likes: result.rows[0]?.num_likes || 0 });
+    } catch (error) {
+        res.status(500).json({ error: error.toString() });
+    }
+};
+
+const getProductLikes = async (req, res) => {
+    const productId = req.params.productId;
+
+    try {
+        const result = await pool.query('SELECT num_likes FROM products WHERE id = $1', [productId]);
+        res.json({ likes: result.rows[0]?.num_likes || 0 });
+    }
+    catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+
+}
+
 export default {
     getProducts,
     getProductById,
     createProduct,
     updateProduct,
     deleteProduct,
-    updateProductLikes
+    incrementProductLikes,
+    getProductLikes,
 }
 

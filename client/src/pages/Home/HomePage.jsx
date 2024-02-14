@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { useUser } from '@supabase/auth-helpers-react'
 import BannerImage from '../../components/banner/BannerImage'
 import SellerBanner from '../../components/banner/SellerBanner'
-import SearchBar from '../../components/Bar/SearchBar/SearchBar'
+import SearchBar from '../../components/Bar/Search/SearchBar'
 import CardCarousel from '../../components/Carousel/CardCarousel'
 import Footer from '../../components/footer/Footer'
 import FilterBar from '../../components/Filter/FilterBar/FilterBar'
@@ -17,31 +17,14 @@ const HomePage = ( props ) => {
     setSelectedFilter(filter)
   }
 
-  console.log(selectedFilter)
-
   const productByCategory = selectedFilter ? props.data.filter((product) => product.category === selectedFilter) : props.data
-
-  useEffect(() => {
-    setProducts(props.data)
-
-    const fetchLikes = async () => {
-      const response = await fetch(`http://localhost:3001/user-likes/${user.email}`)
-      const data = await response.json()
-      setLikes(data)
-  }
-  fetchLikes()
-  }
   
-  , [props])
+  //filter props data by products with the most likes
+  const sortedData = React.useMemo(() => {
+    return [...props.data].sort((a, b) => b.num_likes - a.num_likes);
+    }, [props.data]);
 
-  const likedProductIds = likes.map(like => like.productid)
-  const likedProducts = products.filter(product => likedProductIds.includes(product.id))
-
-  
-
-  console.log(likedProductIds)
-
-  return (
+return (
     <>
     { selectedFilter === null ?
     <div className="container-lg">
@@ -53,8 +36,13 @@ const HomePage = ( props ) => {
         &nbsp;
         <CardCarousel
         title='Explore Our Latest Arrivals'
-        subtitle='Browse Hundreds Of Pre-Loved Luxury Arrivals Every Week.'
+        subtitle='Browse the latest in pre-owned luxury fashion.'
         data={props.data}
+        />
+        <CardCarousel
+        title='Explore Most Popular'
+        subtitle='Browse  pieces favorited by our community.'
+        data={sortedData}
         />
         <Footer />      
     </div>

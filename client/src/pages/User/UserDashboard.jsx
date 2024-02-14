@@ -1,15 +1,17 @@
 
 import React, { useState } from 'react';
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react';
-import SearchBar from '../../components/Bar/SearchBar/SearchBar';
+import SearchBar from '../../components/Bar/Search/SearchBar';
 import { Container, Row, Col, Button, Form, Card } from 'react-bootstrap';
-
+import "./UserDashboard.css"
 const UserDashboard = () => {
     const user = useUser();
     const supabase = useSupabaseClient();
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [website, setWebsite] = useState('');
+
+    console.log(user)
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
@@ -38,7 +40,23 @@ const UserDashboard = () => {
     return (
         <>
         <SearchBar />
-        <Container>
+        <div className='coming-soon'>
+        <h1 className='text-left'>
+            User Dashboard Coming Soon 🫶 
+        </h1>
+        <h3 className='text-left'>
+            Users Will Be Able To:
+        </h3>
+        <ul>
+            <li> ✨ Update profile username</li>
+            <li> ✨ Update profile email</li>
+            <li> ✨ Update profile website</li>
+            <li> ✨Change user Avatar</li>
+            <li> ✨View user selling products</li>
+        </ul>
+
+        </div>
+        <Container className='w-50 ms-5'>
             <Row>
                 <Col>
                     <Card>

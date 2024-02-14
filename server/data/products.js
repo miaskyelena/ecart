@@ -11,6 +11,7 @@ const productsData =
         "category":"Dresses",
         "color":"Tan",
         "price": 65.00,
+        "num_likes": 0,
         "submittedBy": "admin",
         "submittedOn": "2022-09-04T14:48:00"
     },
@@ -25,6 +26,7 @@ const productsData =
         "category":"Pants",
         "color":"Tan",
         "price": 80.00,
+        "num_likes": 0,
         "submittedBy": "admin",
         "submittedOn": "2022-09-04T14:48:00"
     },
@@ -39,6 +41,7 @@ const productsData =
         "category":"Shoes",
         "color":"Black",
         "price": 195.00,
+        "num_likes": 0,
         "submittedBy": "admin",
         "submittedOn": "2022-09-04T14:48:00"
     },
@@ -53,6 +56,7 @@ const productsData =
         "category":"Tops",
         "color":"Tan",
         "price": 115.00,
+        "num_likes": 0,
         "submittedBy": "Sarah P.",
         "submittedOn":"2022-09-04T14:48:00"
     },
@@ -67,6 +71,7 @@ const productsData =
         "category":"Handbags",
         "color":"Tan",
         "price": 2000.00,
+        "num_likes": 0,
         "submittedBy": "Jane M.",
         "submittedOn":"2022-09-13T11:01:00"
     },
@@ -81,6 +86,7 @@ const productsData =
         "category":"Skirts",
         "color":"Red",
         "price": 85.00,
+        "num_likes": 0,
         "submittedBy": "Mary P.",
         "submittedOn":"2023-03-10T05:23:00"
     },
@@ -95,6 +101,7 @@ const productsData =
         "category": "Dresses",
         "color":"Black",
         "price": 195.00,
+        "num_likes": 0,
         "submittedBy": "Vittoria C.",
         "submittedOn":"2011-10-10T14:48:00"
     },
@@ -109,6 +116,7 @@ const productsData =
         "category":"Sweaters",
         "color":"Black",
         "price": 75.00,
+        "num_likes": 0,
         "submittedBy": "Katie M.",
         "submittedOn":"2023-01-01T14:48:00"
     },
@@ -123,6 +131,7 @@ const productsData =
         "category":"Skirts",
         "color":"Black",
         "price": 60.99,
+        "num_likes": 0,
         "submittedBy": "Olivia S.",
         "submittedOn":"2023-04-01T07:02:00"
     },
@@ -137,6 +146,7 @@ const productsData =
         "category":"Handbags",
         "color":"Black",
         "price": 4000.00,
+        "num_likes": 0,
         "submittedBy": "Natalie S.",
         "submittedOn":"2023-01-10T14:48:00"
     },
@@ -151,6 +161,7 @@ const productsData =
         "category":"Tops",
         "color":"Brown",
         "price": 85.00,
+        "num_likes": 0,
         "submittedBy": "Jia S.",
         "submittedOn":"2023-01-10T14:48:00"
     },
@@ -165,6 +176,7 @@ const productsData =
         "category":"Tops",
         "color":"Pink",
         "price": 85.00,
+        "num_likes": 0,
         "submittedBy": "Natalie S.",
         "submittedOn":"2023-01-10T14:48:00"
     },
@@ -179,6 +191,7 @@ const productsData =
         "category":"Bottoms",
         "color":"Red",
         "price": 45.00,
+        "num_likes": 0,
         "submittedBy": "Natalie S.",
         "submittedOn":"2023-01-10T14:48:00"
     },
@@ -193,6 +206,7 @@ const productsData =
         "category":"Bottoms",
         "color":"White",
         "price": 50.00,
+        "num_likes": 0,
         "submittedBy": "Natalie S.",
         "submittedOn":"2023-01-10T14:48:00"
     },
@@ -207,6 +221,7 @@ const productsData =
         "category":"Bottoms",
         "color":"Green",
         "price": 70.00,
+        "num_likes": 0,
         "submittedBy": "Natalie S.",
         "submittedOn":"2023-01-10T14:48:00"
     },
@@ -221,6 +236,7 @@ const productsData =
         "category":"Shoes",
         "color":"Black",
         "price": 300.00,
+        "num_likes": 0,
         "submittedBy": "Natalie S.",
         "submittedOn":"2023-01-10T14:48:00"
     },
@@ -235,6 +251,7 @@ const productsData =
         "category":"Shoes",
         "color":"Red",
         "price": 300.00,
+        "num_likes": 0,
         "submittedBy": "Natalie S.",
         "submittedOn":"2023-01-10T14:48:00"
     },
@@ -249,6 +266,7 @@ const productsData =
         "category":"Dresses",
         "color":"Blue",
         "price": 37.50,
+        "num_likes": 0,
         "submittedBy": "Natalie S.",
         "submittedOn":"2023-01-10T14:48:00"
     },

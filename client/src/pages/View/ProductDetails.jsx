@@ -4,13 +4,15 @@ import { Container, Row, Col, Button, Card } from 'react-bootstrap'
 import { AiFillHeart, AiOutlineHeart, AiOutlineForm } from 'react-icons/ai'
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
 import { useShoppingCart } from '../../context/CartContext'
-import SearchBar from '../../components/bar/Searchbar/SearchBar'
+import SearchBar from '../../components/Bar/Search/SearchBar'
 import formatCurrency from '../../utilities/formatCurrency'
+import formatBrand from '../../utilities/formatBrand'
 
 const ProductDetails = () => {
     const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(true)
     const [liked, setLiked] = useState(false)
+    const [likeCount, setLikeCount] = useState(0)
     const { id } = useParams()
     const user = useUser()
     const supabase = useSupabaseClient()
@@ -30,6 +32,27 @@ const ProductDetails = () => {
         fetchProduct()
     }
     , [id])
+
+    const handleLike = async (event) => {
+        event.preventDefault()
+        setLiked(!liked)
+        incrementLikeCount()
+    }
+
+    const incrementLikeCount = async () => {
+        const response = await fetch(`http://localhost:3001/products/${id}/like`, { method: 'POST' })
+        const data = await response.json()
+        setLikeCount(data.likes)
+    }
+
+    useEffect(() => {
+        const fetchLikeCount = async () => {
+            const response = await fetch(`http://localhost:3001/products/${id}/like`)
+            const data = await response.json()
+            setLikeCount(data.likes)
+        }
+        fetchLikeCount()
+    }, [id])
 
 
   return (
@@ -72,22 +95,28 @@ const ProductDetails = () => {
             lg={4}
             xl={4}
             >
+                <div className='heart-icon-container d-flex justify-content-end align-items-end'>
+                    <span>
+                        <p className='text-muted mb-0'>
+                            {product.num_likes === 0 ? '' : likeCount}
+                        </p>
+                    </span>
+                    <span>
+                    {liked  ? <AiFillHeart size={25} className='heart-icon' color='red' /> : <AiOutlineHeart size={25} onClick={
+                        handleLike
+                    } className='heart-icon' />}
+                    </span>
+                </div>
                 <div className='d-flex justify-content-between'>
                     <h3 
-                    style={
-                        {
-                            fontWeight: 'bold',
-                        }
-                    }
-
-                    >{product.title}</h3>
-                    { liked ?
-                    <AiFillHeart size={30} color='red' onClick={() => setLiked(false)} />
-                    :
-                    <AiOutlineHeart size={30} onClick={() => setLiked(true)} />
-                    }
-
+                    style={{fontWeight: 'bold',}}>
+                        {product.brand}
+                    </h3>
                 </div>
+                <div className='d-flex justify-content-between'>
+                    <h5 className='text-dark'>{product.title}</h5>
+                </div>
+                <span className='small text-muted'>Size {product.size}</span>
                 <div className='d-flex justify-content-between'>
                     <p className='small'><a href='' className='text-muted'>
                         In {product.category}
@@ -108,7 +137,7 @@ const ProductDetails = () => {
                 </div>
                 <br />
                 <Button 
-                variant='dark' 
+                variant='outline-dark' 
                 className='w-100'
                 onClick={() => handleAddToCart(product)}
                 >
@@ -126,10 +155,7 @@ const ProductDetails = () => {
                     <h6 className='text-dark'>Color</h6>
                     <p className='small text-muted'>{product.color}</p>
                 </div>
-                <div className='d-flex justify-content-between'>
-                    <h6 className='text-dark'>Size</h6>
-                    <p className='small text-muted'>{product.size}</p>
-                </div>
+              
                 <hr />
                 <h5 className='text-dark' style={
                     {

@@ -20,6 +20,9 @@ const Card = (props) => {
         addToCart(props)
     }
 
+    console.log(props)
+
+
     const handleRemoveFromCart = () => {
         removeFromCart(props)
     }
@@ -31,57 +34,32 @@ const Card = (props) => {
         event.preventDefault()
 
         setLiked(!liked)
-
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                productId: props.id,
-                userEmail: user.email,
-            }),
-        }
-
-        const response = await fetch ('http://localhost:3001/user-likes', options)
-        const data = await response.json()
+        incrementLikeCount()
 
     }
-
-    useEffect(() => {
-        const fetchLikes = async () => {
-            const response = await fetch(`http://localhost:3001/user-likes/${user.email}`)
-            const data = await response.json()
-            setLikes(data)
-        }
-        fetchLikes()
-    }
-    , [user])
-
-    const likedProductIds = likes.map(like => like.productid)
-    const isLiked = likedProductIds.includes(props.id)
 
     
     //increment like count
     const incrementLikeCount = async () => {
-        const response = await fetch(`http://localhost:3001/product-likes/${props.id}`, { method: 'PUT' })
+        const response = await fetch(`http://localhost:3001/products/${props.id}/like`, { method: 'POST' })
         const data = await response.json()
-        setLikeCount(data.likes + 1)
+        setLikeCount(data.likes)
 
     }
-       
 
-    //fetch Product likes, setLikeCount
+    //fetch updated like count
     useEffect(() => {
-        const fetchProductLikes = async () => {
-            const response = await fetch(`http://localhost:3001/product-likes/${props.id}`)
+        const fetchLikeCount = async () => {
+            const response = await fetch(`http://localhost:3001/products/${props.id}/like`)
             const data = await response.json()
-            setLikeCount(data.length)
+            setLikeCount(data.likes)
         }
-        fetchProductLikes()
+        fetchLikeCount()
     }, [props.id])
 
 
+    console.log(likeCount)
+       
 
     
 
@@ -90,21 +68,16 @@ const Card = (props) => {
             <div className='heart-icon-container d-flex justify-content-end align-items-end me-2 mb-2 mt-2'>
                 <span>
                     <p className='text-muted mb-0'>
-                        {likeCount}
+                        {likeCount === 0 ? '' : likeCount}
                     </p>
                 </span>
-                <span>
-                    <p className='text-muted mb-0'>
-                        {props.likes}
-                    </p>
-                </span>
-                <span>
+                <span style={{ cursor: 'pointer', zIndex: '1' }}>
                 {liked  ? <AiFillHeart size={25} className='heart-icon' color='red' /> : <AiOutlineHeart size={25} onClick={
-                    incrementLikeCount
+                 handleLike
                 } className='heart-icon' />}
                 </span>
             </div>
-            <img src={props.image} className='card-img-top' style={{ height: '250px', objectFit: 'contain' }} alt='...' />
+            <img src={props.image} className='card-img-top' style={{ height: '270px', objectFit: 'contain' }} alt='...' />
             <div className='card-body'>
                 <div className='d-flex justify-content-center align-items-center' style={
                     { 

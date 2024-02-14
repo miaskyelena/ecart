@@ -18,6 +18,7 @@ const createProductsTable = async () => {
             category VARCHAR(255) NOT NULL,
             color VARCHAR(255) NOT NULL,
             price DECIMAL NOT NULL,
+            num_likes INTEGER DEFAULT 0,
             submittedBy VARCHAR(255) NOT NULL,
             submittedOn TIMESTAMP NOT NULL
         );
@@ -52,33 +53,13 @@ const createUserLikesTable = async () => {
     }
 }
 
-const createProductLikesTable = async () => {
-    const createTableQuery = `
-        DROP TABLE IF EXISTS ProductLikes;
-
-        CREATE TABLE IF NOT EXISTS ProductLikes (
-            productId INTEGER NOT NULL,
-            likes INTEGER NOT NULL,
-            PRIMARY KEY (productId),
-            FOREIGN KEY (productId) REFERENCES products (id)
-        );
-    `
-    try {
-        await pool.query(createTableQuery);
-        console.log('ProductLikes table created successfully');
-    }
-    catch (error) {
-        console.log('Error: ', error);
-    }
-}
-
 const seedProductsTable = async () => {
     await createProductsTable();
 
     
     productsData.forEach((product) => {
         const insertQuery = {
-        text: 'INSERT INTO products (title, brand, size, image, description, condition, category, color, price, submittedBy, submittedOn) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)',
+        text: 'INSERT INTO products (title, brand, size, image, description, condition, category, color, price, num_likes, submittedBy, submittedOn) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)',
         }
 
         const values = [
@@ -91,6 +72,7 @@ const seedProductsTable = async () => {
             product.category,
             product.color,
             product.price,
+            product.num_likes,
             product.submittedBy,
             product.submittedOn
         ];
@@ -107,4 +89,3 @@ const seedProductsTable = async () => {
 
 seedProductsTable();
 createUserLikesTable();
-createProductLikesTable();

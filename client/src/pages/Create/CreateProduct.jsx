@@ -2,7 +2,7 @@ import React, { useState}from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Row, Col, Card, Button} from 'react-bootstrap'
 import { useUser } from '@supabase/auth-helpers-react'
-import SearchBar from '../../components/Bar/SearchBar/SearchBar'
+import SearchBar from '../../components/Bar/Search/SearchBar'
 const CreateListing = () => {
     const date = new Date();
     let day = date.getDate();

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useUser } from '@supabase/auth-helpers-react'
-import SearchBar from '../../components/Bar/SearchBar/SearchBar';
+import { useUser, useSession } from '@supabase/auth-helpers-react'
+import { useSessionContext } from '@supabase/auth-helpers-react';
+import SearchBar from '../../components/Bar/Search/SearchBar';
 import Stack from '@mui/joy/Stack';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -10,10 +11,11 @@ import ListCard from '../../components/Card/ListCard';
 
 const UserLikes = ( props ) => {
     const user = useUser();
+    const session = useSession();
     const [products, setProducts] = useState([]);
     const [likes, setLikes] = useState([]);
     const [liked, setLiked] = useState(true);
-    const navigate = useNavigate();
+
 
     useState(() => {
         setLiked(false)
@@ -61,7 +63,7 @@ const UserLikes = ( props ) => {
     return (
         <>
         <SearchBar />
-        { user === null ? 
+        { session === null ? 
         <>
         <div className='container'>
             <h2> 

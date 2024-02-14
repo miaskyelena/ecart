@@ -25,6 +25,9 @@ const CartItem = ({ product }) => {
                 {" "}
                 <span className="text-muted" style={{ fontSize: ".65rem" }}>x{quantity}</span>
             </div>
+            <span className="text-sm">
+                {product.title}
+            </span>
             <div className="text-muted" style={{ fontSize: ".75rem" }}>
                 {formatCurrency(product.price)}
             </div>

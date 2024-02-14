@@ -19,7 +19,7 @@ const CardCarousel = ({ data, title, subtitle }) => {
                         >{title}</h3>
                         <p className='text-left'
                         style={{
-                            fontSize: '1rem',
+                            fontSize: '1.2rem',
                         }}
                         >{subtitle}</p>
                     </div>
@@ -45,6 +45,7 @@ const CardCarousel = ({ data, title, subtitle }) => {
                                 key={index}
                                 brand={item.brand}
                                 title={item.title}
+                                likes={item.num_likes}
                                 description={item.description}
                                 price={item.price}
                                 image={item.image}
@@ -54,7 +55,6 @@ const CardCarousel = ({ data, title, subtitle }) => {
                                 condition={item.condition}
                                 color={item.color}
                                 submittedOn={item.submittedOn}
-                                likes={item.likes}
                                 />
                             ))}
                         </OwlCarousel>
