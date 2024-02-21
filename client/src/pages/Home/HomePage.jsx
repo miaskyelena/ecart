@@ -35,13 +35,13 @@ return (
         <BannerImage />
         &nbsp;
         <CardCarousel
-        title='Explore Our Latest Arrivals'
-        subtitle='Browse the latest in pre-owned luxury fashion.'
+        title='Explore our latest arrivals'
+        subtitle='Shop Quality Secondhand Dresses, Purses, and Shoes on eCart.'
         data={props.data}
         />
         <CardCarousel
-        title='Explore Most Popular'
-        subtitle='Browse  pieces favorited by our community.'
+        title='Explore our most favorited pieces'
+        subtitle="Discover your next favorite piece. Shop our most favorited items."
         data={sortedData}
         />
         <Footer />      

@@ -13,14 +13,16 @@ const CardCarousel = ({ data, title, subtitle }) => {
                     <div className="col-md-12">
                         <h3 className='text-left'
                         style={{
-                           fontWeight: 'bold',
-                           fontFamily: 'Arial',
+                            fontSize: '',
+                            fontWeight: 'bold',
                         }}
                         >{title}</h3>
                         <p className='text-left'
                         style={{
-                            fontSize: '1.2rem',
+                            fontFamily: 'Arial',
+                            
                         }}
+                    
                         >{subtitle}</p>
                     </div>
                 </div>
