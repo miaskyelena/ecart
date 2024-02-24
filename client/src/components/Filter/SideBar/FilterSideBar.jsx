@@ -126,6 +126,7 @@ const FilterSideBar = ({ onCategorySelect }) => {
                 </>
                 }
             </ul>
+           
         </div>
         </div>
         </>

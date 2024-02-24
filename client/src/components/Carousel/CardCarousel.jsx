@@ -19,7 +19,7 @@ const CardCarousel = ({ data, title, subtitle }) => {
                         >{title}</h3>
                         <p className='text-left'
                         style={{
-                            fontFamily: 'Arial',
+                           
                             
                         }}
                     

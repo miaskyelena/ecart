@@ -36,7 +36,7 @@ return (
         &nbsp;
         <CardCarousel
         title='Explore our latest arrivals'
-        subtitle='Shop Quality Secondhand Dresses, Purses, and Shoes on eCart.'
+        subtitle='Shop everything from designer shoes, to handbangs, to dresses.'
         data={props.data}
         />
         <CardCarousel
