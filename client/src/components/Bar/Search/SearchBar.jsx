@@ -6,7 +6,7 @@ import { AiOutlineShoppingCart, AiOutlineHeart } from 'react-icons/ai'
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { Link } from 'react-router-dom'
 import SearchInput from './SearchInput'
-import DropdownFilter from '../../Filter/DropdownFilter';
+import DropdownFilter from '../../Filter/Dropdown/DropdownFilter';
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
 import Avatar from '@mui/material/Avatar';
 import Badge from '@mui/material/Badge';

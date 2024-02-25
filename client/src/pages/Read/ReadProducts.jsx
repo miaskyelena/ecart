@@ -7,7 +7,6 @@ import SearchBar from '../../components/Bar/Search/SearchBar'
 import FilterSideBar from '../../components/Filter/SideBar/FilterSideBar'
 import FilterBar from  '../../components/Filter/FilterBar/FilterBar'
 import SortBar from '../../components/Filter/SortBar/SortBar'
-import FilterBtnGroup from '../../components/Filter/FilterBtnGroup'
 import ListView from '../../components/Filter/SortBar/ListView'
 import ListCard from '../../components/Card/ListCard'
 import { useNavigate } from 'react-router-dom'
@@ -27,16 +26,14 @@ const ReadProducts = ( props ) => {
         setSelectedCategory(category)
     
     }
+    //Filter by condition, size, color
     const handleFilterSelect = (filterCategory, filterValue) => {
         setSelectedFilter(prevFilter => ({
           ...prevFilter,
           [filterCategory]: filterValue
         }));
       };
-
-    const productByCategory = selectedCategory ? props.data.filter((product) => product.category === selectedCategory) : props.data
-
-    
+    //Sort by price or newest
     const handleSort = (sortType) => {
         if (sortType === 'priceLowToHigh') {
             setListings([...listings].sort((a, b) => a.price - b.price))
@@ -51,11 +48,13 @@ const ReadProducts = ( props ) => {
         }
     }
 
-    
+    //Toggle list view
     const handleListView = () => {
         setListView(!listView)
     }
 
+    //Filter by category
+    const productByCategory = selectedCategory ? props.data.filter((product) => product.category === selectedCategory) : props.data
 
     useEffect(() => {
         setListings(productByCategory)
@@ -66,7 +65,7 @@ const ReadProducts = ( props ) => {
         (!selectedFilter.size || listing.size === selectedFilter.size) &&
         (!selectedFilter.color || listing.color === selectedFilter.color)
       );
-
+    
     useEffect(() => {
         setListings(filteredListings)
     }, [selectedFilter])
@@ -75,8 +74,7 @@ const ReadProducts = ( props ) => {
         setListings(props.data)
     }, [props])
 
-
-
+    //Pagination
     const [pageNumber, setPageNumber] = useState(0)
     const listingsPerPage = 12
     const pagesVisited = pageNumber * listingsPerPage
@@ -145,9 +143,7 @@ const ReadProducts = ( props ) => {
                 </Col>
                 <Col>
                 <div className="d-flex mt-4">
-                <FilterBtnGroup 
-                onFilterSelect={handleFilterSelect}
-                />
+                
                 <SortBar
                 onSort={handleSort}
                 />

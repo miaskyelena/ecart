@@ -32,11 +32,12 @@ return (
       onFilterSelect={handleFilterSelect}
       />
       <FilterBar />
+      \
         <BannerImage />
         &nbsp;
         <CardCarousel
         title='Explore our latest arrivals'
-        subtitle='Shop everything from designer shoes, to handbangs, to dresses.'
+        subtitle='Shop Quality Secondhand Dresses, Purses, and Shoes on eCart.'
         data={props.data}
         />
         <CardCarousel

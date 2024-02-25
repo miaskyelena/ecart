@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text&family=Lato&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Licorice&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Licorice&display=swap');
 
 * {
   box-sizing: border-box;
@@ -32,7 +32,6 @@ a{
   text-decoration: none;
   color: black;
 }
-
 
 .brand-title {
   font-family: 'Licorice', cursive;

@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
-import FilterSideBar from './SideBar/FilterSideBar'
+import FilterSideBar from '../SideBar/FilterSideBar'
 
 const DropdownFilter = ({ onCategorySelect } ) => {
   const navigate = useNavigate()  
