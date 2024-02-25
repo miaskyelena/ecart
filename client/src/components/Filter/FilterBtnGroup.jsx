@@ -1,5 +1,8 @@
-import React, {useState} from 'react';
-import './FilterBtnGroup.css';
+import * as React from 'react';
+import { useState } from 'react';
+import Select from '@mui/joy/Select';
+import Option from '@mui/joy/Option';
+import { Box, Chip } from '@mui/joy';
 const FilterBtnGroup = ({ onFilterSelect }) => {
     const [filters, setFilters] = useState({
         condition: '',
@@ -18,112 +21,73 @@ const FilterBtnGroup = ({ onFilterSelect }) => {
     
     return (
     <>
-    <div className='btn-group filter-btn-group filters mb-4' role='group' aria-label='Filter buttons'>
-        <div className='dropdown'> 
-            <button className='btn btn dropdown-toggle filter' type='button' data-bs-toggle='dropdown' aria-expanded='false'>
-                Condition
-            </button>
-            <ul className='dropdown-menu'>
-                <li><a className='dropdown-item' href='#' name='pristine' value='pristine' onClick={() => handleSelect('condition', 'Pristine')}>Pristine</a></li>
-                <li><a className='dropdown-item' href='#' name='like new' value='like new' onClick={() => handleSelect('condition', 'Like New')}>Like New</a></li>
-                <li><a className='dropdown-item' href='#' name='like new' value='like new' onClick={() => handleSelect('condition', 'Used')}>Gently Used</a></li>
-            </ul>
+    <div className='filter-box'>
+        <div className='filter-group'>
+            <Select
+            multiple
+            renderValue={(selected) => (
+                <Box sx={{ display: 'flex', gap: '0.25rem' }}>
+                {selected.map((selectedOption) => (
+                    <Chip variant="soft" color="primary">
+                    {selectedOption.label}
+                    </Chip>
+                ))}
+                </Box>
+            )}
+            sx={{
+                minWidth: '15rem',
+            }}
+            slotProps={{
+                listbox: {
+                sx: {
+                    width: '100%',
+                },
+                },
+            }}
+            >
+            <Option value="dog">Dog</Option>
+            <Option value="cat">Cat</Option>
+            <Option value="fish">Fish</Option>
+            <Option value="bird">Bird</Option>
+            </Select>
         </div>
-        <div className='dropdown'> 
-            <button className='btn btn dropdown-toggle' type='button' data-bs-toggle='dropdown' aria-expanded='false'>
-                Size
-            </button>
-            <ul className='dropdown-menu'>
-                <li><a className='dropdown-item' href='#' name='small' value='small' onClick={() => handleSelect('size', 'Small')}>Extra Small</a></li>
-                <li><a className='dropdown-item' href='#' name='small' value='small' onClick={() => handleSelect('size', 'Small')}>Small</a></li>
-                <li><a className='dropdown-item' href='#' name='medium' value='medium' onClick={() => handleSelect('size', 'Medium')}>Medium</a></li>
-                <li><a className='dropdown-item' href='#' name='large' value='large' onClick={() => handleSelect('size', 'Large')}>Large</a></li>
-            </ul>
+        <div className='filter-group'>
+            <Select
+          
+            onChange={(e) => handleSelect('size', e.target.value)}
+            >
+                <Option value="small">Small</Option>
+                <Option value="medium">Medium</Option>
+                <Option value="large">Large</Option>
+                <Option value="x-large">X-Large</Option>
+            </Select>
         </div>
-        <div className='dropdown'> 
-            <button className='btn btn dropdown-toggle' type='button' data-bs-toggle='dropdown' aria-expanded='false'>
-                Color
-            </button>
-            <ul className='dropdown-menu'>
-                <li><a className='dropdown-item' href='#' name='red' value='red' onClick={() => handleSelect('color', 'Red')}>
-                    <span className='small mb-0' style={{
-                        width: '10px',
-                        height: '10px',
-                        borderRadius: '50%',
-                        backgroundColor: `red`,
-                        display: 'inline-block',}}>
-                    </span> Red
-                    </a></li>
-                <li><a className='dropdown-item' href='#' name='blue' value='blue' onClick={() => handleSelect('color', 'Blue')}>
-                <span className='small mb-0' style={{
-                        width: '10px',
-                        height: '10px',
-                        borderRadius: '50%',
-                        backgroundColor: `blue`,
-                        display: 'inline-block',}}>
-                    </span> Blue
-                    </a></li>
-                <li><a className='dropdown-item' href='#' name='green' value='green' onClick={() => handleSelect('color', 'Green')}>
-                <span className='small mb-0' style={{
-                        width: '10px',
-                        height: '10px',
-                        borderRadius: '50%',
-                        backgroundColor: `green`,
-                        display: 'inline-block',}}>
-                    </span> Green
-                    </a></li>
-                    <li><a className='dropdown-item' href='#' name='tan' value='tan' onClick={() => handleSelect('color', 'Tan')}>
-                <span className='small mb-0' style={{
-                        width: '10px',
-                        height: '10px',
-                        borderRadius: '50%',
-                        backgroundColor: `Tan`,
-                        display: 'inline-block',}}>
-                    </span> Tan
-                    </a></li>
-                    <li><a className='dropdown-item' href='#' name='like new' value='like new' onClick={() => handleSelect('color', 'Brown')}>
-                <span className='small mb-0' style={{
-                        width: '10px',
-                        height: '10px',
-                        borderRadius: '50%',
-                        backgroundColor: `Brown`,
-                        display: 'inline-block',}}>
-                    </span> Brown
-                    </a></li>
-                    <li><a className='dropdown-item' href='#' name='white' value='white' onClick={() => handleSelect('color', 'White')}>
-                <span className='small mb-0' style={{
-                        width: '10px',
-                        height: '10px',
-                        borderRadius: '50%',
-                        outline: '1px solid black',
-                        backgroundColor: `White`,
-                        display: 'inline-block',}}>
-                    </span> White
-                    </a></li>
-                    <li><a className='dropdown-item' href='#' name='black' value='black' onClick={() => handleSelect('color', 'Black')}
-                    >
-                <span className='small mb-0' style={{
-                        width: '10px',
-                        height: '10px',
-                        borderRadius: '50%',
-                        outline: '1px solid black',
-                        backgroundColor: `Black`,
-                        display: 'inline-block',}}>
-                    </span> Black
-                    </a></li>
-            </ul>
+        <div className='filter-group'>
+            <Select
+            label="Color"
+            onChange={(e) => handleSelect('color', e.target.value)}
+            >
+                <Option value="black">Black</Option>
+                <Option value="white">White</Option>
+                <Option value="blue">Blue</Option>
+                <Option value="red">Red</Option>
+            </Select>
         </div>
-        <div className='dropdown'>
-            <button className='btn btn dropdown-toggle' type='button' data-bs-toggle='dropdown' aria-expanded='false'>
-                Brand
-            </button>
-            <ul className='dropdown-menu'>
-                <li><a className='dropdown-item' href='#' name='pristine' value='pristine' onClick={() => handleSelect('brand', 'Pristine')}>Coming soon ♡</a></li>
-              
-            </ul>
+
+        <div className='filter-group'>
+            <Select
+            label="Brand"
+           
+            onChange={(e) => handleSelect('brand', e.target.value)}
+            >
+                <Option value="nike">Nike</Option>
+                <Option value="adidas">Adidas</Option>
+                <Option value="puma">Puma</Option>
+                <Option value="under armour">Under Armour</Option>
+            </Select>
         </div>
-       
-       </div>
+    </div>
+        
     </>
     );
 };

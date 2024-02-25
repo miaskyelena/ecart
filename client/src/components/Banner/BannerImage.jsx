@@ -20,7 +20,7 @@ const BannerImage = () => {
     <span className='banner-text'>Welcome to eCart,</span>
     <h1 className='banner-text'>Buy, sell, and shop trending fashion.</h1><br/>
     <span className='banner-text'>
-      Shop for the latest fashion trends in clothing, shoes, and accessories.
+      Explore the latest fashion trends in clothing, shoes, and accessories.
     </span>
     &nbsp;
   </div>
