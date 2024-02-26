@@ -23,3 +23,11 @@
     color: #ff6600;
 }
 
+
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+      /* This will hide the sidebar on screens smaller than 768px */
+      display: none;
+    }
+  }

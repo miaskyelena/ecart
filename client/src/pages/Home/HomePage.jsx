@@ -32,18 +32,17 @@ return (
       onFilterSelect={handleFilterSelect}
       />
       <FilterBar />
-      \
         <BannerImage />
         &nbsp;
         <CardCarousel
         title='Explore our latest arrivals'
-        subtitle='Shop Quality Secondhand Dresses, Purses, and Shoes on eCart.'
-        data={props.data}
+        subtitle='Shop everything from vintage dresses, to designer bags, to the perfect pair of shoes.'
+        data={props.data.slice(0, 50)}
         />
         <CardCarousel
         title='Explore our most favorited pieces'
-        subtitle="Discover your next favorite piece. Shop our most favorited items."
-        data={sortedData}
+        subtitle="Discover your next favorite piece with our user's most loved items."
+        data={sortedData.slice(0, 50)}
         />
         <Footer />      
     </div>

@@ -30,55 +30,30 @@ const ListCard = ( props ) => {
 
     const handleLike = async (event) => {
         event.preventDefault()
-        
 
         setLiked(!liked)
-
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                productId: props.id,
-                userEmail: user.email,
-            }),
-        }
-
-        const response = await fetch ('http://localhost:3001/user-likes', options)
-        const data = await response.json()
+        incrementLikeCount()
 
     }
-    const handleUnlike = async (event) => {
-        event.preventDefault()
-        const options = {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                productId: event.target.id,
-                userEmail: user.email,
-            }),
-        }
 
-        const response = await fetch (`http://localhost:3001/user-likes/`, options)
+    
+    //increment like count
+    const incrementLikeCount = async () => {
+        const response = await fetch(`http://localhost:3001/products/${props.id}/like`, { method: 'POST' })
         const data = await response.json()
-        window.location = '/user/likes'
+        setLikeCount(data.likes)
+
     }
 
+    //fetch updated like count
     useEffect(() => {
-        const fetchLikes = async () => {
-            const response = await fetch(`http://localhost:3001/user-likes/${user.email}`)
+        const fetchLikeCount = async () => {
+            const response = await fetch(`http://localhost:3001/products/${props.id}/like`)
             const data = await response.json()
-            setLikes(data)
+            setLikeCount(data.likes)
         }
-        fetchLikes()
-    }
-    , [user])
-
-    const likedProductIds = likes.map(like => like.productid)
-    const isLiked = likedProductIds.includes(props.id)
+        fetchLikeCount()
+    }, [props.id])
 
     
 
@@ -94,7 +69,12 @@ const ListCard = ( props ) => {
                     <div className='d-flex justify-content-end align-items-end' style={
                         {position: 'absolute', marginLeft: '-1rem'}
                     }>
-                        {isLiked ? <AiFillHeart size={25} onClick={handleUnlike} className='heart-icon' color='red' id={props.id} /> : <AiOutlineHeart size={25} onClick={handleLike} className='heart-icon' id={props.id} />}
+                        {liked ? <AiFillHeart size={25} className='heart-icon' color='red' id={props.id} /> : <AiOutlineHeart size={25} onClick={handleLike} className='heart-icon' id={props.id} />}
+                        {likeCount > 0 ? 
+                    <div >
+                        <span className='small text-muted'>{likeCount} likes</span>
+                    </div>
+                    : null}
                     </div>
                     <div className='col-md-3 mx-auto'>
                         <img src={props.image} alt='...' style={{ height: '15rem', width: '100%', objectFit: 'contain' }} />

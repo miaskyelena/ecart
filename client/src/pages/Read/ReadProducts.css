@@ -49,3 +49,11 @@ ul.react-paginate {
   .read-listing-banner span{
     color:white;
   }
+
+  
+@media screen and (max-width: 768px) {
+  .topbar {
+    /* This will hide the sidebar on screens smaller than 768px */
+    display: none;
+  }
+}

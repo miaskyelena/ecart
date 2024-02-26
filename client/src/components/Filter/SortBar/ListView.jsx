@@ -12,19 +12,16 @@ const ListView = ({ toggleListView }) => {
     }
 
   return (
-    <ToggleButtonGroup
-        value={listView}
-        exclusive
-        onChange={handleView}
-        aria-label="text alignment"
-      >
-        <ToggleButton value={false} aria-label="left aligned">
-          <GridViewIcon />
-        </ToggleButton>
-        <ToggleButton value={true} aria-label="centered">
-          <FormatListBulletedIcon />
-        </ToggleButton>
-      </ToggleButtonGroup>
+    <div class="dropdown">
+        <button class="btn btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          { listView ? <FormatListBulletedIcon /> : <GridViewIcon />}
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#" onClick={handleView}>
+            { listView ?  'Gallery View' : 'List View'}
+            </a></li>
+        </ul>
+    </div>
   )
 }
 

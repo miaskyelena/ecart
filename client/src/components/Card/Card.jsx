@@ -32,10 +32,17 @@ const Card = (props) => {
 
     const handleLike = async (event) => {
         event.preventDefault()
-
         setLiked(!liked)
         incrementLikeCount()
+        addLikedProduct()
 
+    }
+
+    //add liked product to user likes 
+    const addLikedProduct = async () => {
+        const response = await fetch(`http://localhost:3001/products/user-likes/`, { method: 'POST' })
+        const data = await response.json()
+        setLikes(data)
     }
 
     

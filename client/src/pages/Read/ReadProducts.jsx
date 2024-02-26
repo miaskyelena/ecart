@@ -1,38 +1,28 @@
 import React, {useState, useEffect} from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
-import { Link, useLocation } from 'react-router-dom'
+import { Row, Col } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import Card from '../../components/Card/Card'
 import ReactPaginate from 'react-paginate'
 import SearchBar from '../../components/Bar/Search/SearchBar'
 import FilterSideBar from '../../components/Filter/SideBar/FilterSideBar'
+import FilterTagsBar from '../../components/Filter/TagsBar/FilterTagsBar'
 import FilterBar from  '../../components/Filter/FilterBar/FilterBar'
 import SortBar from '../../components/Filter/SortBar/SortBar'
 import ListView from '../../components/Filter/SortBar/ListView'
 import ListCard from '../../components/Card/ListCard'
-import { useNavigate } from 'react-router-dom'
 import './ReadProducts.css'
+import { select } from '@nextui-org/react'
 const ReadProducts = ( props ) => {
     const [listings, setListings] = useState([])
+    const [selectedTags , setSelectedTags] = useState([])
     const [selectedCategory, setSelectedCategory] = useState(null)
     const [listView, setListView] = useState(false)
-    const [selectedFilter, setSelectedFilter] = useState({
-        condition: '',
-        size: '',
-        color: '',
-        brand: ''
-      });
 
+    //Filter by category
     const handleCategoryClick = (category) => {
         setSelectedCategory(category)
-    
     }
-    //Filter by condition, size, color
-    const handleFilterSelect = (filterCategory, filterValue) => {
-        setSelectedFilter(prevFilter => ({
-          ...prevFilter,
-          [filterCategory]: filterValue
-        }));
-      };
+   
     //Sort by price or newest
     const handleSort = (sortType) => {
         if (sortType === 'priceLowToHigh') {
@@ -59,20 +49,33 @@ const ReadProducts = ( props ) => {
     useEffect(() => {
         setListings(productByCategory)
     }, [selectedCategory])
-
-    const filteredListings = listings.filter(listing => 
-        (!selectedFilter.condition || listing.condition === selectedFilter.condition) &&
-        (!selectedFilter.size || listing.size === selectedFilter.size) &&
-        (!selectedFilter.color || listing.color === selectedFilter.color)
-      );
     
-    useEffect(() => {
+    // Filter by search input
+    const handleSearchInput = (searchInput) => {
+        const filteredListings = props.data.filter((listing) => {
+            return listing.title.toLowerCase().includes(searchInput.toLowerCase()) || listing.brand.toLowerCase().includes(searchInput.toLowerCase()) || listing.category.toLowerCase().includes(searchInput.toLowerCase())
+        })
         setListings(filteredListings)
-    }, [selectedFilter])
+    }
 
+    const onTagSelect = (tag) => {
+        setSelectedTags([...selectedTags, tag])
+    }
+
+    //Filter by tags 
+    useEffect(() => {
+        const filteredListings = props.data.filter((listing) => {
+            return selectedTags.every((tag) => listing.condition.includes(tag)) 
+        })
+        setListings(filteredListings)
+    }, [selectedTags])
+
+    // Fetch listings
     useEffect(() => {
         setListings(props.data)
     }, [props])
+
+    console.log(selectedTags)
 
     //Pagination
     const [pageNumber, setPageNumber] = useState(0)
@@ -87,11 +90,13 @@ const ReadProducts = ( props ) => {
         <div className="ReadProducts">
             <SearchBar
             onCategorySelect={handleCategoryClick}
+            setSearchInput={handleSearchInput}
             />
             <div className="container-lg">
                 <FilterBar />
                 <Row>
                 <div className="mt-3 ">
+                <div className='topbar'>
                 <div className='d-flex justify-content-between'>
                     <div><nav aria-label="breadcrumb">
                     { selectedCategory === null ?
@@ -114,18 +119,19 @@ const ReadProducts = ( props ) => {
                     </nav></div>
                     <div>
                     </div>
-                    <span className='text-muted'>Have something to sell? <Link to='/create'>Create a new listing here.</Link></span>
+                    <span className='text-muted'>Have something to sell? <Link to='/create'>Create a listing here.</Link></span>
+                </div>
                 </div>
                 <div className="read-listing-banner">
                     <div className="d-flex justify-content-left mt-5">
                         <div className=''>
                         { selectedCategory === null ?
                         <>
-                        <h2 style={{ fontFamily:'Arial'}}>All Listings</h2>
+                        <h2 >All Listings</h2>
                         </>
                         :
                         <>
-                        <h2  style={{ fontFamily:'Arial'}}>{selectedCategory}</h2>
+                        <h2 >{selectedCategory}</h2>
                         </>
                         }
                         
@@ -142,14 +148,21 @@ const ReadProducts = ( props ) => {
                      />
                 </Col>
                 <Col>
+               
                 <div className="d-flex mt-4">
-                
+                <FilterTagsBar
+                onTagSelect={onTagSelect} 
+                /> 
+                <div className='d-flex justify-content-end'> 
                 <SortBar
-                onSort={handleSort}
-                />
+                onSortSelect={handleSort} 
+                /> 
                 <ListView
                 toggleListView={handleListView}
-                 />
+                />          
+                </div>
+                </div>
+                <div className='d-flex justify-content-end mt-1'>
                 
                 </div>
                 

@@ -11,7 +11,7 @@ import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
 import Avatar from '@mui/material/Avatar';
 import Badge from '@mui/material/Badge';
 import './SearchBar.css'
-const SearchBar = ({ onCategorySelect }) => {
+const SearchBar = ({ onCategorySelect, setSearchInput }) => {
   const user = useUser()
   const supabase = useSupabaseClient()
   const { cart, isOpen, toggleCart } = useShoppingCart();
@@ -24,7 +24,7 @@ const SearchBar = ({ onCategorySelect }) => {
           <DropdownFilter 
           onCategorySelect={onCategorySelect}
           />
-          <SearchInput />
+          <SearchInput setSearchInput={setSearchInput}/>
           <Nav.Link href='/user/likes'>
             <AiOutlineHeart size={25}/>
           </Nav.Link>
