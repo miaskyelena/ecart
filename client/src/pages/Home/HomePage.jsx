@@ -36,7 +36,7 @@ return (
         &nbsp;
         <CardCarousel
         title='Explore our latest arrivals'
-        subtitle='Shop everything from vintage dresses, to designer bags, to the perfect pair of shoes.'
+        subtitle='Shop everything from vintage dresses to the perfect pair of shoes.'
         data={props.data.slice(0, 50)}
         />
         <CardCarousel

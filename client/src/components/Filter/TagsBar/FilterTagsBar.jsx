@@ -1,9 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Divider } from '@nextui-org/react'
 import Chip from '@mui/joy/Chip';
 import ChipDelete from '@mui/joy/ChipDelete';
 import { DeleteForever } from '@mui/icons-material/DeleteForever';
-import {Button, ButtonGroup} from "@nextui-org/react";
 import './FilterTagsBar.css'
 
 const FilterTagsBar = ({ onTagSelect }) => {
@@ -15,9 +14,8 @@ const FilterTagsBar = ({ onTagSelect }) => {
     } else {
       setSelectedTags((prevTags) => prevTags.filter(tag => tag !== event.target.value));
     }
-
-    onTagSelect(selectedTags)
   }
+
   const handleDeleteTag = (tag) => {
     setSelectedTags((prevTags) => prevTags.filter(prevTag => prevTag !== tag));
   }
@@ -27,6 +25,10 @@ const FilterTagsBar = ({ onTagSelect }) => {
     window.location.reload()
     
   }
+
+  useEffect(() => {
+    onTagSelect(selectedTags)
+  }, [selectedTags, onTagSelect])
 
 
 
@@ -211,8 +213,9 @@ const FilterTagsBar = ({ onTagSelect }) => {
       </Chip>
       {selectedTags.map((tag, index) => (
         <Chip
+          key={index}
           variant='outlined'
-          endDecorator={<ChipDelete icon={<DeleteForever />} onClick={() => handleDeleteTag(tag)} />}
+          endDecorator={<ChipDelete onClick={() => handleDeleteTag(tag)} />}
         >
           {tag}
         </Chip>
