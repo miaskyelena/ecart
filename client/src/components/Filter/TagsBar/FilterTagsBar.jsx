@@ -199,7 +199,7 @@ const FilterTagsBar = ({ onTagSelect }) => {
       </div>
     </div>
 
-    <Divider />
+
     { selectedTags.length > 0 ?
     <>
     <div className='selected-tags'>
