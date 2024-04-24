@@ -8,7 +8,7 @@ Designed and developed by: Mia Tapia
 
 ## About
 
-### Using the Fake Store Api , to create a full-stack e-commerce store where users can browse through the marketplace; furthermore, to create and upload product listings of their own choosing. 
+### A full-stack e-commerce store where users can browse through the marketplace; furthermore, to create and upload product listings of their own choosing. 
 
 ### Inspiration
 
