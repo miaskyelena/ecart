@@ -26,15 +26,23 @@ const CardCarousel = ({ data, title, subtitle }) => {
                         >{subtitle}</p>
                     </div>
                 </div>
-                <div className="row">
+                <div className="row" style={
+                    {
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }
+                
+                }>
                     <div className="col-md-12">
-                        <OwlCarousel className='owl-theme'margin={10} nav
+                        <OwlCarousel className='owl-theme'margin={10}
+                         nav
                         responsive={{
                             0: {
                                 items: 1,
                             },
                             600: {
-                                items: 3,
+                                items: 4,
                             },
                             1000: {
                                 items: 5,

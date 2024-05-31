@@ -13,6 +13,15 @@ const HomePage = ( props ) => {
   const [selectedFilter, setSelectedFilter] = useState(null)
   const [likes, setLikes] = useState([])
   const [products, setProducts ] = useState([])
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const res = await fetch('http://localhost:3001/products')
+      const data = await res.json()
+      setProducts(data)
+    }
+    fetchProducts()
+  }, [])
   const handleFilterSelect = (filter)  => {
     setSelectedFilter(filter)
   }
@@ -20,10 +29,7 @@ const HomePage = ( props ) => {
   const productByCategory = selectedFilter ? props.data.filter((product) => product.category === selectedFilter) : props.data
   
   //filter props data by products with the most likes
-  const sortedData = React.useMemo(() => {
-    return [...props.data].sort((a, b) => b.num_likes - a.num_likes);
-    }, [props.data]);
-
+  
 return (
     <>
     { selectedFilter === null ?
@@ -37,12 +43,12 @@ return (
         <CardCarousel
         title='Explore our latest arrivals'
         subtitle='Shop everything from vintage dresses to the perfect pair of shoes.'
-        data={props.data.slice(0, 50)}
+        data={props.data}
         />
         <CardCarousel
         title='Explore our most favorited pieces'
         subtitle="Discover your next favorite piece with our user's most loved items."
-        data={sortedData.slice(0, 50)}
+        data={props.data}
         />
         <Footer />      
     </div>

@@ -71,8 +71,11 @@ const Card = (props) => {
     
 
     return (
-        <div className='card' style={{ border: 'none'}}>
-            <div className='heart-icon-container d-flex justify-content-end align-items-end me-2 mb-2 mt-2'>
+        <div className='card' style={{ 
+            border: 'none',
+            height: '100%',
+            }}>
+            <div className='heart-icon-container d-flex justify-content-end align-items-end me-2 mt-2'>
                 <span>
                     <p className='text-muted mb-0'>
                         {likeCount === 0 ? '' : likeCount}
@@ -100,11 +103,14 @@ const Card = (props) => {
                     {formatBrand(props.brand)}
                 </span>
                 </div>
-                <div className='d-flex justify-content-center' style={{ textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap', display: 'block'}}> {/* Decreased spacing */}
-                    <div className='d-flex justify-content-center align-items-center'>
+                <div className='d-flex justify-content-center' style={{
+                    width: '100%',
+                    fontSize: '0.9rem',
+                }}> {/* Decreased spacing */}
+                    <div>
                         <Link to={`/products/${props.id}`}>
                             <h6 className='mb-0 card-title'>
-                                <span>
+                                <span className='d-flex justify-content-center'>
                                     {props.title}
                                 </span>
                             </h6>
@@ -114,9 +120,7 @@ const Card = (props) => {
                 <div className='d-flex justify-content-center align-items-center'>
                     <p className='small text-muted mb-0'>Size: {props.size}</p>
                 </div>
-                <div className='d-flex justify-content-center align-items-center' style={{ textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap', display: 'block'}}> {/* Decreased spacing */}
-                    <p className='small text-muted mb-0'>Condition: {props.condition}</p>
-                </div>
+               
                 <div className='d-flex justify-content-center align-items-center'>
                     <p className='small text-dark mb-0'>
                         {formatCurrency(props.price)}
