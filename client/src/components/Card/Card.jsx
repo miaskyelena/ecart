@@ -73,7 +73,6 @@ const Card = (props) => {
     return (
         <div className='card' style={{ 
             border: 'none',
-            height: '100%',
             }}>
             <div className='heart-icon-container d-flex justify-content-end align-items-end me-2 mt-2'>
                 <span>
@@ -110,7 +109,9 @@ const Card = (props) => {
                     <div>
                         <Link to={`/products/${props.id}`}>
                             <h6 className='mb-0 card-title'>
-                                <span className='d-flex justify-content-center'>
+                                <span className='d-flex justify-content-center'
+                                
+                                >
                                     {props.title}
                                 </span>
                             </h6>

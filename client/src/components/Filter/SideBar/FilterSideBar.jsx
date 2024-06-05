@@ -126,6 +126,22 @@ const FilterSideBar = ({ onCategorySelect }) => {
                 </>
                 }
             </ul>
+
+            <span>Color</span>
+            <ul className='mt-3 ms-3'>
+                <span className='color-circle flex-col' style={{backgroundColor: 'red'}}></span>
+                <span className='color-circle' style={{backgroundColor: 'blue'}}></span>
+                <span className='color-circle' style={{backgroundColor: 'green'}}></span>
+                <span className='color-circle' style={{backgroundColor: 'yellow'}}></span>
+                <span className='color-circle' style={{backgroundColor: 'purple'}}></span>
+                <span className='color-circle' style={{backgroundColor: 'pink'}}></span>
+                <span className='color-circle' style={{backgroundColor: 'orange'}}></span>
+                <span className='color-circle' style={{backgroundColor: 'black'}}></span>
+                <span className='color-circle' style={{backgroundColor: 'brown'}}></span>
+                <span className='color-circle' style={{backgroundColor: 'tan'}}></span>
+                
+              
+            </ul>
            
         </div>
         </div>

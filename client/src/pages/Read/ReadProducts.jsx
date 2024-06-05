@@ -18,64 +18,48 @@ const ReadProducts = ( props ) => {
     const [selectedCategory, setSelectedCategory] = useState(null)
     const [listView, setListView] = useState(false)
 
-    //Filter by category
-    const handleCategoryClick = (category) => {
-        setSelectedCategory(category)
-    }
-   
-    //Sort by price or newest
-    const handleSort = (sortType) => {
-        if (sortType === 'priceLowToHigh') {
-            setListings([...listings].sort((a, b) => a.price - b.price))
-        } else if (sortType === 'priceHighToLow') {
-            setListings([...listings].sort((a, b) => b.price - a.price))
-        }
-        else if (sortType === 'newest') {
-            setListings([...listings].sort((a, b) => b.id - a.id))
-        }
-        else if (sortType === 'oldest') {
-            setListings([...listings].sort((a, b) => a.id - b.id))
-        }
-    }
-
-    //Toggle list view
-    const handleListView = () => {
-        setListView(!listView)
-    }
-
-    //Filter by category
-    const productByCategory = selectedCategory ? props.data.filter((product) => product.category === selectedCategory) : props.data
-
-    useEffect(() => {
-        setListings(productByCategory)
-    }, [selectedCategory])
-    
-    // Filter by search input
-    const handleSearchInput = (searchInput) => {
-        const filteredListings = props.data.filter((listing) => {
-            return listing.title.toLowerCase().includes(searchInput.toLowerCase()) || listing.brand.toLowerCase().includes(searchInput.toLowerCase()) || listing.category.toLowerCase().includes(searchInput.toLowerCase())
-        })
-        setListings(filteredListings)
-    }
-
-    const onTagSelect = (tag) => {
-        setSelectedTags([...selectedTags, tag])
-    }
-
-    //Filter by tags 
-    useEffect(() => {
-        const filteredListings = props.data.filter((listing) => {
-            return selectedTags.every((tag) => listing.condition.includes(tag)) 
-        })
-        setListings(filteredListings)
-    }, [selectedTags])
-
-    // Fetch listings
     useEffect(() => {
         setListings(props.data)
-    }, [props])
+    }, [props.data])
 
-    console.log(selectedTags)
+
+
+    //SortBar Component Sorting Logic
+    const handleSort = (sortType) => {
+        if (sortType === 'priceLowToHigh') {
+            const sortedListings = [...listings].sort((a, b) => a.price - b.price)
+            setListings(sortedListings)
+        } else if (sortType === 'priceHighToLow') {
+            const sortedListings = [...listings].sort((a, b) => b.price - a.price)
+            setListings(sortedListings)
+        }
+        else if (sortType === 'newest') {
+            const sortedListings = [...listings].sort((a, b) => new Date(b.submittedon) - new Date(a.submittedon))
+            setListings(sortedListings)
+        }
+        else if (sortType === 'oldest') {
+            const sortedListings = [...listings].sort((a, b) => new Date(a.submittedon) - new Date(b.submittedon))
+            setListings(sortedListings)
+        }
+        console.log(sortType)
+    }
+
+    //FilterSideBar Component Sorting Logic
+    const handleFilter = (filter) => {
+        setSelectedCategory(filter)
+        const filteredListing = [...listings].filter((listing) => listing.category === filter);
+        setListings(filteredListing);
+    }
+
+    const handleTagFilter = (tag) => {
+        const filteredListing = [...listings].filter((listing) => listing.tags.includes(tag));
+        setListings(filteredListing);
+    }
+
+
+
+
+
 
     //Pagination
     const [pageNumber, setPageNumber] = useState(0)
@@ -88,12 +72,11 @@ const ReadProducts = ( props ) => {
 
     return (
         <div className="ReadProducts">
-            <SearchBar
-            onCategorySelect={handleCategoryClick}
-            setSearchInput={handleSearchInput}
-            />
+            <SearchBar/>
             <div className="container-lg">
-                <FilterBar />
+                <FilterBar 
+                
+                />
                 <Row>
                 <div className="mt-3 ">
                 <div className='topbar'>
@@ -144,21 +127,18 @@ const ReadProducts = ( props ) => {
                 </div>
                 <Col md={2}>
                     <FilterSideBar
-                    onCategorySelect={handleCategoryClick}
+                    onCategorySelect={handleTagFilter}
                      />
                 </Col>
                 <Col>
                
                 <div className="d-flex mt-4">
-                <FilterTagsBar
-                onTagSelect={onTagSelect} 
-                /> 
+                <FilterTagsBar />
                 <div className='d-flex justify-content-end'> 
                 <SortBar
                 onSortSelect={handleSort} 
                 /> 
                 <ListView
-                toggleListView={handleListView}
                 />          
                 </div>
                 </div>

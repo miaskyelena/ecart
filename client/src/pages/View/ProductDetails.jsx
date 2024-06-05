@@ -136,6 +136,7 @@ const ProductDetails = () => {
                     <p className='small text-muted'>+ Shipping</p>
                 </div>
                 <br />
+                
                 <Button 
                 variant='outline-dark' 
                 className='w-100'

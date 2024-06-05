@@ -5,7 +5,7 @@ import ChipDelete from '@mui/joy/ChipDelete';
 import { DeleteForever } from '@mui/icons-material/DeleteForever';
 import './FilterTagsBar.css'
 
-const FilterTagsBar = ({ onTagSelect }) => {
+const FilterTagsBar = () => {
   const [selectedTags, setSelectedTags] = useState([])
 
   const handleTagChange = (event) => {
@@ -26,9 +26,7 @@ const FilterTagsBar = ({ onTagSelect }) => {
     
   }
 
-  useEffect(() => {
-    onTagSelect(selectedTags)
-  }, [selectedTags, onTagSelect])
+ 
 
 
 

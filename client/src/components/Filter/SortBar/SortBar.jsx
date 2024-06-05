@@ -5,10 +5,11 @@ import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import './SortBar.css'
 
-const SortBar = ({ onSort }) => {
+const SortBar = ({ onSortSelect }) => {
   const [listView, setListView] = useState(false)
+  
   const handleSort = (sortType) => {
-    onSort(sortType)
+    onSortSelect(sortType)
   }
 
   const handleView = () => {
