@@ -33,7 +33,7 @@ const HomePage = ( props ) => {
 return (
     <>
     { selectedFilter === null ?
-    <div className="container-lg">
+    <div className="container-xl">
       <SearchBar 
       onFilterSelect={handleFilterSelect}
       />
@@ -45,15 +45,11 @@ return (
         subtitle=''
         data={props.data}
         />
-        <CardCarousel
-        title='Explore our most favorited pieces'
-        subtitle="Discover your next favorite piece with our user's most loved items."
-        data={props.data}
-        />
+      
         <Footer />      
     </div>
     :
-    <div className="container">
+    <div className="container-xl">
       <SearchBar 
       onFilterSelect={handleFilterSelect}
       />

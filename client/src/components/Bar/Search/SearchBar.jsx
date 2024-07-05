@@ -19,11 +19,9 @@ const SearchBar = ({ onCategorySelect, setSearchInput }) => {
  
   return (
     <Navbar className='search-bar'>
-        <Navbar.Brand href='/' className='ms-5 brand-title'>eCart</Navbar.Brand>
+        <Navbar.Brand href='/' className='me-5 brand-title'>eCart</Navbar.Brand>
         <Nav className=' search-bar-container me-2'>
-          <DropdownFilter 
-          onCategorySelect={onCategorySelect}
-          />
+         
           <SearchInput setSearchInput={setSearchInput}/>
           <Nav.Link href='/user/likes'>
             <AiOutlineHeart size={25}/>

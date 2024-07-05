@@ -3,27 +3,15 @@ import OwlCarousel from 'react-owl-carousel';
 import Card from '../Card/Card';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css'; 
+import './CardCarousel.css';
 
 const CardCarousel = ({ data, title, subtitle }) => {
 
     return (
         <div className='carousel-container'>
-            <div className='container-lg'>
+            <div className='container-xl'>
                 <div className="row">
-                    <div className="col-md-12">
-                        <h3 className='text-left'
-                        style={{
-                            fontFamily: 'Arial',
-                        }}
-                        >{title}</h3>
-                        <p className='text-left'
-                        style={{
-                            fontFamily: 'Arial',
-                           
-                        }}
-                    
-                        >{subtitle}</p>
-                    </div>
+                   
                 </div>
                 <div className="row" style={
                     {
@@ -48,6 +36,20 @@ const CardCarousel = ({ data, title, subtitle }) => {
                             },
                         }}
                         >
+                             <div className="col-md-12">
+                        <h3 className='text-left'
+                        style={{
+                            fontFamily: 'Arial',
+                        }}
+                        >{title}</h3>
+                        <p className='text-left'
+                        style={{
+                            fontFamily: 'Arial',
+                           
+                        }}
+                    
+                        >{subtitle}</p>
+                    </div>
                             {data.map((item, index) => (
                                 <Card
                                 id={item.id}

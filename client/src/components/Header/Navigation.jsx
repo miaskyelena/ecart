@@ -19,7 +19,7 @@ const Navigation = () => {
 
     return (
         <>
-        <Navbar bg='light' variant='light' expand='lg'>
+        <Navbar variant='dark' bg='dark' expand='lg'>
         { user == null ? 
         <>
         <Navbar.Brand href='/'className='ms-3 brand-title'>
