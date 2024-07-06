@@ -1,78 +1,94 @@
 import React, {useEffect, useState}from 'react';
-import OwlCarousel from 'react-owl-carousel';
-import Card from '../Card/Card';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css'; 
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+import CarouselCard from '../Card/CarouselCard';
+import 'react-perfect-scrollbar/dist/css/styles.css';
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
+
 import './CardCarousel.css';
 
 const CardCarousel = ({ data, title, subtitle }) => {
 
+
     return (
-        <div className='carousel-container'>
-            <div className='container-xl'>
-                <div className="row">
-                   
-                </div>
-                <div className="row" style={
-                    {
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                    }
+    <div className='carousel-container mt-4'>
+        <div className='container-xl'>
+        <div className='row'>
+            <div className='d-flex justify-content-between'>
+                <h2>{title}</h2>
                 
-                }>
-                    <div className="col-md-12">
-                        <OwlCarousel className='owl-theme'margin={10}
-                         nav
-                        responsive={{
-                            0: {
-                                items: 1,
-                            },
-                            600: {
-                                items: 4,
-                            },
-                            1000: {
-                                items: 5,
-                            },
-                        }}
-                        >
-                             <div className="col-md-12">
-                        <h3 className='text-left'
-                        style={{
-                            fontFamily: 'Arial',
-                        }}
-                        >{title}</h3>
-                        <p className='text-left'
-                        style={{
-                            fontFamily: 'Arial',
-                           
-                        }}
-                    
-                        >{subtitle}</p>
-                    </div>
-                            {data.map((item, index) => (
-                                <Card
-                                id={item.id}
-                                key={index}
-                                brand={item.brand}
-                                title={item.title}
-                                likes={item.num_likes}
-                                description={item.description}
-                                price={item.price}
-                                image={item.image}
-                                category={item.category}
-                                size={item.size}
-                                submittedBy={item.submittedby}
-                                condition={item.condition}
-                                color={item.color}
-                                submittedOn={item.submittedOn}
-                                />
-                            ))}
-                        </OwlCarousel>
-                    </div>
-                </div>
+                <Link to='/products'>
+                    <Button variant='outline-dark'>SHOP ALL</Button>
+                </Link>
             </div>
+        <div className='col'>
+            <Carousel
+                additionalTransfrom={0}
+                arrows
+                autoPlaySpeed={3000}
+                centerMode={false}
+                className=""
+                containerClass="container"
+                customTransition="all 1s linear"
+                dotListClass=""
+                draggable={false}
+                itemClass=""
+                keyBoardControl
+                minimumTouchDrag={80}
+                renderButtonGroupOutside={true}
+                renderDotsOutside={true}
+                responsive={{
+                    desktop: {
+                        breakpoint: {
+                            max: 3000,
+                            min: 1024
+                        },
+                        items: 6,
+                        partialVisibilityGutter: 40
+                    },
+                    mobile: {
+                        breakpoint: {
+                            max: 464,
+                            min: 0
+                        },
+                        items: 1,
+                        partialVisibilityGutter: 30
+                    },
+                    tablet: {
+                        breakpoint: {
+                            max: 1024,
+                            min: 464
+                        },
+                        items: 4,
+                        partialVisibilityGutter: 30
+                    }
+                }}
+                showDots={false}
+                sliderClass=""
+                slidesToSlide={3}
+                swipeable
+            >
+
+                {data.map((product) => (
+                    <CarouselCard
+                        key={product.id}
+                        id={product.id}
+                        title={product.title}
+                        image={product.image}
+                        price={product.price}
+                        brand={product.brand}
+                        tags={product.tags}
+                        category={product.category}
+                    />
+                ))}
+            </Carousel>
+
         </div>
+        </div>
+        </div>
+    </div>
     )
 }
 

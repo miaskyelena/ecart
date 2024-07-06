@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import formatBrand from '../../utilities/formatBrand';
 import formatCurrency from '../../utilities/formatCurrency';
-import './Card.css';
+import './CarouselCard.css';
 
-const Card = (props) => {
+const CarouselCard = (props) => {
     const [liked, setLiked] = useState(false);
     const [likeCount, setLikeCount] = useState(0);
     const [likes, setLikes] = useState([])
@@ -71,7 +71,15 @@ const Card = (props) => {
     
 
     return (
-        <div className='card' style={{border: 'none'}}>
+        <div className='card' style={
+            {
+                margin: '10px',
+                borderRadius: '5px',
+                boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
+                transition: '0.3s',
+                backgroundColor: 'white',
+            }
+        }>
             <div className='heart-icon-container d-flex justify-content-end align-items-end me-2 mt-2'>
                 <span>
                     <p className='text-muted mb-0'>
@@ -84,7 +92,7 @@ const Card = (props) => {
                 } className='heart-icon' />}
                 </span>
             </div>
-            <img src={props.image} className='card-img-top' style={{ height: '250px', objectFit: 'contain' }} alt='...' />
+            <img src={props.image} className='card-img-top' style={{ height: '220px', objectFit: 'contain' }} alt='...' />
             <div className='card-body'>
                 <div className='d-flex justify-content-center align-items-center' style={
                     { 
@@ -161,4 +169,4 @@ const Card = (props) => {
     )
 }
 
-export default Card;
+export default CarouselCard;

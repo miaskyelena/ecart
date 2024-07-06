@@ -33,20 +33,30 @@ const HomePage = ( props ) => {
 return (
     <>
     { selectedFilter === null ?
-    <div className="container-xl">
-      <SearchBar 
-      onFilterSelect={handleFilterSelect}
-      />
+    
+    <div>
+      <div className='container-xl'>
+      <SearchBar />
       <FilterBar />
         <BannerImage />
-        &nbsp;
+      </div>
+      
         <CardCarousel
-        title='Explore our latest arrivals'
-        subtitle=''
+        title='Shop our latest products'
+     
         data={props.data}
         />
-      
-        <Footer />      
+        &nbsp;
+        <div className='container-xl'>
+        <SellerBanner />
+        </div>
+        
+        <CardCarousel
+        title='Most favorited'
+        subtitle='Browse our most popular products.'
+        data={props.data}
+        />
+        <Footer />
     </div>
     :
     <div className="container-xl">

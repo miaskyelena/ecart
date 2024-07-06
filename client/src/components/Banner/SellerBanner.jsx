@@ -7,7 +7,7 @@ const SellerBanner = () => {
     <Card className="bg-dark text-white mt-3" 
     style={{ 
       height: '400px',
-      backgroundImage: `url(${SellerBannerPhoto})`,
+      backgroundImage: `url('https://images.unsplash.com/photo-1612838320302-4b3b3b3b3b3b')`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',

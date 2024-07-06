@@ -57,6 +57,7 @@ const ProductDetails = () => {
 
   return (
     <>
+    <div className='container-xl'>
     <SearchBar />
     <Container className='view-listing'>
     <div className='ms-4'><nav aria-label="breadcrumb">
@@ -195,6 +196,7 @@ const ProductDetails = () => {
         </Row>
 
     </Container>
+    </div>
     </>
 
   )

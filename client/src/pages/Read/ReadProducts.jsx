@@ -72,11 +72,8 @@ const ReadProducts = ( props ) => {
 
     return (
         <div className="ReadProducts">
-            <SearchBar/>
             <div className="container-xl">
-                <FilterBar 
-                
-                />
+            <SearchBar/>
                 <Row>
                 <div className="mt-3 ">
                 <div className='topbar'>
