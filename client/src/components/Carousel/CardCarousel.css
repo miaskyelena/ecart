@@ -1,5 +1,5 @@
 .carousel-container{
-    background-color: #f5f5f5;
+    background-color: #F6F6F6;
     padding-top:2rem;
     padding-bottom:2rem;
     display: flex;
@@ -19,4 +19,37 @@
 .ps__rail-x {
     display: block !important;
     opacity: 1 !important;
+  }
+
+  .carousel-bar {
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #888   
+    #eee;
+  }
+  
+  .carousel-bar::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .carousel-bar::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+  }
+  
+  .carousel-bar::-webkit-scrollbar-track {
+    background-color: #eee;
+  }
+
+  .carousel-bar .react-multi-carousel-arrow {
+    position: absolute;
+    z-index: 2;
+  }
+  
+  .carousel-bar .react-multi-carousel-arrow--left {
+    left: 0;
+  }
+  
+  .carousel-bar .react-multi-carousel-arrow--right {
+    right: 0;
   }

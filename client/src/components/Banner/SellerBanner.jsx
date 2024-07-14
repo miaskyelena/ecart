@@ -1,13 +1,20 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import './SellerBanner.css';
+import SellerImage from '../../assets/images/seller.jpg';
+import SellerImage2 from '../../assets/images/seller2.jpg';
+import SellerImage3 from '../../assets/images/seller3.jpg';
+import SellerImage4 from '../../assets/images/miumiu5.jpg';
 
 const SellerBanner = () => {
   return (
-    <Card className="bg-dark text-white mt-3" 
+    <div className="seller-banner container-xl"> 
+    <Card className="text-white mt-3" 
     style={{ 
-      height: '400px',
-      backgroundImage: `url('https://images.unsplash.com/photo-1612838320302-4b3b3b3b3b3b')`,
+      width: '100%',
+      height: '25rem',
+      display: 'flex',
+      backgroundImage: `url(${SellerImage2})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
@@ -15,28 +22,28 @@ const SellerBanner = () => {
     >
       <Card.ImgOverlay
         style={{
-            backgroundColor: 'rgba(0,0,0,0.5)',
+            backgroundColor: 'rgba(0,0,0,0.1)',
         }}
       >
-        <h1 className="text-center mt-5">Become a seller</h1>
+        <h1 className="text-center mt-5">Best Life Hack? Clean Out!</h1>
+        <h4 className="text-center text-light">It doesn't get any more convenient (and sustainable) than this. Buy and sell preloved items with us-we'll do the rest.
+        </h4>
         <Card.Text className="text-center">
-          Earn extra cash by selling your products on our marketplace
-        </Card.Text>
-        <Card.Text className="text-center">
-          <button className="btn btn-light" style={
+          <button className="btn btn-light mt-2" style={
             {
               borderRadius: '50px',
                 padding: '10px 30px',
                 fontSize: '1.2rem',
-                fontWeight: 'bold',
+                fontWeight: 'bolder',
                 
             }
           
-          }>Learn more</button>
+          }> Learn More</button>
         </Card.Text>
         
       </Card.ImgOverlay>
     </Card>
+    </div>
   );
 };
 

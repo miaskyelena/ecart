@@ -52,7 +52,7 @@ return (
         </div>
         
         <CardCarousel
-        title='Most favorited'
+        title='Top selling products'
         subtitle='Browse our most popular products.'
         data={props.data}
         />

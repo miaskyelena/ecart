@@ -29,8 +29,8 @@ const CardCarousel = ({ data, title, subtitle }) => {
                 arrows
                 autoPlaySpeed={3000}
                 centerMode={false}
-                className=""
-                containerClass="container"
+                className="carousel-bar"
+                containerClass=""
                 customTransition="all 1s linear"
                 dotListClass=""
                 draggable={false}

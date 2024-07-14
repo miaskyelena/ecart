@@ -1,6 +1,6 @@
 .seller-banner-container img{
     width: 100%;
-    height: 15rem;
+    height: 20rem;
     object-fit: cover;
 }
 
@@ -11,18 +11,10 @@
     background: color #1b1b1b;;
     color: white;
     border: none;
-    border-radius: 100px;
+    border-radius: 5px;
     font-size: 1rem;
     font-weight: bolder;
     cursor: pointer;
-}
-
-.seller-banner-container h2{
-    margin: 0 auto;
-    margin-bottom: 2rem;
-    width: 20rem;
-    text-align: center;
-    font-weight: bolder;
 }
 
 .seller-banner-container h5{
@@ -30,4 +22,12 @@
     margin-top: 1rem;
     text-align: left;
     font-weight: bolder;
+}
+
+.seller-banner h1{
+    font-size: 4.5rem;
+
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }

@@ -75,9 +75,11 @@ const CarouselCard = (props) => {
             {
                 margin: '10px',
                 borderRadius: '5px',
-                boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
+                border: 'none',
+                boxShadow: '0 1px 2px 0 rgba(0,0,1,0.3)',
                 transition: '0.3s',
                 backgroundColor: 'white',
+                backgroundOpacity: '0.5', 
             }
         }>
             <div className='heart-icon-container d-flex justify-content-end align-items-end me-2 mt-2'>
@@ -92,7 +94,7 @@ const CarouselCard = (props) => {
                 } className='heart-icon' />}
                 </span>
             </div>
-            <img src={props.image} className='card-img-top' style={{ height: '220px', objectFit: 'contain' }} alt='...' />
+            <img src={props.image} className='card-img-top' style={{ height: '210px', objectFit: 'contain' }} alt='...' />
             <div className='card-body'>
                 <div className='d-flex justify-content-center align-items-center' style={
                     { 
