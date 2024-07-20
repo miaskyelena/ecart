@@ -45,7 +45,7 @@ const CardCarousel = ({ data, title, subtitle }) => {
                             max: 3000,
                             min: 1024
                         },
-                        items: 6,
+                        items: 7,
                         partialVisibilityGutter: 40
                     },
                     mobile: {
@@ -61,7 +61,7 @@ const CardCarousel = ({ data, title, subtitle }) => {
                             max: 1024,
                             min: 464
                         },
-                        items: 4,
+                        items: 5,
                         partialVisibilityGutter: 30
                     }
                 }}

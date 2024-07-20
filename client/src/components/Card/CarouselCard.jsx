@@ -73,7 +73,7 @@ const CarouselCard = (props) => {
     return (
         <div className='card' style={
             {
-                margin: '10px',
+                margin: '7px',
                 borderRadius: '5px',
                 border: 'none',
                 boxShadow: '0 1px 2px 0 rgba(0,0,1,0.3)',
@@ -94,7 +94,7 @@ const CarouselCard = (props) => {
                 } className='heart-icon' />}
                 </span>
             </div>
-            <img src={props.image} className='card-img-top' style={{ height: '210px', objectFit: 'contain' }} alt='...' />
+            <img src={props.image} className='card-img-top' style={{ height: '150px', objectFit: 'contain' }} alt='...' />
             <div className='card-body'>
                 <div className='d-flex justify-content-center align-items-center' style={
                     { 
